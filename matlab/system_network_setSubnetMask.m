@@ -1,0 +1,21 @@
+function [errNo] = system_network_setSubnetMask(tcp, netmask)
+% brief : Set the subnet mask of the device
+%
+% param[in] tcp : TCP/IP connection ID
+%           netmask:  Subnet mask as string
+% param[out]
+%           errNo: errNo errorCode
+
+
+data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.system.network.setSubnetMask", "params": [%s], "id": 1, "api": 2}', netmask);
+
+fprintf(tcp, data_send);
+data_receive = fscanf(tcp);
+data = jsondecode(data_receive);
+
+errNo = data.result (1);
+
+
+end
+
+
