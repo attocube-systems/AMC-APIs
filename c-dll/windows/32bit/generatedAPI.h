@@ -54,6 +54,22 @@ extern "C" {
 
 
 
+/** @brief @AMC_getLockStatus
+*
+*  This function returns if the device is locked and if the current client is authorized to use the device.
+*
+*  @param  deviceHandle  Handle of device
+*  @param  authorized: authorized Is the client authorized?
+*
+*  @return   Result of function
+*/
+int ATTOCUBE_API AMC_getLockStatus(int deviceHandle, bool* locked, bool* authorized);
+
+
+
+
+
+
 /** @brief @AMC_grantAccess
 *
 *  Grants access to a locked device for the requesting IP by checking against the password
@@ -329,6 +345,23 @@ int ATTOCUBE_API AMC_control_getActorName(int deviceHandle, int axis, char* acto
 *  @return   Result of function
 */
 int ATTOCUBE_API AMC_control_getActorParametersActorName(int deviceHandle, int axis, char* actorname, int size0);
+
+
+
+
+
+
+/** @brief @AMC_control_getActorSensitivity
+*
+*  Get the setting for the actor parameter sensitivity
+*
+*  @param  deviceHandle  Handle of device
+*  @param  axis:  [0|1|2]
+*  @param  sensitivity: sensitivity
+*
+*  @return   Result of function
+*/
+int ATTOCUBE_API AMC_control_getActorSensitivity(int deviceHandle, int axis, int* sensitivity);
 
 
 
@@ -718,6 +751,23 @@ int ATTOCUBE_API AMC_control_setActorParametersJson(int deviceHandle, int axis, 
 
 
 
+/** @brief @AMC_control_setActorSensitivity
+*
+*  Control the actor parameter closed loop sensitivity
+*
+*  @param  deviceHandle  Handle of device
+*  @param  axis:  [0|1|2]
+*  @param  sensitivity: 
+*
+*  @return   Result of function
+*/
+int ATTOCUBE_API AMC_control_setActorSensitivity(int deviceHandle, int axis, int sensitivity);
+
+
+
+
+
+
 /** @brief @AMC_control_setAutoMeasure
 *
 *  This function enables/disables the automatic C/R measurement on axis enable
@@ -1050,7 +1100,7 @@ int ATTOCUBE_API AMC_description_getPositionersList(int deviceHandle, char* Posi
 
 
 
-/** @brief @AMC_disagnostic_getDiagnosticPower
+/** @brief @AMC_diagnostic_getDiagnosticPower
 *
 *  Returns the current power consumption
 *
@@ -1060,14 +1110,14 @@ int ATTOCUBE_API AMC_description_getPositionersList(int deviceHandle, char* Posi
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_disagnostic_getDiagnosticPower(int deviceHandle, int axis, int* power);
+int ATTOCUBE_API AMC_diagnostic_getDiagnosticPower(int deviceHandle, int axis, int* power);
 
 
 
 
 
 
-/** @brief @AMC_disagnostic_getDiagnosticResults
+/** @brief @AMC_diagnostic_getDiagnosticResults
 *
 *  Returns the results of the last diagnostic run and an error, if there was no run, it is currently running or the run failed
 *
@@ -1078,14 +1128,14 @@ int ATTOCUBE_API AMC_disagnostic_getDiagnosticPower(int deviceHandle, int axis, 
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_disagnostic_getDiagnosticResults(int deviceHandle, int axis, int* capacity, int* resistance);
+int ATTOCUBE_API AMC_diagnostic_getDiagnosticResults(int deviceHandle, int axis, int* capacity, int* resistance);
 
 
 
 
 
 
-/** @brief @AMC_disagnostic_getDiagnosticTemperature
+/** @brief @AMC_diagnostic_getDiagnosticTemperature
 *
 *  Returns the current axis temperature
 *
@@ -1095,14 +1145,14 @@ int ATTOCUBE_API AMC_disagnostic_getDiagnosticResults(int deviceHandle, int axis
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_disagnostic_getDiagnosticTemperature(int deviceHandle, int axis, int* temperature);
+int ATTOCUBE_API AMC_diagnostic_getDiagnosticTemperature(int deviceHandle, int axis, int* temperature);
 
 
 
 
 
 
-/** @brief @AMC_disagnostic_startDiagnostic
+/** @brief @AMC_diagnostic_startDiagnostic
 *
 *  Start the diagnosis procedure for the given axis
 *
@@ -1111,7 +1161,7 @@ int ATTOCUBE_API AMC_disagnostic_getDiagnosticTemperature(int deviceHandle, int 
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_disagnostic_startDiagnostic(int deviceHandle, int axis);
+int ATTOCUBE_API AMC_diagnostic_startDiagnostic(int deviceHandle, int axis);
 
 
 

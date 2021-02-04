@@ -5,6 +5,18 @@ class Access():
         self.device = device
         self.interface_name = ""
             
+    def getLockStatus(self):
+        """
+        This function returns if the device is locked and if the current client is authorized to use the device.
+        -------
+        Returns
+        -------
+        locked: locked Is the device locked?
+        authorized: authorized Is the client authorized?
+        """
+        response = self.device.request(self.interface_name + "" + "getLockStatus")
+        return response['result'][0], response['result'][1]
+
     def grantAccess(self, password):
         """
         Grants access to a locked device for the requesting IP by checking against the password

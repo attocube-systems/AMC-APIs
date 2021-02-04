@@ -814,6 +814,15 @@
             Possible error - if left NULL, then there's no error
             </summary>
         </member>
+        <member name="M:Attocube.AMC.AttocubeAMC.GetLockStatus">
+            <summary>
+            This function returns if the device is locked and if the current client is authorized to use the device.
+            </summary>
+            <returns>
+            authorized: authorized Is the client authorized?
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
         <member name="M:Attocube.AMC.AttocubeAMC.GrantAccess(System.String)">
             <summary>
             Grants access to a locked device for the requesting IP by checking against the password
@@ -965,6 +974,16 @@
             <returns>
             actorname: actorname
             size0 maximum size of previous buffer
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC.AttocubeAMC.Control_GetActorSensitivity(System.Int32)">
+            <summary>
+            Get the setting for the actor parameter sensitivity
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <returns>
+            sensitivity: sensitivity
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1191,6 +1210,14 @@
             <param name="json_dict">dict with override params</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
+        <member name="M:Attocube.AMC.AttocubeAMC.Control_SetActorSensitivity(System.Int32,System.Int32)">
+            <summary>
+            Control the actor parameter closed loop sensitivity
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <param name="sensitivity"></param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
         <member name="M:Attocube.AMC.AttocubeAMC.Control_SetAutoMeasure(System.Int32,System.Boolean)">
             <summary>
             This function enables/disables the automatic C/R measurement on axis enable
@@ -1362,7 +1389,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Disagnostic_GetDiagnosticPower(System.Int32)">
+        <member name="M:Attocube.AMC.AttocubeAMC.Diagnostic_GetDiagnosticPower(System.Int32)">
             <summary>
             Returns the current power consumption
             </summary>
@@ -1372,7 +1399,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Disagnostic_GetDiagnosticResults(System.Int32)">
+        <member name="M:Attocube.AMC.AttocubeAMC.Diagnostic_GetDiagnosticResults(System.Int32)">
             <summary>
             Returns the results of the last diagnostic run and an error, if there was no run, it is currently running or the run failed
             </summary>
@@ -1383,7 +1410,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Disagnostic_GetDiagnosticTemperature(System.Int32)">
+        <member name="M:Attocube.AMC.AttocubeAMC.Diagnostic_GetDiagnosticTemperature(System.Int32)">
             <summary>
             Returns the current axis temperature
             </summary>
@@ -1393,7 +1420,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Disagnostic_StartDiagnostic(System.Int32)">
+        <member name="M:Attocube.AMC.AttocubeAMC.Diagnostic_StartDiagnostic(System.Int32)">
             <summary>
             Start the diagnosis procedure for the given axis
             </summary>

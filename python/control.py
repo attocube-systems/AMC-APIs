@@ -67,6 +67,22 @@ class Control():
         self.device.handleError(response)
         return response['result'][1]
 
+    def getActorSensitivity(self, axis):
+        """
+        Get the setting for the actor parameter sensitivity
+
+        Parameters
+        ----------
+        axis:  [0|1|2]
+
+        Returns
+        -------
+        sensitivity: sensitivity
+        """
+        response = self.device.request(self.interface_name + "." + "getActorSensitivity", [axis])
+        self.device.handleError(response)
+        return response['result'][1]
+
     def getActorType(self, axis):
         """
         This function gets the type of the positioner of the selected axis.
@@ -425,6 +441,22 @@ class Control():
         -------
         """
         response = self.device.request(self.interface_name + "." + "setActorParametersJson", [axis, json_dict])
+        self.device.handleError(response)
+        return 
+
+    def setActorSensitivity(self, axis, sensitivity):
+        """
+        Control the actor parameter closed loop sensitivity
+
+        Parameters
+        ----------
+        axis:  [0|1|2]
+        sensitivity: 
+
+        Returns
+        -------
+        """
+        response = self.device.request(self.interface_name + "." + "setActorSensitivity", [axis, sensitivity])
         self.device.handleError(response)
         return 
 

@@ -4,7 +4,7 @@ from access import Access
 from amcids import Amcids
 from control import Control
 from description import Description
-from disagnostic import Disagnostic
+from diagnostic import Diagnostic
 from move import Move
 from network import Network
 from res import Res
@@ -26,7 +26,7 @@ class Device(ACS.Device):
         self.amcids = Amcids(self)
         self.control = Control(self)
         self.description = Description(self)
-        self.disagnostic = Disagnostic(self)
+        self.diagnostic = Diagnostic(self)
         self.move = Move(self)
         self.network = Network(self)
         self.res = Res(self)
