@@ -1,5 +1,7 @@
 import AMC
 
+import time
+
 IP = "192.168.1.1"
 
 # Setup connection to AMC
@@ -11,28 +13,35 @@ amc.connect()
 axis = 0 # Axis 1
 amc.control.setControlOutput(axis, True)
 
-# Continuous open loop drive forward
-# Start
-amc.move.setControlContinuousFwd(axis, True)
-# Stop
-amc.move.setControlContinuousFwd(axis, False)
+# Check if open loop positioner is connected
+OL = 1
+if amc.status.getOlStatus(axis) == OL:
+    # Continuous open loop drive forward for 1 second
+    # Start
+    amc.move.setControlContinuousFwd(axis, True)
+    time.sleep(1)
+    # Stop
+    amc.move.setControlContinuousFwd(axis, False)
 
-# Stepwise open loop drive forward
-nSteps = 10 # Number of steps, without /PRO-feature, must be 1
-backwards = False
-# Perform nSteps steps
-amc.move.setNSteps(axis, backwards, nSteps)
+    # Stepwise open loop drive forward
+    nSteps = 10 # Number of steps, /PRO-feature required for nSteps > 1
+    backwards = False
+    # Perform nSteps steps
+    amc.move.setNSteps(axis, backwards, nSteps)
+else:
+    # Closed loop drive 10000nm in forward direction
+    position = amc.move.getPosition(axis)
+    amc.move.setControlTargetPosition(axis, position + 10000)
+    amc.control.setControlMove(axis, True)
 
-# Closed loop drive to specific target position (e.g. 100000nm)
-amc.move.setControlTargetPosition(axis, 100000)
-amc.control.setControlMove(axis, True)
+    while not amc.status.getStatusTargetRange(axis):
+        # Read out position in nm
+        position = amc.move.getPosition(axis)
+        print(position)
+        time.sleep(0.1)
 
-# Stop approach
-amc.control.setControlMove(axis, False)
-
-# Read out position in nm
-position = amc.move.getPosition(axis)
-print(position)
+    # Stop approach
+    amc.control.setControlMove(axis, False)
 
 # Deativate axis
 amc.control.setControlOutput(axis, False)
