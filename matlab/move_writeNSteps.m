@@ -1,5 +1,5 @@
 function [errNo] = move_writeNSteps(tcp, axis, step)
-% brief : set N steps
+% brief : Sets the number of steps to perform on stepwise movement. /PRO feature.
 %
 % param[in] tcp : TCP/IP connection ID
 %           axis:  [0|1|2]

@@ -1,8 +1,9 @@
-function [locked, authorized] = AMC_getLockStatus(tcp)
+function [errNo, locked, authorized] = AMC_getLockStatus(tcp)
 % brief : This function returns if the device is locked and if the current client is authorized to use the device.
 %
 % param[in] tcp : TCP/IP connection ID
 % param[out]
+%           errNo: errNo errorCode
 %           locked: locked Is the device locked?
 %           authorized: authorized Is the client authorized?
 
@@ -12,8 +13,9 @@ fprintf(tcp, data_send);
 data_receive = fscanf(tcp);
 data = jsondecode(data_receive);
 
-locked = data.result (1);
-authorized = data.result (2);
+errNo = data.result (1);
+locked = data.result (2);
+authorized = data.result (3);
 
 
 end

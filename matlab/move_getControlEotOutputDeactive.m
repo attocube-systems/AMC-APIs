@@ -1,5 +1,5 @@
 function [errNo, value_boolean1] = move_getControlEotOutputDeactive(tcp, axis)
-% brief : This function gets the output applied to the selected axis on the end of travel.
+% brief : This function gets the output applied to the selected axis on the end of travel. /PRO feature.
 %
 % param[in] tcp : TCP/IP connection ID
 %           axis:  [0|1|2]

@@ -1,12 +1,14 @@
-function [errNo, enabled] = res_getLinearization(tcp)
+function [errNo, enabled] = res_getLinearization(tcp, axis)
 % brief : Gets wether linearization is enabled or not
 %
 % param[in] tcp : TCP/IP connection ID
+%           axis:  [0|1|2]
 % param[out]
 %           errNo: errNo
 %           enabled: enabled true when enabled
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.amc.res.getLinearization", "params": [], "id": 1, "api": 2}');
+
+data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.amc.res.getLinearization", "params": [%i], "id": 1, "api": 2}', axis);
 
 fprintf(tcp, data_send);
 data_receive = fscanf(tcp);
@@ -17,6 +19,5 @@ enabled = data.result (2);
 
 
 end
-
 
 

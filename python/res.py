@@ -21,18 +21,19 @@ class Res():
         self.device.handleError(response)
         return response['result'][1]
 
-    def getLinearization(self):
+    def getLinearization(self, axis):
         """
         Gets wether linearization is enabled or not
 
         Parameters
         ----------
+        axis:  [0|1|2]
 
         Returns
         -------
         enabled: enabled true when enabled
         """
-        response = self.device.request(self.interface_name + "." + "getLinearization")
+        response = self.device.request(self.interface_name + "." + "getLinearization", [axis])
         self.device.handleError(response)
         return response['result'][1]
 
@@ -99,18 +100,19 @@ class Res():
         self.device.handleError(response)
         return 
 
-    def setLinearization(self, enable):
+    def setLinearization(self, axis, enable):
         """
         Control if linearization is enabled or not
 
         Parameters
         ----------
+        axis:  [0|1|2]
         enable:  boolean ( true: enable linearization)
 
         Returns
         -------
         """
-        response = self.device.request(self.interface_name + "." + "setLinearization", [enable])
+        response = self.device.request(self.interface_name + "." + "setLinearization", [axis, enable])
         self.device.handleError(response)
         return 
 

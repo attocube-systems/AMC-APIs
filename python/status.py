@@ -128,7 +128,7 @@ class Status():
 
         Returns
         -------
-        value_boolean1: boolean true= valid, false = not valid
+        value_boolean1: boolean true = valid, false = not valid
         """
         response = self.device.request(self.interface_name + "." + "getStatusReference", [axis])
         self.device.handleError(response)

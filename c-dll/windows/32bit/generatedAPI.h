@@ -59,6 +59,7 @@ extern "C" {
 *  This function returns if the device is locked and if the current client is authorized to use the device.
 *
 *  @param  deviceHandle  Handle of device
+*  @param  locked: locked Is the device locked?
 *  @param  authorized: authorized Is the client authorized?
 *
 *  @return   Result of function
@@ -1204,7 +1205,7 @@ int ATTOCUBE_API AMC_move_getControlContinuousFwd(int deviceHandle, int axis, bo
 
 /** @brief @AMC_move_getControlEotOutputDeactive
 *
-*  This function gets the output applied to the selected axis on the end of travel.
+*  This function gets the output applied to the selected axis on the end of travel. /PRO feature.
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
@@ -1326,6 +1327,22 @@ int ATTOCUBE_API AMC_move_getPosition(int deviceHandle, int axis, double* positi
 
 
 
+/** @brief @AMC_move_moveReference
+*
+*  This function starts an approach to the reference position. A running motion command is aborted; closed loop moving is switched on. Requires a valid reference position.
+*
+*  @param  deviceHandle  Handle of device
+*  @param  axis:  [0|1|2]
+*
+*  @return   Result of function
+*/
+int ATTOCUBE_API AMC_move_moveReference(int deviceHandle, int axis);
+
+
+
+
+
+
 /** @brief @AMC_move_performNSteps
 *
 *  Perform the OL command for N steps
@@ -1336,7 +1353,7 @@ int ATTOCUBE_API AMC_move_getPosition(int deviceHandle, int axis, double* positi
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_move_performNSteps(int deviceHandle, int axis, bool backward);
+int ATTOCUBE_API AMC_move_performNSteps(int deviceHandle, int axis, const char* backward);
 
 
 
@@ -1471,7 +1488,7 @@ int ATTOCUBE_API AMC_move_setGroundTargetRange(int deviceHandle, int axis, int r
 
 /** @brief @AMC_move_setNSteps
 *
-*  This function triggers n steps on the selected axis in desired direction.
+*  This function triggers n steps on the selected axis in desired direction. /PRO feature.
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
@@ -1487,9 +1504,27 @@ int ATTOCUBE_API AMC_move_setNSteps(int deviceHandle, int axis, bool backward, i
 
 
 
+/** @brief @AMC_move_setSingleStep
+*
+*  This function triggers one step on the selected axis in desired direction.
+*
+*  @param  deviceHandle  Handle of device
+*  @param  axis:  [0|1|2]
+*  @param  backward:  Selects the desired direction. False triggers a forward step, true a backward step
+*  @param  step:  number of step
+*
+*  @return   Result of function
+*/
+int ATTOCUBE_API AMC_move_setSingleStep(int deviceHandle, int axis, bool backward, int step);
+
+
+
+
+
+
 /** @brief @AMC_move_writeNSteps
 *
-*  set N steps
+*  Sets the number of steps to perform on stepwise movement. /PRO feature.
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
@@ -1526,11 +1561,12 @@ int ATTOCUBE_API AMC_res_getChainGain(int deviceHandle, int axis, int* gaincoeff
 *  Gets wether linearization is enabled or not
 *
 *  @param  deviceHandle  Handle of device
+*  @param  axis:  [0|1|2]
 *  @param  enabled: enabled true when enabled
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_res_getLinearization(int deviceHandle, bool* enabled);
+int ATTOCUBE_API AMC_res_getLinearization(int deviceHandle, int axis, bool* enabled);
 
 
 
@@ -1610,11 +1646,12 @@ int ATTOCUBE_API AMC_res_setConfigurationFile(int deviceHandle, int axis, const 
 *  Control if linearization is enabled or not
 *
 *  @param  deviceHandle  Handle of device
+*  @param  axis:  [0|1|2]
 *  @param  enable:  boolean ( true: enable linearization)
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_res_setLinearization(int deviceHandle, bool enable);
+int ATTOCUBE_API AMC_res_setLinearization(int deviceHandle, int axis, bool enable);
 
 
 
@@ -2634,7 +2671,7 @@ int ATTOCUBE_API AMC_status_getStatusMoving(int deviceHandle, int axis, int* sta
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  value_boolean1: boolean true= valid, false = not valid
+*  @param  value_boolean1: boolean true = valid, false = not valid
 *
 *  @return   Result of function
 */
@@ -2887,13 +2924,13 @@ int ATTOCUBE_API system_network_apply(int deviceHandle);
 *  Change the wifi configuration and applies it
 *
 *  @param  deviceHandle  Handle of device
-*  @param  wifi:  mode: 0: Access point, 1: Wifi client
-*  @param  SSID: 
+*  @param  mode:  0: Access point, 1: Wifi client
+*  @param  ssid: 
 *  @param  psk:  Pre-shared key
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API system_network_configureWifi(int deviceHandle, int wifi, const char* SSID, const char* psk);
+int ATTOCUBE_API system_network_configureWifi(int deviceHandle, int mode, const char* ssid, const char* psk);
 
 
 
@@ -3055,11 +3092,11 @@ int ATTOCUBE_API system_network_getSubnetMask(int deviceHandle, char* Subnet, in
 *  Get the operation mode of the wifi adapter
 *
 *  @param  deviceHandle  Handle of device
-*  @param  wifi: wifi mode: 0: Access point, 1: Wifi client
+*  @param  mode: mode 0: Access point, 1: Wifi client
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API system_network_getWifiMode(int deviceHandle, int* wifi);
+int ATTOCUBE_API system_network_getWifiMode(int deviceHandle, int* mode);
 
 
 
@@ -3234,11 +3271,11 @@ int ATTOCUBE_API system_network_setSubnetMask(int deviceHandle, const char* netm
 *  Change the operation mode of the wifi adapter
 *
 *  @param  deviceHandle  Handle of device
-*  @param  wifi:  mode: 0: Access point, 1: Wifi client
+*  @param  mode:  0: Access point, 1: Wifi client
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API system_network_setWifiMode(int deviceHandle, int wifi);
+int ATTOCUBE_API system_network_setWifiMode(int deviceHandle, int mode);
 
 
 
@@ -3266,11 +3303,11 @@ int ATTOCUBE_API system_network_setWifiPassphrase(int deviceHandle, const char* 
 *  Change the SSID of the network hosted (mode: Access point) or connected to (mode: client)
 *
 *  @param  deviceHandle  Handle of device
-*  @param  SSID: 
+*  @param  ssid: 
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API system_network_setWifiSSID(int deviceHandle, const char* SSID);
+int ATTOCUBE_API system_network_setWifiSSID(int deviceHandle, const char* ssid);
 
 
 

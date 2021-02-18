@@ -39,7 +39,7 @@ class Move():
 
     def getControlEotOutputDeactive(self, axis):
         """
-        This function gets the output applied to the selected axis on the end of travel.
+        This function gets the output applied to the selected axis on the end of travel. /PRO feature.
 
         Parameters
         ----------
@@ -153,6 +153,21 @@ class Move():
         response = self.device.request(self.interface_name + "." + "getPosition", [axis])
         self.device.handleError(response)
         return response['result'][1]
+
+    def moveReference(self, axis):
+        """
+        This function starts an approach to the reference position. A running motion command is aborted; closed loop moving is switched on. Requires a valid reference position.
+
+        Parameters
+        ----------
+        axis:  [0|1|2]
+
+        Returns
+        -------
+        """
+        response = self.device.request(self.interface_name + "." + "moveReference", [axis])
+        self.device.handleError(response)
+        return 
 
     def performNSteps(self, axis, backward):
         """
@@ -291,7 +306,7 @@ class Move():
 
     def setNSteps(self, axis, backward, step):
         """
-        This function triggers n steps on the selected axis in desired direction.
+        This function triggers n steps on the selected axis in desired direction. /PRO feature.
 
         Parameters
         ----------
@@ -306,9 +321,26 @@ class Move():
         self.device.handleError(response)
         return 
 
+    def setSingleStep(self, axis, backward, step):
+        """
+        This function triggers one step on the selected axis in desired direction.
+
+        Parameters
+        ----------
+        axis:  [0|1|2]
+        backward:  Selects the desired direction. False triggers a forward step, true a backward step
+        step:  number of step
+
+        Returns
+        -------
+        """
+        response = self.device.request(self.interface_name + "." + "setSingleStep", [axis, backward, step])
+        self.device.handleError(response)
+        return 
+
     def writeNSteps(self, axis, step):
         """
-        set N steps
+        Sets the number of steps to perform on stepwise movement. /PRO feature.
 
         Parameters
         ----------

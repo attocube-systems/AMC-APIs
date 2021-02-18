@@ -819,6 +819,7 @@
             This function returns if the device is locked and if the current client is authorized to use the device.
             </summary>
             <returns>
+            locked: locked Is the device locked?
             authorized: authorized Is the client authorized?
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
@@ -962,7 +963,6 @@
             <param name="axis">[0|1|2]</param>
             <returns>
             actor_name: actor_name
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -973,7 +973,6 @@
             <param name="axis">[0|1|2]</param>
             <returns>
             actorname: actorname
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1365,7 +1364,6 @@
             </summary>
             <returns>
             devicetype: devicetype Device name (AMC100, AMC300) with attached feature ( AMC100\\NUM, AMC100\\NUM\\PRO)
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1375,7 +1373,6 @@
             </summary>
             <returns>
             features: features activated on device concatenated by comma e.g. Closed loop Operation, Pro, Wireless Controller, IO
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1385,7 +1382,6 @@
             </summary>
             <returns>
             PositionersList: PositionersList
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1449,7 +1445,7 @@
         </member>
         <member name="M:Attocube.AMC.AttocubeAMC.Move_GetControlEotOutputDeactive(System.Int32)">
             <summary>
-            This function gets the output applied to the selected axis on the end of travel.
+            This function gets the output applied to the selected axis on the end of travel. /PRO feature.
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
@@ -1522,7 +1518,14 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Move_PerformNSteps(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC.AttocubeAMC.Move_MoveReference(System.Int32)">
+            <summary>
+            This function starts an approach to the reference position. A running motion command is aborted; closed loop moving is switched on. Requires a valid reference position.
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC.AttocubeAMC.Move_PerformNSteps(System.Int32,System.String)">
             <summary>
             Perform the OL command for N steps
             </summary>
@@ -1595,7 +1598,16 @@
         </member>
         <member name="M:Attocube.AMC.AttocubeAMC.Move_SetNSteps(System.Int32,System.Boolean,System.Int32)">
             <summary>
-            This function triggers n steps on the selected axis in desired direction.
+            This function triggers n steps on the selected axis in desired direction. /PRO feature.
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <param name="backward">Selects the desired direction. False triggers a forward step, true a backward step</param>
+            <param name="step">number of step</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC.AttocubeAMC.Move_SetSingleStep(System.Int32,System.Boolean,System.Int32)">
+            <summary>
+            This function triggers one step on the selected axis in desired direction.
             </summary>
             <param name="axis">[0|1|2]</param>
             <param name="backward">Selects the desired direction. False triggers a forward step, true a backward step</param>
@@ -1604,7 +1616,7 @@
         </member>
         <member name="M:Attocube.AMC.AttocubeAMC.Move_WriteNSteps(System.Int32,System.Int32)">
             <summary>
-            set N steps
+            Sets the number of steps to perform on stepwise movement. /PRO feature.
             </summary>
             <param name="axis">[0|1|2]</param>
             <param name="step">number of step</param>
@@ -1620,10 +1632,11 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Res_GetLinearization">
+        <member name="M:Attocube.AMC.AttocubeAMC.Res_GetLinearization(System.Int32)">
             <summary>
             Gets wether linearization is enabled or not
             </summary>
+            <param name="axis">[0|1|2]</param>
             <returns>
             enabled: enabled true when enabled
             </returns>
@@ -1636,7 +1649,6 @@
             <param name="axis">[0|1|2]</param>
             <returns>
             value_string1: string : identifier
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1665,10 +1677,11 @@
             <param name="content">1k * 24 bit string or JSON File</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Res_SetLinearization(System.Boolean)">
+        <member name="M:Attocube.AMC.AttocubeAMC.Res_SetLinearization(System.Int32,System.Boolean)">
             <summary>
             Control if linearization is enabled or not
             </summary>
+            <param name="axis">[0|1|2]</param>
             <param name="enable">boolean ( true: enable linearization)</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1703,7 +1716,6 @@
             </summary>
             <returns>
             lut: stringJSON string of the LUT file for the rotation compensation
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2130,7 +2142,6 @@
             <param name="axis">[0|1|2]</param>
             <returns>
             value_string1: string can be "moving","in target range", "backward limit reached", "forward limit reached", "positioner not connected", "output not enabled"
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2200,7 +2211,7 @@
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-            value_boolean1: boolean true= valid, false = not valid
+            value_boolean1: boolean true = valid, false = not valid
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2220,7 +2231,6 @@
             </summary>
             <returns>
             value_string1: string: Comma separated list of packages
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2231,7 +2241,6 @@
             <param name="pckg">string: Package name</param>
             <returns>
             value_string1: string: License for this package
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2249,7 +2258,6 @@
             <param name="errNbr">interger: Error code to translate</param>
             <returns>
             value_string1: string: Error recommendation (currently returning an int = 0 until we have recommendations)
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2261,7 +2269,6 @@
             <param name="errNbr">interger: Error code to translate</param>
             <returns>
             value_string1: string: Error description
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2277,7 +2284,6 @@
             </summary>
             <returns>
             value_string1: string: actual device name
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2287,7 +2293,6 @@
             </summary>
             <returns>
             value_string1: string: The firmware version
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2297,7 +2302,6 @@
             </summary>
             <returns>
             value_string1: string: flux code
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2307,7 +2311,6 @@
             </summary>
             <returns>
             available: available
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2317,7 +2320,6 @@
             </summary>
             <returns>
             value_string1: string: Mac address of the system
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2327,7 +2329,6 @@
             </summary>
             <returns>
             value_string1: string: Serial number
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2341,8 +2342,8 @@
             <summary>
             Change the wifi configuration and applies it
             </summary>
-            <param name="wifi">mode: 0: Access point, 1: Wifi client</param>
-            <param name="SSID"></param>
+            <param name="mode">0: Access point, 1: Wifi client</param>
+            <param name="ssid"></param>
             <param name="psk">Pre-shared key</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2358,7 +2359,6 @@
             </summary>
             <returns>
             Default: Default gateway
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2369,7 +2369,6 @@
             <param name="priority">of DNS resolver (Usually: 0 = Default, 1 = Backup)</param>
             <returns>
             IP: IP address of DNS resolver
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2397,7 +2396,6 @@
             </summary>
             <returns>
             IP: IP address as string
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2407,7 +2405,6 @@
             </summary>
             <returns>
             Proxy: Proxy Server String, empty for no proxy
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2417,7 +2414,6 @@
             </summary>
             <returns>
             IP: IP address as string
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2427,7 +2423,6 @@
             </summary>
             <returns>
             Subnet: Subnet mask as string
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2436,7 +2431,7 @@
             Get the operation mode of the wifi adapter
             </summary>
             <returns>
-            wifi: wifi mode: 0: Access point, 1: Wifi client
+            mode: mode 0: Access point, 1: Wifi client
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2446,7 +2441,6 @@
             </summary>
             <returns>
             psk: psk Pre-shared key
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2465,7 +2459,6 @@
             </summary>
             <returns>
             SSID: SSID
-            size0 maximum size of previous buffer
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2523,7 +2516,7 @@
             <summary>
             Change the operation mode of the wifi adapter
             </summary>
-            <param name="wifi">mode: 0: Access point, 1: Wifi client</param>
+            <param name="mode">0: Access point, 1: Wifi client</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
         <member name="M:Attocube.AMC.AttocubeAMC.Network_SetWifiPassphrase(System.String)">
@@ -2537,7 +2530,7 @@
             <summary>
             Change the SSID of the network hosted (mode: Access point) or connected to (mode: client)
             </summary>
-            <param name="SSID"></param>
+            <param name="ssid"></param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
         <member name="M:Attocube.AMC.AttocubeAMC.Network_Verify">

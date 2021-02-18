@@ -1,15 +1,15 @@
-function [errNo] = system_network_configureWifi(tcp, wifi, SSID, psk)
+function [errNo] = system_network_configureWifi(tcp, mode, ssid, psk)
 % brief : Change the wifi configuration and applies it
 %
 % param[in] tcp : TCP/IP connection ID
-%           wifi:  mode: 0: Access point, 1: Wifi client
-%           SSID: 
+%           mode:  0: Access point, 1: Wifi client
+%           ssid: 
 %           psk:  Pre-shared key
 % param[out]
 %           errNo: errNo errorCode
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.system.network.configureWifi", "params": [%i, %s, %s], "id": 1, "api": 2}', wifi, SSID, psk);
+data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.system.network.configureWifi", "params": [%i, %s, %s], "id": 1, "api": 2}', mode, ssid, psk);
 
 fprintf(tcp, data_send);
 data_receive = fscanf(tcp);

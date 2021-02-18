@@ -8,14 +8,18 @@ class Access():
     def getLockStatus(self):
         """
         This function returns if the device is locked and if the current client is authorized to use the device.
-        -------
+
+        Parameters
+        ----------
+
         Returns
         -------
         locked: locked Is the device locked?
         authorized: authorized Is the client authorized?
         """
         response = self.device.request(self.interface_name + "" + "getLockStatus")
-        return response['result'][0], response['result'][1]
+        self.device.handleError(response)
+        return response['result'][1], response['result'][2]
 
     def grantAccess(self, password):
         """

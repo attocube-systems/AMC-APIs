@@ -19,20 +19,20 @@ class Network():
         self.device.handleError(response)
         return 
 
-    def configureWifi(self, wifi, SSID, psk):
+    def configureWifi(self, mode, ssid, psk):
         """
         Change the wifi configuration and applies it
 
         Parameters
         ----------
-        wifi:  mode: 0: Access point, 1: Wifi client
-        SSID: 
+        mode:  0: Access point, 1: Wifi client
+        ssid: 
         psk:  Pre-shared key
 
         Returns
         -------
         """
-        response = self.device.request(self.interface_name + "." + "configureWifi", [wifi, SSID, psk])
+        response = self.device.request(self.interface_name + "." + "configureWifi", [mode, ssid, psk])
         self.device.handleError(response)
         return 
 
@@ -180,7 +180,7 @@ class Network():
 
         Returns
         -------
-        wifi: wifi mode: 0: Access point, 1: Wifi client
+        mode: mode 0: Access point, 1: Wifi client
         """
         response = self.device.request(self.interface_name + "." + "getWifiMode")
         self.device.handleError(response)
@@ -337,18 +337,18 @@ class Network():
         self.device.handleError(response)
         return 
 
-    def setWifiMode(self, wifi):
+    def setWifiMode(self, mode):
         """
         Change the operation mode of the wifi adapter
 
         Parameters
         ----------
-        wifi:  mode: 0: Access point, 1: Wifi client
+        mode:  0: Access point, 1: Wifi client
 
         Returns
         -------
         """
-        response = self.device.request(self.interface_name + "." + "setWifiMode", [wifi])
+        response = self.device.request(self.interface_name + "." + "setWifiMode", [mode])
         self.device.handleError(response)
         return 
 
@@ -367,18 +367,18 @@ class Network():
         self.device.handleError(response)
         return 
 
-    def setWifiSSID(self, SSID):
+    def setWifiSSID(self, ssid):
         """
         Change the SSID of the network hosted (mode: Access point) or connected to (mode: client)
 
         Parameters
         ----------
-        SSID: 
+        ssid: 
 
         Returns
         -------
         """
-        response = self.device.request(self.interface_name + "." + "setWifiSSID", [SSID])
+        response = self.device.request(self.interface_name + "." + "setWifiSSID", [ssid])
         self.device.handleError(response)
         return 
 

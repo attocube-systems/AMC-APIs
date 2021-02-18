@@ -1,5 +1,5 @@
-function [errNo] = move_setNSteps(tcp, axis, backward, step)
-% brief : This function triggers n steps on the selected axis in desired direction. /PRO feature.
+function [errNo] = move_setSingleStep(tcp, axis, backward, step)
+% brief : This function triggers one step on the selected axis in desired direction.
 %
 % param[in] tcp : TCP/IP connection ID
 %           axis:  [0|1|2]
@@ -9,7 +9,7 @@ function [errNo] = move_setNSteps(tcp, axis, backward, step)
 %           errNo: errNo
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.amc.move.setNSteps", "params": [%i, %i, %i], "id": 1, "api": 2}', axis, backward, step);
+data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.amc.move.setSingleStep", "params": [%i, %i, %i], "id": 1, "api": 2}', axis, backward, step);
 
 fprintf(tcp, data_send);
 data_receive = fscanf(tcp);

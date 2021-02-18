@@ -4,6 +4,9 @@ import sys
 import socket
 import json
 
+import urllib.request
+import xml.dom.minidom as minidom
+
 class AttoException(Exception):
     def __init__(self, errorText = None, errorNumber = 0):
         self.errorText = errorText
@@ -90,3 +93,62 @@ class Device(object):
         if (errNo != 0 and errNo != 'null' and not ignoreFunctionError):
             raise AttoException(("Error! " + str(self.system_service.errorNumberToString(self.language ,errNo))), errNo)
         return errNo
+
+        @staticmethod
+    def discover(cls):
+        msg = \
+           'M-SEARCH * HTTP/1.1\r\n' \
+           'HOST:239.255.255.250:1900\r\n' \
+           'ST:urn:schemas-attocube-com:device:' + str(cls) + ':1\r\n' \
+           'MX:2\r\n' \
+           'MAN:"ssdp:discover"\r\n' \
+           '\r\n'
+
+        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+        s.settimeout(2)
+        s.sendto(str.encode(msg), ('239.255.255.250', 1900))
+
+        devices = []
+        try:
+            while True:
+                _, addr = s.recvfrom(65507)
+                devices.append(addr[0])
+        except socket.timeout:
+            pass
+
+        def getElementData(xmlNode, tag):
+            tagNodes = xmlNode.getElementsByTagName(tag)
+            if len(tagNodes) == 0:
+                return None
+            childNodes = tagNodes[0].childNodes
+            if len(childNodes) == 0:
+                return None
+            return childNodes[0].data
+
+        deviceInfos = {}
+        for ip in devices:
+            try:
+                location = "http://" + ip + ":49000/upnp.xml"
+                response = urllib.request.urlopen(location)
+                response = response.read()
+                xmlNode = minidom.parseString(response)
+
+                serialNumber = getElementData(xmlNode, 'serialNumber')
+                ipAddress = getElementData(xmlNode, 'ipAddress')
+                macAddress = getElementData(xmlNode, 'macAddress')
+                friendlyName = getElementData(xmlNode, 'friendlyName')
+                modelName = getElementData(xmlNode, 'modelName')
+                lockedStatus = getElementData(xmlNode, 'lockedStatus')
+
+                deviceInfos[ip] = (
+                    serialNumber,
+                    ipAddress,
+                    macAddress,
+                    friendlyName,
+                    modelName,
+                    lockedStatus
+                )
+            except:
+                pass
+
+        return deviceInfos
