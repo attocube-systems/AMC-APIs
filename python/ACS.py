@@ -94,7 +94,7 @@ class Device(object):
             raise AttoException(("Error! " + str(self.system_service.errorNumberToString(self.language ,errNo))), errNo)
         return errNo
 
-        @staticmethod
+    @staticmethod
     def discover(cls):
         msg = \
            'M-SEARCH * HTTP/1.1\r\n' \
