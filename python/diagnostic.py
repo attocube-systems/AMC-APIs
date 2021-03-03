@@ -38,6 +38,23 @@ class Diagnostic():
         self.device.handleError(response)
         return response['result'][1], response['result'][2]
 
+    def getDiagnosticStepSize(self, axis):
+        """
+        Performs 10 steps in forward and backward and calculates the average step size in both directions on a specific axis
+
+        Parameters
+        ----------
+        axis:  [0|1|2]
+
+        Returns
+        -------
+        stepsize_fwd: stepsize_fwd
+        stepsize_bwd: stepsize_bwd
+        """
+        response = self.device.request(self.interface_name + "." + "getDiagnosticStepSize", [axis])
+        self.device.handleError(response)
+        return response['result'][1], response['result'][2]
+
     def getDiagnosticTemperature(self, axis):
         """
         Returns the current axis temperature

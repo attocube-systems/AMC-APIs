@@ -5,7 +5,7 @@ function [errNo] = control_setControlOutput(tcp, axis, enable)
 %
 % param[in] tcp : TCP/IP connection ID
 %           axis:  [0|1|2]
-%           enable:  boolean  true: enable drives, false: disable drives
+%           enable:  true: enable drives, false: disable drives
 % param[out]
 %           errNo: errNo
 

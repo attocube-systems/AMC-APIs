@@ -1,15 +1,14 @@
-function [errNo, resolution] = rtin_getRealTimeInChangePerPulse(tcp, axis, tempvalue)
+function [errNo, resolution] = rtin_getRealTimeInChangePerPulse(tcp, axis)
 % brief : This function gets the change per pulse for the selected axis under real time input in the closed-loop mode.
 %
 % param[in] tcp : TCP/IP connection ID
 %           axis:  [0|1|2]
-%           tempvalue:  boolean     if true get the tempory value ( from the set function)
 % param[out]
 %           errNo: errNo
 %           resolution: resolution to be added in current pos in nm
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.amc.rtin.getRealTimeInChangePerPulse", "params": [%i, %i], "id": 1, "api": 2}', axis, tempvalue);
+data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.amc.rtin.getRealTimeInChangePerPulse", "params": [%i], "id": 1, "api": 2}', axis);
 
 fprintf(tcp, data_send);
 data_receive = fscanf(tcp);

@@ -77,98 +77,92 @@ class Rtout():
         self.device.handleError(response)
         return 
 
-    def getControlAQuadBOut(self, axis, tempvalue):
+    def getControlAQuadBOut(self, axis):
         """
-        This function gets status of AQuadB output for position indication.
+        This function gets if of AQuadB output for position indication is enabled
 
         Parameters
         ----------
         axis:  [0|1|2]
-        tempvalue:  boolean if true get the tempory value ( from the set function)
 
         Returns
         -------
-        value_boolean1: boolean
+        enabled: enabled boolean
         """
-        response = self.device.request(self.interface_name + "." + "getControlAQuadBOut", [axis, tempvalue])
+        response = self.device.request(self.interface_name + "." + "getControlAQuadBOut", [axis])
         self.device.handleError(response)
         return response['result'][1]
 
-    def getControlAQuadBOutClock(self, axis, tempvalue):
+    def getControlAQuadBOutClock(self, axis):
         """
         This function gets the clock for AQuadB output.
 
         Parameters
         ----------
         axis:  [0|1|2]
-        tempvalue:  boolean  if true get the tempory value ( from the set function)
 
         Returns
         -------
         clock_in_ns: clock_in_ns Clock in multiples of 20ns. Minimum 2 (40ns), maximum 65535 (1,310700ms)
         """
-        response = self.device.request(self.interface_name + "." + "getControlAQuadBOutClock", [axis, tempvalue])
+        response = self.device.request(self.interface_name + "." + "getControlAQuadBOutClock", [axis])
         self.device.handleError(response)
         return response['result'][1]
 
-    def getControlAQuadBOutResolution(self, axis, tempvalue):
+    def getControlAQuadBOutResolution(self, axis):
         """
         This function gets the AQuadB output resolution for position indication.
 
         Parameters
         ----------
         axis:  [0|1|2]
-        tempvalue:  boolean    if true get the tempory value ( from the set function)
 
         Returns
         -------
         resolution: resolution in nm
         """
-        response = self.device.request(self.interface_name + "." + "getControlAQuadBOutResolution", [axis, tempvalue])
+        response = self.device.request(self.interface_name + "." + "getControlAQuadBOutResolution", [axis])
         self.device.handleError(response)
         return response['result'][1]
 
-    def getMode(self, axis, tempvalue):
+    def getMode(self, axis):
         """
         Get Mode
 
         Parameters
         ----------
         axis:  [0|1|2]
-        tempvalue: 
 
         Returns
         -------
         mode: mode 0: Off, 1: AquadB, 2: Trigger
         """
-        response = self.device.request(self.interface_name + "." + "getMode", [axis, tempvalue])
+        response = self.device.request(self.interface_name + "." + "getMode", [axis])
         self.device.handleError(response)
         return response['result'][1]
 
-    def getSignalMode(self, tempvalue):
+    def getSignalMode(self):
         """
         This function gets the real time output mode for the selected axis.
 
         Parameters
         ----------
-        tempvalue: 
 
         Returns
         -------
         mode: mode 0: TTL, 1: LVDS
         """
-        response = self.device.request(self.interface_name + "." + "getSignalMode", [tempvalue])
+        response = self.device.request(self.interface_name + "." + "getSignalMode")
         self.device.handleError(response)
         return response['result'][1]
 
-    def getTriggerConfig(self, axis, tempvalue):
+    def getTriggerConfig(self, axis):
         """
         Get the real time output trigger config
 
         Parameters
         ----------
         axis:  [0|1|2]
-        tempvalue:  boolean
 
         Returns
         -------
@@ -177,7 +171,7 @@ class Rtout():
         epsilon: epsilon hysteresis in nm / µdeg
         polarity: polarity 0: active high, 1: active low
         """
-        response = self.device.request(self.interface_name + "." + "getTriggerConfig", [axis, tempvalue])
+        response = self.device.request(self.interface_name + "." + "getTriggerConfig", [axis])
         self.device.handleError(response)
         return response['result'][1], response['result'][2], response['result'][3], response['result'][4]
 

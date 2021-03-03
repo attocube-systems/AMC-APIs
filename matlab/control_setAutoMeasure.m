@@ -3,7 +3,7 @@ function [errNo] = control_setAutoMeasure(tcp, axis, enable)
 %
 % param[in] tcp : TCP/IP connection ID
 %           axis:  [0|1|2]
-%           enable:  boolean  true: enable automeasurement, false: disable automeasurement
+%           enable:  true: enable automeasurement, false: disable automeasurement
 % param[out]
 %           errNo: errNo
 

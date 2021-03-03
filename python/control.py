@@ -109,7 +109,7 @@ class Control():
 
         Returns
         -------
-        enable: enable boolean  true: enable automeasurement, false: disable automeasurement
+        enable: enable true: enable automeasurement, false: disable automeasurement
         """
         response = self.device.request(self.interface_name + "." + "getAutoMeasure", [axis])
         self.device.handleError(response)
@@ -205,7 +205,7 @@ class Control():
 
         Returns
         -------
-        value_boolean1: boolean power status (true = enabled,false = disabled)
+        enabled: enabled power status (true = enabled,false = disabled)
         """
         response = self.device.request(self.interface_name + "." + "getControlOutput", [axis])
         self.device.handleError(response)
@@ -294,6 +294,38 @@ class Control():
         self.device.handleError(response)
         return response['result'][1]
 
+    def getFinePositioningRange(self, axis):
+        """
+        This function gets the fine positioning DC-range
+
+        Parameters
+        ----------
+        axis:  [0|1|2]
+
+        Returns
+        -------
+        range: range in nm
+        """
+        response = self.device.request(self.interface_name + "." + "getFinePositioningRange", [axis])
+        self.device.handleError(response)
+        return response['result'][1]
+
+    def getFinePositioningSlewRate(self, axis):
+        """
+        This function gets the fine positioning slew rate
+
+        Parameters
+        ----------
+        axis:  [0|1|2]
+
+        Returns
+        -------
+        slewrate: slewrate [0|1|2|3]
+        """
+        response = self.device.request(self.interface_name + "." + "getFinePositioningSlewRate", [axis])
+        self.device.handleError(response)
+        return response['result'][1]
+
     def getMotionControlThreshold(self, axis):
         """
         This function gets the threshold range within the closed-loop controlled movement stops to regulate.
@@ -304,7 +336,7 @@ class Control():
 
         Returns
         -------
-        range: range in pm
+        threshold: threshold in pm
         """
         response = self.device.request(self.interface_name + "." + "getMotionControlThreshold", [axis])
         self.device.handleError(response)
@@ -414,7 +446,7 @@ class Control():
 
     def setActorParametersByName(self, axis, actorname):
         """
-        This function sets the name for the positioner on the selected axis. The possible names can be retrieved by executing getPositionersList.vi
+        This function sets the name for the positioner on the selected axis. The possible names can be retrieved by executing getPositionersList
 
         Parameters
         ----------
@@ -467,7 +499,7 @@ class Control():
         Parameters
         ----------
         axis:  [0|1|2]
-        enable:  boolean  true: enable automeasurement, false: disable automeasurement
+        enable:  true: enable automeasurement, false: disable automeasurement
 
         Returns
         -------
@@ -566,7 +598,7 @@ class Control():
         Parameters
         ----------
         axis:  [0|1|2]
-        enable:  boolean  true: enable drives, false: disable drives
+        enable:  true: enable drives, false: disable drives
 
         Returns
         -------
@@ -633,13 +665,45 @@ class Control():
         Parameters
         ----------
         axis:  [0|1|2]
-        enabled:  boolean
+        enabled: 
         Returns
         -------
         warning: warning
         """
         response = self.device.request(self.interface_name + "." + "setExternalSensor", [axis, enabled])
         return response['result'][0]
+
+    def setFinePositioningRange(self, axis, range):
+        """
+        This function sets the fine positioning DC-range
+
+        Parameters
+        ----------
+        axis:  [0|1|2]
+        range:  in nm
+
+        Returns
+        -------
+        """
+        response = self.device.request(self.interface_name + "." + "setFinePositioningRange", [axis, range])
+        self.device.handleError(response)
+        return 
+
+    def setFinePositioningSlewRate(self, axis, slewrate):
+        """
+        This function sets the fine positioning slew rate
+
+        Parameters
+        ----------
+        axis:  [0|1|2]
+        slewrate:  [0|1|2|3]
+
+        Returns
+        -------
+        """
+        response = self.device.request(self.interface_name + "." + "setFinePositioningSlewRate", [axis, slewrate])
+        self.device.handleError(response)
+        return 
 
     def setMotionControlThreshold(self, axis, threshold):
         """

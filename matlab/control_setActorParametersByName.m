@@ -1,5 +1,5 @@
 function [errNo] = control_setActorParametersByName(tcp, axis, actorname)
-% brief : This function sets the name for the positioner on the selected axis. The possible names can be retrieved by executing getPositionersList.vi
+% brief : This function sets the name for the positioner on the selected axis. The possible names can be retrieved by executing getPositionersList
 %
 % param[in] tcp : TCP/IP connection ID
 %           axis:  [0|1|2]

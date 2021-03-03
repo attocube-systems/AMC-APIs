@@ -47,7 +47,7 @@ class Status():
 
         Returns
         -------
-        value_boolean1: boolean If true, the actor is connected
+        connected: connected If true, the actor is connected
         """
         response = self.device.request(self.interface_name + "." + "getStatusConnected", [axis])
         self.device.handleError(response)
@@ -63,7 +63,7 @@ class Status():
 
         Returns
         -------
-        value_boolean1: boolean true= detected$
+        detected: detected true when EoT in either direction was detected
         """
         response = self.device.request(self.interface_name + "." + "getStatusEot", [axis])
         self.device.handleError(response)
@@ -79,7 +79,7 @@ class Status():
 
         Returns
         -------
-        value_boolean1: boolean true= detected
+        detected: detected true when EoT was detected
         """
         response = self.device.request(self.interface_name + "." + "getStatusEotBkwd", [axis])
         self.device.handleError(response)
@@ -95,7 +95,7 @@ class Status():
 
         Returns
         -------
-        value_boolean1: boolean true= detected
+        detected: detected true when EoT was detected
         """
         response = self.device.request(self.interface_name + "." + "getStatusEotFwd", [axis])
         self.device.handleError(response)
@@ -128,7 +128,7 @@ class Status():
 
         Returns
         -------
-        value_boolean1: boolean true = valid, false = not valid
+        valid: valid true = valid, false = not valid
         """
         response = self.device.request(self.interface_name + "." + "getStatusReference", [axis])
         self.device.handleError(response)
@@ -137,6 +137,8 @@ class Status():
     def getStatusTargetRange(self, axis):
         """
         This function gets information about whether the selected axis’ positioner is in target range or not.
+            The detection only indicates whether the position is within the defined range. This status is updated periodically but currently not in real-time.
+            If a fast detection is desired, please check the position in a loop
 
         Parameters
         ----------
@@ -144,7 +146,7 @@ class Status():
 
         Returns
         -------
-        value_boolean1: boolean (true = within the target range, false: not ion the target range)
+        in_range: in_range true within the target range, false not within the target range
         """
         response = self.device.request(self.interface_name + "." + "getStatusTargetRange", [axis])
         self.device.handleError(response)

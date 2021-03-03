@@ -1,5 +1,5 @@
 function [errNo, mode] = res_getMode(tcp)
-% brief : Get mode of RES application
+% brief : Get mode of RES application, see setMode for the description of possible parameters
 %
 % param[in] tcp : TCP/IP connection ID
 % param[out]

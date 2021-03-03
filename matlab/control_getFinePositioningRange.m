@@ -1,0 +1,23 @@
+function [errNo, range] = control_getFinePositioningRange(tcp, axis)
+% brief : This function gets the fine positioning DC-range
+%
+% param[in] tcp : TCP/IP connection ID
+%           axis:  [0|1|2]
+% param[out]
+%           errNo: errNo
+%           range: range in nm
+
+
+data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.amc.control.getFinePositioningRange", "params": [%i], "id": 1, "api": 2}', axis);
+
+fprintf(tcp, data_send);
+data_receive = fscanf(tcp);
+data = jsondecode(data_receive);
+
+errNo = data.result (1);
+range = data.result (2);
+
+
+end
+
+

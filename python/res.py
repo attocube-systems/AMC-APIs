@@ -7,7 +7,7 @@ class Res():
             
     def getChainGain(self, axis):
         """
-        Get chain gain
+        Get chain gain, see setChainGain for parameter description
 
         Parameters
         ----------
@@ -55,7 +55,7 @@ class Res():
 
     def getMode(self):
         """
-        Get mode of RES application
+        Get mode of RES application, see setMode for the description of possible parameters
 
         Parameters
         ----------
@@ -65,6 +65,22 @@ class Res():
         mode: mode
         """
         response = self.device.request(self.interface_name + "." + "getMode")
+        self.device.handleError(response)
+        return response['result'][1]
+
+    def getSensorStatus(self, axis):
+        """
+        Gets wether a valid RES position signal is present (always true for a disabled sensor and for rotators)
+
+        Parameters
+        ----------
+        axis:  [0|1|2]
+
+        Returns
+        -------
+        present: present true when present
+        """
+        response = self.device.request(self.interface_name + "." + "getSensorStatus", [axis])
         self.device.handleError(response)
         return response['result'][1]
 
@@ -118,11 +134,14 @@ class Res():
 
     def setMode(self, mode):
         """
-        Get mode of RES application
+        Sets the mode of the RES position measurement
+            This selects which frequency/ies are used for the lock-in measurement of the RES position, currently there are two possibilities:
+            1: Individual per axis: each axis is measured on a different frequency; this mode reduces noise coupling between axes, while requiring more wiring
+            2: Shared line/MIC-Mode: each axis is measured on the same frequency, which reduces the number of required wires while more coupling noise is excpected
 
         Parameters
         ----------
-        mode:  1: Individual mode with triple ortho frequency rejection method 2: Mic Mode with dual frequency  rejection method
+        mode:  1: Individual per axis 2: Shared line mode
 
         Returns
         -------

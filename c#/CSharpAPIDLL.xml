@@ -1002,7 +1002,7 @@
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-            enable: enable boolean  true: enable automeasurement, false: disable automeasurement
+            enable: enable true: enable automeasurement, false: disable automeasurement
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1062,7 +1062,7 @@
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-            value_boolean1: boolean power status (true = enabled,false = disabled)
+            enabled: enabled power status (true = enabled,false = disabled)
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1119,13 +1119,33 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
+        <member name="M:Attocube.AMC.AttocubeAMC.Control_GetFinePositioningRange(System.Int32)">
+            <summary>
+            This function gets the fine positioning DC-range
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <returns>
+            range: range in nm
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC.AttocubeAMC.Control_GetFinePositioningSlewRate(System.Int32)">
+            <summary>
+            This function gets the fine positioning slew rate
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <returns>
+            slewrate: slewrate [0|1|2|3]
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
         <member name="M:Attocube.AMC.AttocubeAMC.Control_GetMotionControlThreshold(System.Int32)">
             <summary>
             This function gets the threshold range within the closed-loop controlled movement stops to regulate.
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-            range: range in pm
+            threshold: threshold in pm
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1195,7 +1215,7 @@
         </member>
         <member name="M:Attocube.AMC.AttocubeAMC.Control_SetActorParametersByName(System.Int32,System.String)">
             <summary>
-            This function sets the name for the positioner on the selected axis. The possible names can be retrieved by executing getPositionersList.vi
+            This function sets the name for the positioner on the selected axis. The possible names can be retrieved by executing getPositionersList
             </summary>
             <param name="axis">[0|1|2]</param>
             <param name="actorname">name of the actor</param>
@@ -1222,7 +1242,7 @@
             This function enables/disables the automatic C/R measurement on axis enable
             </summary>
             <param name="axis">[0|1|2]</param>
-            <param name="enable">boolean  true: enable automeasurement, false: disable automeasurement</param>
+            <param name="enable">true: enable automeasurement, false: disable automeasurement</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
         <member name="M:Attocube.AMC.AttocubeAMC.Control_SetControlAmplitude(System.Int32,System.Int32)">
@@ -1273,7 +1293,7 @@
             use a PWM startup of 1sec
             </summary>
             <param name="axis">[0|1|2]</param>
-            <param name="enable">boolean  true: enable drives, false: disable drives</param>
+            <param name="enable">true: enable drives, false: disable drives</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
         <member name="M:Attocube.AMC.AttocubeAMC.Control_SetControlReferenceAutoUpdate(System.Int32,System.Boolean)">
@@ -1308,9 +1328,25 @@
             It is only available when the feature AMC/IDS closed loop has been activated
             </summary>
             <param name="axis">[0|1|2]</param>
-            <param name="enabled">boolean</param>
+            <param name="enabled"></param>
             <returns>
             </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC.AttocubeAMC.Control_SetFinePositioningRange(System.Int32,System.Int32)">
+            <summary>
+            This function sets the fine positioning DC-range
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <param name="range">in nm</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC.AttocubeAMC.Control_SetFinePositioningSlewRate(System.Int32,System.Int32)">
+            <summary>
+            This function sets the fine positioning slew rate
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <param name="slewrate">[0|1|2|3]</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
         <member name="M:Attocube.AMC.AttocubeAMC.Control_SetMotionControlThreshold(System.Int32,System.Int32)">
@@ -1406,6 +1442,17 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
+        <member name="M:Attocube.AMC.AttocubeAMC.Diagnostic_GetDiagnosticStepSize(System.Int32)">
+            <summary>
+            Performs 10 steps in forward and backward and calculates the average step size in both directions on a specific axis
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <returns>
+            stepsize_fwd: stepsize_fwd
+            stepsize_bwd: stepsize_bwd
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
         <member name="M:Attocube.AMC.AttocubeAMC.Diagnostic_GetDiagnosticTemperature(System.Int32)">
             <summary>
             Returns the current axis temperature
@@ -1429,7 +1476,7 @@
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-            value_boolean1: boolean true if movement backward is active , false otherwise
+            enabled: enabled true if movement backward is active , false otherwise
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1439,7 +1486,7 @@
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-            value_boolean1: boolean true if movement Fwd is active , false otherwise
+            enabled: enabled true if movement Fwd is active, false otherwise
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1449,7 +1496,7 @@
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-            value_boolean1: boolean If true, the output of the axis will be deactivated on positive EOT detection.
+            enabled: enabled If true, the output of the axis will be deactivated on positive EOT detection.
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1554,7 +1601,7 @@
             This function sets the output applied to the selected axis on the end of travel.
             </summary>
             <param name="axis">[0|1|2]</param>
-            <param name="enable">boolean  If enabled, the output of the axis will be deactivated on positive EOT detection.</param>
+            <param name="enable">if enabled, the output of the axis will be deactivated on positive EOT detection.</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
         <member name="M:Attocube.AMC.AttocubeAMC.Move_SetControlTargetPosition(System.Int32,System.Double)">
@@ -1605,13 +1652,12 @@
             <param name="step">number of step</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Move_SetSingleStep(System.Int32,System.Boolean,System.Int32)">
+        <member name="M:Attocube.AMC.AttocubeAMC.Move_SetSingleStep(System.Int32,System.Boolean)">
             <summary>
             This function triggers one step on the selected axis in desired direction.
             </summary>
             <param name="axis">[0|1|2]</param>
             <param name="backward">Selects the desired direction. False triggers a forward step, true a backward step</param>
-            <param name="step">number of step</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
         <member name="M:Attocube.AMC.AttocubeAMC.Move_WriteNSteps(System.Int32,System.Int32)">
@@ -1624,7 +1670,7 @@
         </member>
         <member name="M:Attocube.AMC.AttocubeAMC.Res_GetChainGain(System.Int32)">
             <summary>
-            Get chain gain
+            Get chain gain, see setChainGain for parameter description
             </summary>
             <param name="axis">number of axis</param>
             <returns>
@@ -1654,10 +1700,20 @@
         </member>
         <member name="M:Attocube.AMC.AttocubeAMC.Res_GetMode">
             <summary>
-            Get mode of RES application
+            Get mode of RES application, see setMode for the description of possible parameters
             </summary>
             <returns>
             mode: mode
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC.AttocubeAMC.Res_GetSensorStatus(System.Int32)">
+            <summary>
+            Gets wether a valid RES position signal is present (always true for a disabled sensor and for rotators)
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <returns>
+            present: present true when present
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -1687,9 +1743,12 @@
         </member>
         <member name="M:Attocube.AMC.AttocubeAMC.Res_SetMode(System.Int32)">
             <summary>
-            Get mode of RES application
+            Sets the mode of the RES position measurement
+            This selects which frequency/ies are used for the lock-in measurement of the RES position, currently there are two possibilities:
+            1: Individual per axis: each axis is measured on a different frequency; this mode reduces noise coupling between axes, while requiring more wiring
+            2: Shared line/MIC-Mode: each axis is measured on the same frequency, which reduces the number of required wires while more coupling noise is excpected
             </summary>
-            <param name="mode">1: Individual mode with triple ortho frequency rejection method 2: Mic Mode with dual frequency  rejection method</param>
+            <param name="mode">1: Individual per axis 2: Shared line mode</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
         <member name="M:Attocube.AMC.AttocubeAMC.Rotcomp_GetControlTargetRanges">
@@ -1754,22 +1813,11 @@
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Rtin_GetControlAQuadBIn(System.Int32)">
-            <summary>
-            check if  AQuadB input is enabled. NOT USED
-            </summary>
-            <param name="axis">[0|1|2]</param>
-            <returns>
-            value_boolean1: boolean
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Rtin_GetControlAQuadBInResolution(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC.AttocubeAMC.Rtin_GetControlAQuadBInResolution(System.Int32)">
             <summary>
             This function gets the AQuadB input resolution for setpoint parameter.
             </summary>
             <param name="axis">[0|1|2]</param>
-            <param name="tempvalue">boolean if true get the tempory value ( from the set function)</param>
             <returns>
             resolution: resolution ion nm
             </returns>
@@ -1801,100 +1849,44 @@
             <param name="mux_mode">[0|1|2|3]0: Off1: Axis 12: Axis 23: Axis 3</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Rtin_GetRealTimeInChangePerPulse(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC.AttocubeAMC.Rtin_GetRealTimeInChangePerPulse(System.Int32)">
             <summary>
             This function gets the change per pulse for the selected axis under real time input in the closed-loop mode.
             </summary>
             <param name="axis">[0|1|2]</param>
-            <param name="tempvalue">boolean     if true get the tempory value ( from the set function)</param>
             <returns>
             resolution: resolution to be added in current pos in nm
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Rtin_GetRealTimeInFeedbackLoopMode(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC.AttocubeAMC.Rtin_GetRealTimeInFeedbackLoopMode(System.Int32)">
             <summary>
             Get if the realtime function must operate in close loop operation or open loop operation
             </summary>
             <param name="axis">[0|1|2]</param>
-            <param name="tempvalue">boolean    if true get the tempory value ( from the set function)</param>
             <returns>
             mode: mode 0: open loop, 1 : close-loop
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Rtin_GetRealTimeInHsslClk(System.Int32,System.Boolean)">
-            <summary>
-            Get the HSSL clock
-            </summary>
-            <param name="axis">[0|1|2]</param>
-            <param name="tempvalue">boolean     if true get the tempory value ( from the set function)</param>
-            <returns>
-            clk: clk  clock  is given in nanoseconds
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Rtin_GetRealTimeInHsslGap(System.Int32,System.Boolean)">
-            <summary>
-            Get the HSSL Gap
-            </summary>
-            <param name="axis">[0|1|2]</param>
-            <param name="tempvalue">boolean     if true get the tempory value ( from the set function)</param>
-            <returns>
-            gap: gap indicates the gap between the end of the HSSL word  and the beginning of the next HSSL word. The unit of G is HSSL clock cycles.
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Rtin_GetRealTimeInHsslHigh(System.Int32,System.Boolean)">
-            <summary>
-            Get the higher part of the HSSL resolution
-            </summary>
-            <param name="axis">[0|1|2]</param>
-            <param name="tempvalue">boolean    if true get the tempory value ( from the set function)</param>
-            <returns>
-            highresolution: highresolution
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Rtin_GetRealTimeInHsslLow(System.Int32,System.Boolean)">
-            <summary>
-            Get the lower part of the HSSL resolution
-            </summary>
-            <param name="axis">[0|1|2]</param>
-            <param name="tempvalue">boolean   if true get the tempory value ( from the set function)</param>
-            <returns>
-            lowresolution: lowresolution
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Rtin_GetRealTimeInMode(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC.AttocubeAMC.Rtin_GetRealTimeInMode(System.Int32)">
             <summary>
             This function sets or gets the real time input mode for the selected axis.
             </summary>
             <param name="axis">[0|1|2]</param>
-            <param name="tempvalue">boolean   if true get the tempory value ( from the set function)</param>
             <returns>
             mode: mode see `RT_IN_MODES`
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Rtin_GetRealTimeInStepsPerPulse(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC.AttocubeAMC.Rtin_GetRealTimeInStepsPerPulse(System.Int32)">
             <summary>
             Get the change in step per pulse  of the realtime input when trigger and stepper mode is used
             </summary>
             <param name="axis">[0|1|2]</param>
-            <param name="tempvalue">boolean     if true get the tempory value ( from the set function)</param>
             <returns>
             steps: steps number of steps to applied
             </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Rtin_SetControlAQuadBIn(System.Int32,System.Boolean)">
-            <summary>
-            AQuadB input  enable.   NOT USED
-            </summary>
-            <param name="axis">[0|1|2]</param>
-            <param name="enable"></param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
         <member name="M:Attocube.AMC.AttocubeAMC.Rtin_SetControlAQuadBInResolution(System.Int32,System.Int32)">
@@ -1933,7 +1925,7 @@
             only used in closed loop operation
             </summary>
             <param name="axis">[0|1|2]</param>
-            <param name="resolution">to be added in current pos in nm</param>
+            <param name="delta">to be added to current position in nm</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
         <member name="M:Attocube.AMC.AttocubeAMC.Rtin_SetRealTimeInFeedbackLoopMode(System.Int32,System.Int32)">
@@ -1942,38 +1934,6 @@
             </summary>
             <param name="axis">[0|1|2]</param>
             <param name="mode">0: open loop, 1 : close-loop</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Rtin_SetRealTimeInHsslClk(System.Int32,System.Int32)">
-            <summary>
-            Set the HSSL clock
-            </summary>
-            <param name="axis">[0|1|2]</param>
-            <param name="hssl_clk">clock  is given in nanoseconds: N = data/40 - 1</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Rtin_SetRealTimeInHsslGap(System.Int32,System.Int32)">
-            <summary>
-            Set the HSSL Gaps
-            </summary>
-            <param name="axis">[0|1|2]</param>
-            <param name="hssl_gap">indicates the gap between the end of the HSSL word and the beginning of the next HSSL word in units of HSSL clock cycles.</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Rtin_SetRealTimeInHsslHigh(System.Int32,System.Int32)">
-            <summary>
-            Set the higher part of the HSSL resolution
-            </summary>
-            <param name="axis">[0|1|2]</param>
-            <param name="resohigh"></param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Rtin_SetRealTimeInHsslLow(System.Int32,System.Int32)">
-            <summary>
-            Set the lower part of the HSSL resolution
-            </summary>
-            <param name="axis">[0|1|2]</param>
-            <param name="resolow"></param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
         <member name="M:Attocube.AMC.AttocubeAMC.Rtin_SetRealTimeInMode(System.Int32,System.Int32)">
@@ -2025,66 +1985,60 @@
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Rtout_GetControlAQuadBOut(System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC.AttocubeAMC.Rtout_GetControlAQuadBOut(System.Int32)">
             <summary>
-            This function gets status of AQuadB output for position indication.
+            This function gets if of AQuadB output for position indication is enabled
             </summary>
             <param name="axis">[0|1|2]</param>
-            <param name="tempvalue">boolean if true get the tempory value ( from the set function)</param>
             <returns>
-            value_boolean1: boolean
+            enabled: enabled boolean
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Rtout_GetControlAQuadBOutClock(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC.AttocubeAMC.Rtout_GetControlAQuadBOutClock(System.Int32)">
             <summary>
             This function gets the clock for AQuadB output.
             </summary>
             <param name="axis">[0|1|2]</param>
-            <param name="tempvalue">boolean  if true get the tempory value ( from the set function)</param>
             <returns>
             clock_in_ns: clock_in_ns Clock in multiples of 20ns. Minimum 2 (40ns), maximum 65535 (1,310700ms)
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Rtout_GetControlAQuadBOutResolution(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC.AttocubeAMC.Rtout_GetControlAQuadBOutResolution(System.Int32)">
             <summary>
             This function gets the AQuadB output resolution for position indication.
             </summary>
             <param name="axis">[0|1|2]</param>
-            <param name="tempvalue">boolean    if true get the tempory value ( from the set function)</param>
             <returns>
             resolution: resolution in nm
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Rtout_GetMode(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC.AttocubeAMC.Rtout_GetMode(System.Int32)">
             <summary>
             Get Mode
             </summary>
             <param name="axis">[0|1|2]</param>
-            <param name="tempvalue"></param>
             <returns>
             mode: mode 0: Off, 1: AquadB, 2: Trigger
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Rtout_GetSignalMode(System.Boolean)">
+        <member name="M:Attocube.AMC.AttocubeAMC.Rtout_GetSignalMode">
             <summary>
             This function gets the real time output mode for the selected axis.
             </summary>
-            <param name="tempvalue"></param>
             <returns>
             mode: mode 0: TTL, 1: LVDS
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Rtout_GetTriggerConfig(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC.AttocubeAMC.Rtout_GetTriggerConfig(System.Int32)">
             <summary>
             Get the real time output trigger config
             </summary>
             <param name="axis">[0|1|2]</param>
-            <param name="tempvalue">boolean</param>
             <returns>
             higher: higher upper limit in nm / µdeg
             lower: lower lower limit in nm / µdeg
@@ -2161,7 +2115,7 @@
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-            value_boolean1: boolean If true, the actor is connected
+            connected: connected If true, the actor is connected
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2171,7 +2125,7 @@
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-            value_boolean1: boolean true= detected$
+            detected: detected true when EoT in either direction was detected
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2181,7 +2135,7 @@
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-            value_boolean1: boolean true= detected
+            detected: detected true when EoT was detected
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2191,7 +2145,7 @@
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-            value_boolean1: boolean true= detected
+            detected: detected true when EoT was detected
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
@@ -2211,17 +2165,19 @@
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-            value_boolean1: boolean true = valid, false = not valid
+            valid: valid true = valid, false = not valid
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
         <member name="M:Attocube.AMC.AttocubeAMC.Status_GetStatusTargetRange(System.Int32)">
             <summary>
             This function gets information about whether the selected axis’ positioner is in target range or not.
+            The detection only indicates whether the position is within the defined range. This status is updated periodically but currently not in real-time.
+            If a fast detection is desired, please check the position in a loop
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-            value_boolean1: boolean (true = within the target range, false: not ion the target range)
+            in_range: in_range true within the target range, false not within the target range
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>

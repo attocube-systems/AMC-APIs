@@ -3,7 +3,7 @@ function [errNo] = move_setControlEotOutputDeactive(tcp, axis, enable)
 %
 % param[in] tcp : TCP/IP connection ID
 %           axis:  [0|1|2]
-%           enable:  boolean  If enabled, the output of the axis will be deactivated on positive EOT detection.
+%           enable:  if enabled, the output of the axis will be deactivated on positive EOT detection.
 % param[out]
 %           errNo: errNo
 

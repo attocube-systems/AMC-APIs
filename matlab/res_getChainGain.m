@@ -1,5 +1,5 @@
 function [errNo, gaincoeff] = res_getChainGain(tcp, axis)
-% brief : Get chain gain
+% brief : Get chain gain, see setChainGain for parameter description
 %
 % param[in] tcp : TCP/IP connection ID
 %           axis:  number of axis

@@ -4,7 +4,7 @@ function [warning] = control_setExternalSensor(tcp, axis, enabled)
 %
 % param[in] tcp : TCP/IP connection ID
 %           axis:  [0|1|2]
-%           enabled:  boolean
+%           enabled: 
 % param[out]
 %           warning: warning
 

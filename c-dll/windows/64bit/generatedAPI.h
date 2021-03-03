@@ -392,7 +392,7 @@ int ATTOCUBE_API AMC_control_getActorType(int deviceHandle, int axis, int* actor
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  enable: enable boolean  true: enable automeasurement, false: disable automeasurement
+*  @param  enable: enable true: enable automeasurement, false: disable automeasurement
 *
 *  @return   Result of function
 */
@@ -494,11 +494,11 @@ int ATTOCUBE_API AMC_control_getControlMove(int deviceHandle, int axis, bool* en
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  value_boolean1: boolean power status (true = enabled,false = disabled)
+*  @param  enabled: enabled power status (true = enabled,false = disabled)
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_control_getControlOutput(int deviceHandle, int axis, bool* value_boolean1);
+int ATTOCUBE_API AMC_control_getControlOutput(int deviceHandle, int axis, bool* enabled);
 
 
 
@@ -593,17 +593,51 @@ int ATTOCUBE_API AMC_control_getExternalSensor(int deviceHandle, int axis, bool*
 
 
 
+/** @brief @AMC_control_getFinePositioningRange
+*
+*  This function gets the fine positioning DC-range
+*
+*  @param  deviceHandle  Handle of device
+*  @param  axis:  [0|1|2]
+*  @param  range: range in nm
+*
+*  @return   Result of function
+*/
+int ATTOCUBE_API AMC_control_getFinePositioningRange(int deviceHandle, int axis, int* range);
+
+
+
+
+
+
+/** @brief @AMC_control_getFinePositioningSlewRate
+*
+*  This function gets the fine positioning slew rate
+*
+*  @param  deviceHandle  Handle of device
+*  @param  axis:  [0|1|2]
+*  @param  slewrate: slewrate [0|1|2|3]
+*
+*  @return   Result of function
+*/
+int ATTOCUBE_API AMC_control_getFinePositioningSlewRate(int deviceHandle, int axis, int* slewrate);
+
+
+
+
+
+
 /** @brief @AMC_control_getMotionControlThreshold
 *
 *  This function gets the threshold range within the closed-loop controlled movement stops to regulate.
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  range: range in pm
+*  @param  threshold: threshold in pm
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_control_getMotionControlThreshold(int deviceHandle, int axis, int* range);
+int ATTOCUBE_API AMC_control_getMotionControlThreshold(int deviceHandle, int axis, int* threshold);
 
 
 
@@ -720,7 +754,7 @@ int ATTOCUBE_API AMC_control_searchReferencePosition(int deviceHandle, int axis)
 
 /** @brief @AMC_control_setActorParametersByName
 *
-*  This function sets the name for the positioner on the selected axis. The possible names can be retrieved by executing getPositionersList.vi
+*  This function sets the name for the positioner on the selected axis. The possible names can be retrieved by executing getPositionersList
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
@@ -775,7 +809,7 @@ int ATTOCUBE_API AMC_control_setActorSensitivity(int deviceHandle, int axis, int
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  enable:  boolean  true: enable automeasurement, false: disable automeasurement
+*  @param  enable:  true: enable automeasurement, false: disable automeasurement
 *
 *  @return   Result of function
 */
@@ -880,7 +914,7 @@ int ATTOCUBE_API AMC_control_setControlMove(int deviceHandle, int axis, bool ena
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  enable:  boolean  true: enable drives, false: disable drives
+*  @param  enable:  true: enable drives, false: disable drives
 *
 *  @return   Result of function
 */
@@ -951,11 +985,45 @@ int ATTOCUBE_API AMC_control_setCrosstalkThreshold(int deviceHandle, int axis, i
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  enabled:  boolean
+*  @param  enabled: 
 *
 *  @return   Result of function
 */
 int ATTOCUBE_API AMC_control_setExternalSensor(int deviceHandle, int axis, bool enabled, int* warning);
+
+
+
+
+
+
+/** @brief @AMC_control_setFinePositioningRange
+*
+*  This function sets the fine positioning DC-range
+*
+*  @param  deviceHandle  Handle of device
+*  @param  axis:  [0|1|2]
+*  @param  range:  in nm
+*
+*  @return   Result of function
+*/
+int ATTOCUBE_API AMC_control_setFinePositioningRange(int deviceHandle, int axis, int range);
+
+
+
+
+
+
+/** @brief @AMC_control_setFinePositioningSlewRate
+*
+*  This function sets the fine positioning slew rate
+*
+*  @param  deviceHandle  Handle of device
+*  @param  axis:  [0|1|2]
+*  @param  slewrate:  [0|1|2|3]
+*
+*  @return   Result of function
+*/
+int ATTOCUBE_API AMC_control_setFinePositioningSlewRate(int deviceHandle, int axis, int slewrate);
 
 
 
@@ -1136,6 +1204,24 @@ int ATTOCUBE_API AMC_diagnostic_getDiagnosticResults(int deviceHandle, int axis,
 
 
 
+/** @brief @AMC_diagnostic_getDiagnosticStepSize
+*
+*  Performs 10 steps in forward and backward and calculates the average step size in both directions on a specific axis
+*
+*  @param  deviceHandle  Handle of device
+*  @param  axis:  [0|1|2]
+*  @param  stepsize_fwd: stepsize_fwd
+*  @param  stepsize_bwd: stepsize_bwd
+*
+*  @return   Result of function
+*/
+int ATTOCUBE_API AMC_diagnostic_getDiagnosticStepSize(int deviceHandle, int axis, int* stepsize_fwd, int* stepsize_bwd);
+
+
+
+
+
+
 /** @brief @AMC_diagnostic_getDiagnosticTemperature
 *
 *  Returns the current axis temperature
@@ -1175,11 +1261,11 @@ int ATTOCUBE_API AMC_diagnostic_startDiagnostic(int deviceHandle, int axis);
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  value_boolean1: boolean true if movement backward is active , false otherwise
+*  @param  enabled: enabled true if movement backward is active , false otherwise
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_move_getControlContinuousBkwd(int deviceHandle, int axis, bool* value_boolean1);
+int ATTOCUBE_API AMC_move_getControlContinuousBkwd(int deviceHandle, int axis, bool* enabled);
 
 
 
@@ -1192,11 +1278,11 @@ int ATTOCUBE_API AMC_move_getControlContinuousBkwd(int deviceHandle, int axis, b
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  value_boolean1: boolean true if movement Fwd is active , false otherwise
+*  @param  enabled: enabled true if movement Fwd is active, false otherwise
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_move_getControlContinuousFwd(int deviceHandle, int axis, bool* value_boolean1);
+int ATTOCUBE_API AMC_move_getControlContinuousFwd(int deviceHandle, int axis, bool* enabled);
 
 
 
@@ -1209,11 +1295,11 @@ int ATTOCUBE_API AMC_move_getControlContinuousFwd(int deviceHandle, int axis, bo
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  value_boolean1: boolean If true, the output of the axis will be deactivated on positive EOT detection.
+*  @param  enabled: enabled If true, the output of the axis will be deactivated on positive EOT detection.
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_move_getControlEotOutputDeactive(int deviceHandle, int axis, bool* value_boolean1);
+int ATTOCUBE_API AMC_move_getControlEotOutputDeactive(int deviceHandle, int axis, bool* enabled);
 
 
 
@@ -1400,7 +1486,7 @@ int ATTOCUBE_API AMC_move_setControlContinuousFwd(int deviceHandle, int axis, bo
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  enable:  boolean  If enabled, the output of the axis will be deactivated on positive EOT detection.
+*  @param  enable:  if enabled, the output of the axis will be deactivated on positive EOT detection.
 *
 *  @return   Result of function
 */
@@ -1511,11 +1597,10 @@ int ATTOCUBE_API AMC_move_setNSteps(int deviceHandle, int axis, bool backward, i
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
 *  @param  backward:  Selects the desired direction. False triggers a forward step, true a backward step
-*  @param  step:  number of step
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_move_setSingleStep(int deviceHandle, int axis, bool backward, int step);
+int ATTOCUBE_API AMC_move_setSingleStep(int deviceHandle, int axis, bool backward);
 
 
 
@@ -1541,7 +1626,7 @@ int ATTOCUBE_API AMC_move_writeNSteps(int deviceHandle, int axis, int step);
 
 /** @brief @AMC_res_getChainGain
 *
-*  Get chain gain
+*  Get chain gain, see setChainGain for parameter description
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  number of axis
@@ -1593,7 +1678,7 @@ int ATTOCUBE_API AMC_res_getLutSn(int deviceHandle, int axis, char* value_string
 
 /** @brief @AMC_res_getMode
 *
-*  Get mode of RES application
+*  Get mode of RES application, see setMode for the description of possible parameters
 *
 *  @param  deviceHandle  Handle of device
 *  @param  mode: mode
@@ -1601,6 +1686,23 @@ int ATTOCUBE_API AMC_res_getLutSn(int deviceHandle, int axis, char* value_string
 *  @return   Result of function
 */
 int ATTOCUBE_API AMC_res_getMode(int deviceHandle, int* mode);
+
+
+
+
+
+
+/** @brief @AMC_res_getSensorStatus
+*
+*  Gets wether a valid RES position signal is present (always true for a disabled sensor and for rotators)
+*
+*  @param  deviceHandle  Handle of device
+*  @param  axis:  [0|1|2]
+*  @param  present: present true when present
+*
+*  @return   Result of function
+*/
+int ATTOCUBE_API AMC_res_getSensorStatus(int deviceHandle, int axis, bool* present);
 
 
 
@@ -1660,10 +1762,13 @@ int ATTOCUBE_API AMC_res_setLinearization(int deviceHandle, int axis, bool enabl
 
 /** @brief @AMC_res_setMode
 *
-*  Get mode of RES application
+*  Sets the mode of the RES position measurement
+            This selects which frequency/ies are used for the lock-in measurement of the RES position, currently there are two possibilities:
+            1: Individual per axis: each axis is measured on a different frequency; this mode reduces noise coupling between axes, while requiring more wiring
+            2: Shared line/MIC-Mode: each axis is measured on the same frequency, which reduces the number of required wires while more coupling noise is excpected
 *
 *  @param  deviceHandle  Handle of device
-*  @param  mode:  1: Individual mode with triple ortho frequency rejection method 2: Mic Mode with dual frequency  rejection method
+*  @param  mode:  1: Individual per axis 2: Shared line mode
 *
 *  @return   Result of function
 */
@@ -1811,35 +1916,17 @@ int ATTOCUBE_API AMC_rtin_discard(int deviceHandle);
 
 
 
-/** @brief @AMC_rtin_getControlAQuadBIn
-*
-*  check if  AQuadB input is enabled. NOT USED
-*
-*  @param  deviceHandle  Handle of device
-*  @param  axis:  [0|1|2]
-*  @param  value_boolean1: boolean
-*
-*  @return   Result of function
-*/
-int ATTOCUBE_API AMC_rtin_getControlAQuadBIn(int deviceHandle, int axis, int* value_boolean1);
-
-
-
-
-
-
 /** @brief @AMC_rtin_getControlAQuadBInResolution
 *
 *  This function gets the AQuadB input resolution for setpoint parameter.
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  tempvalue:  boolean if true get the tempory value ( from the set function)
 *  @param  resolution: resolution ion nm
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_rtin_getControlAQuadBInResolution(int deviceHandle, int axis, bool tempvalue, int* resolution);
+int ATTOCUBE_API AMC_rtin_getControlAQuadBInResolution(int deviceHandle, int axis, int* resolution);
 
 
 
@@ -1905,12 +1992,11 @@ int ATTOCUBE_API AMC_rtin_getNslMux(int deviceHandle, int mux_mode);
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  tempvalue:  boolean     if true get the tempory value ( from the set function)
 *  @param  resolution: resolution to be added in current pos in nm
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_rtin_getRealTimeInChangePerPulse(int deviceHandle, int axis, bool tempvalue, int* resolution);
+int ATTOCUBE_API AMC_rtin_getRealTimeInChangePerPulse(int deviceHandle, int axis, int* resolution);
 
 
 
@@ -1923,84 +2009,11 @@ int ATTOCUBE_API AMC_rtin_getRealTimeInChangePerPulse(int deviceHandle, int axis
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  tempvalue:  boolean    if true get the tempory value ( from the set function)
 *  @param  mode: mode 0: open loop, 1 : close-loop
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_rtin_getRealTimeInFeedbackLoopMode(int deviceHandle, int axis, bool tempvalue, int* mode);
-
-
-
-
-
-
-/** @brief @AMC_rtin_getRealTimeInHsslClk
-*
-*  Get the HSSL clock
-*
-*  @param  deviceHandle  Handle of device
-*  @param  axis:  [0|1|2]
-*  @param  tempvalue:  boolean     if true get the tempory value ( from the set function)
-*  @param  clk: clk  clock  is given in nanoseconds
-*
-*  @return   Result of function
-*/
-int ATTOCUBE_API AMC_rtin_getRealTimeInHsslClk(int deviceHandle, int axis, bool tempvalue, int* clk);
-
-
-
-
-
-
-/** @brief @AMC_rtin_getRealTimeInHsslGap
-*
-*  Get the HSSL Gap
-*
-*  @param  deviceHandle  Handle of device
-*  @param  axis:  [0|1|2]
-*  @param  tempvalue:  boolean     if true get the tempory value ( from the set function)
-*  @param  gap: gap indicates the gap between the end of the HSSL word  and the beginning of the next HSSL word. The unit of G is HSSL clock cycles.
-*
-*  @return   Result of function
-*/
-int ATTOCUBE_API AMC_rtin_getRealTimeInHsslGap(int deviceHandle, int axis, bool tempvalue, int* gap);
-
-
-
-
-
-
-/** @brief @AMC_rtin_getRealTimeInHsslHigh
-*
-*  Get the higher part of the HSSL resolution
-*
-*  @param  deviceHandle  Handle of device
-*  @param  axis:  [0|1|2]
-*  @param  tempvalue:  boolean    if true get the tempory value ( from the set function)
-*  @param  highresolution: highresolution
-*
-*  @return   Result of function
-*/
-int ATTOCUBE_API AMC_rtin_getRealTimeInHsslHigh(int deviceHandle, int axis, bool tempvalue, int* highresolution);
-
-
-
-
-
-
-/** @brief @AMC_rtin_getRealTimeInHsslLow
-*
-*  Get the lower part of the HSSL resolution
-*
-*  @param  deviceHandle  Handle of device
-*  @param  axis:  [0|1|2]
-*  @param  tempvalue:  boolean   if true get the tempory value ( from the set function)
-*  @param  lowresolution: lowresolution
-*
-*  @return   Result of function
-*/
-int ATTOCUBE_API AMC_rtin_getRealTimeInHsslLow(int deviceHandle, int axis, bool tempvalue, int* lowresolution);
+int ATTOCUBE_API AMC_rtin_getRealTimeInFeedbackLoopMode(int deviceHandle, int axis, int* mode);
 
 
 
@@ -2013,12 +2026,11 @@ int ATTOCUBE_API AMC_rtin_getRealTimeInHsslLow(int deviceHandle, int axis, bool 
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  tempvalue:  boolean   if true get the tempory value ( from the set function)
 *  @param  mode: mode see `RT_IN_MODES`
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_rtin_getRealTimeInMode(int deviceHandle, int axis, bool tempvalue, int* mode);
+int ATTOCUBE_API AMC_rtin_getRealTimeInMode(int deviceHandle, int axis, int* mode);
 
 
 
@@ -2031,29 +2043,11 @@ int ATTOCUBE_API AMC_rtin_getRealTimeInMode(int deviceHandle, int axis, bool tem
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  tempvalue:  boolean     if true get the tempory value ( from the set function)
 *  @param  steps: steps number of steps to applied
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_rtin_getRealTimeInStepsPerPulse(int deviceHandle, int axis, bool tempvalue, int* steps);
-
-
-
-
-
-
-/** @brief @AMC_rtin_setControlAQuadBIn
-*
-*  AQuadB input  enable.   NOT USED
-*
-*  @param  deviceHandle  Handle of device
-*  @param  axis:  [0|1|2]
-*  @param  enable: 
-*
-*  @return   Result of function
-*/
-int ATTOCUBE_API AMC_rtin_setControlAQuadBIn(int deviceHandle, int axis, bool enable);
+int ATTOCUBE_API AMC_rtin_getRealTimeInStepsPerPulse(int deviceHandle, int axis, int* steps);
 
 
 
@@ -2139,11 +2133,11 @@ int ATTOCUBE_API AMC_rtin_setNslMux(int deviceHandle, int mux_mode);
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  resolution:  to be added in current pos in nm
+*  @param  delta:  to be added to current position in nm
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_rtin_setRealTimeInChangePerPulse(int deviceHandle, int axis, int resolution);
+int ATTOCUBE_API AMC_rtin_setRealTimeInChangePerPulse(int deviceHandle, int axis, int delta);
 
 
 
@@ -2161,74 +2155,6 @@ int ATTOCUBE_API AMC_rtin_setRealTimeInChangePerPulse(int deviceHandle, int axis
 *  @return   Result of function
 */
 int ATTOCUBE_API AMC_rtin_setRealTimeInFeedbackLoopMode(int deviceHandle, int axis, int mode);
-
-
-
-
-
-
-/** @brief @AMC_rtin_setRealTimeInHsslClk
-*
-*  Set the HSSL clock
-*
-*  @param  deviceHandle  Handle of device
-*  @param  axis:  [0|1|2]
-*  @param  hssl_clk:   clock  is given in nanoseconds: N = data/40 - 1
-*
-*  @return   Result of function
-*/
-int ATTOCUBE_API AMC_rtin_setRealTimeInHsslClk(int deviceHandle, int axis, int hssl_clk);
-
-
-
-
-
-
-/** @brief @AMC_rtin_setRealTimeInHsslGap
-*
-*  Set the HSSL Gaps
-*
-*  @param  deviceHandle  Handle of device
-*  @param  axis:  [0|1|2]
-*  @param  hssl_gap:  indicates the gap between the end of the HSSL word and the beginning of the next HSSL word in units of HSSL clock cycles.
-*
-*  @return   Result of function
-*/
-int ATTOCUBE_API AMC_rtin_setRealTimeInHsslGap(int deviceHandle, int axis, int hssl_gap);
-
-
-
-
-
-
-/** @brief @AMC_rtin_setRealTimeInHsslHigh
-*
-*  Set the higher part of the HSSL resolution
-*
-*  @param  deviceHandle  Handle of device
-*  @param  axis:  [0|1|2]
-*  @param  resohigh: 
-*
-*  @return   Result of function
-*/
-int ATTOCUBE_API AMC_rtin_setRealTimeInHsslHigh(int deviceHandle, int axis, int resohigh);
-
-
-
-
-
-
-/** @brief @AMC_rtin_setRealTimeInHsslLow
-*
-*  Set the lower part of the HSSL resolution
-*
-*  @param  deviceHandle  Handle of device
-*  @param  axis:  [0|1|2]
-*  @param  resolow: 
-*
-*  @return   Result of function
-*/
-int ATTOCUBE_API AMC_rtin_setRealTimeInHsslLow(int deviceHandle, int axis, int resolow);
 
 
 
@@ -2349,16 +2275,15 @@ int ATTOCUBE_API AMC_rtout_discardSignalMode(int deviceHandle);
 
 /** @brief @AMC_rtout_getControlAQuadBOut
 *
-*  This function gets status of AQuadB output for position indication.
+*  This function gets if of AQuadB output for position indication is enabled
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  tempvalue:  boolean if true get the tempory value ( from the set function)
-*  @param  value_boolean1: boolean
+*  @param  enabled: enabled boolean
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_rtout_getControlAQuadBOut(int deviceHandle, int axis, int tempvalue, bool* value_boolean1);
+int ATTOCUBE_API AMC_rtout_getControlAQuadBOut(int deviceHandle, int axis, bool* enabled);
 
 
 
@@ -2371,12 +2296,11 @@ int ATTOCUBE_API AMC_rtout_getControlAQuadBOut(int deviceHandle, int axis, int t
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  tempvalue:  boolean  if true get the tempory value ( from the set function)
 *  @param  clock_in_ns: clock_in_ns Clock in multiples of 20ns. Minimum 2 (40ns), maximum 65535 (1,310700ms)
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_rtout_getControlAQuadBOutClock(int deviceHandle, int axis, bool tempvalue, int* clock_in_ns);
+int ATTOCUBE_API AMC_rtout_getControlAQuadBOutClock(int deviceHandle, int axis, int* clock_in_ns);
 
 
 
@@ -2389,12 +2313,11 @@ int ATTOCUBE_API AMC_rtout_getControlAQuadBOutClock(int deviceHandle, int axis, 
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  tempvalue:  boolean    if true get the tempory value ( from the set function)
 *  @param  resolution: resolution in nm
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_rtout_getControlAQuadBOutResolution(int deviceHandle, int axis, bool tempvalue, int* resolution);
+int ATTOCUBE_API AMC_rtout_getControlAQuadBOutResolution(int deviceHandle, int axis, int* resolution);
 
 
 
@@ -2407,12 +2330,11 @@ int ATTOCUBE_API AMC_rtout_getControlAQuadBOutResolution(int deviceHandle, int a
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  tempvalue: 
 *  @param  mode: mode 0: Off, 1: AquadB, 2: Trigger
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_rtout_getMode(int deviceHandle, int axis, bool tempvalue, int* mode);
+int ATTOCUBE_API AMC_rtout_getMode(int deviceHandle, int axis, int* mode);
 
 
 
@@ -2424,12 +2346,11 @@ int ATTOCUBE_API AMC_rtout_getMode(int deviceHandle, int axis, bool tempvalue, i
 *  This function gets the real time output mode for the selected axis.
 *
 *  @param  deviceHandle  Handle of device
-*  @param  tempvalue: 
 *  @param  mode: mode 0: TTL, 1: LVDS
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_rtout_getSignalMode(int deviceHandle, bool tempvalue, int* mode);
+int ATTOCUBE_API AMC_rtout_getSignalMode(int deviceHandle, int* mode);
 
 
 
@@ -2442,7 +2363,6 @@ int ATTOCUBE_API AMC_rtout_getSignalMode(int deviceHandle, bool tempvalue, int* 
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  tempvalue:  boolean
 *  @param  higher: higher upper limit in nm / µdeg
 *  @param  lower: lower lower limit in nm / µdeg
 *  @param  epsilon: epsilon hysteresis in nm / µdeg
@@ -2450,7 +2370,7 @@ int ATTOCUBE_API AMC_rtout_getSignalMode(int deviceHandle, bool tempvalue, int* 
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_rtout_getTriggerConfig(int deviceHandle, int axis, bool tempvalue, int* higher, int* lower, int* epsilon, int* polarity);
+int ATTOCUBE_API AMC_rtout_getTriggerConfig(int deviceHandle, int axis, int* higher, int* lower, int* epsilon, int* polarity);
 
 
 
@@ -2585,11 +2505,11 @@ int ATTOCUBE_API AMC_status_getOlStatus(int deviceHandle, int axis, int* sensors
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  value_boolean1: boolean If true, the actor is connected
+*  @param  connected: connected If true, the actor is connected
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_status_getStatusConnected(int deviceHandle, int axis, bool* value_boolean1);
+int ATTOCUBE_API AMC_status_getStatusConnected(int deviceHandle, int axis, bool* connected);
 
 
 
@@ -2602,11 +2522,11 @@ int ATTOCUBE_API AMC_status_getStatusConnected(int deviceHandle, int axis, bool*
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  value_boolean1: boolean true= detected$
+*  @param  detected: detected true when EoT in either direction was detected
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_status_getStatusEot(int deviceHandle, int axis, bool* value_boolean1);
+int ATTOCUBE_API AMC_status_getStatusEot(int deviceHandle, int axis, bool* detected);
 
 
 
@@ -2619,11 +2539,11 @@ int ATTOCUBE_API AMC_status_getStatusEot(int deviceHandle, int axis, bool* value
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  value_boolean1: boolean true= detected
+*  @param  detected: detected true when EoT was detected
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_status_getStatusEotBkwd(int deviceHandle, int axis, bool* value_boolean1);
+int ATTOCUBE_API AMC_status_getStatusEotBkwd(int deviceHandle, int axis, bool* detected);
 
 
 
@@ -2636,11 +2556,11 @@ int ATTOCUBE_API AMC_status_getStatusEotBkwd(int deviceHandle, int axis, bool* v
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  value_boolean1: boolean true= detected
+*  @param  detected: detected true when EoT was detected
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_status_getStatusEotFwd(int deviceHandle, int axis, bool* value_boolean1);
+int ATTOCUBE_API AMC_status_getStatusEotFwd(int deviceHandle, int axis, bool* detected);
 
 
 
@@ -2671,11 +2591,11 @@ int ATTOCUBE_API AMC_status_getStatusMoving(int deviceHandle, int axis, int* sta
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  value_boolean1: boolean true = valid, false = not valid
+*  @param  valid: valid true = valid, false = not valid
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_status_getStatusReference(int deviceHandle, int axis, bool* value_boolean1);
+int ATTOCUBE_API AMC_status_getStatusReference(int deviceHandle, int axis, bool* valid);
 
 
 
@@ -2685,14 +2605,16 @@ int ATTOCUBE_API AMC_status_getStatusReference(int deviceHandle, int axis, bool*
 /** @brief @AMC_status_getStatusTargetRange
 *
 *  This function gets information about whether the selected axis’ positioner is in target range or not.
+            The detection only indicates whether the position is within the defined range. This status is updated periodically but currently not in real-time.
+            If a fast detection is desired, please check the position in a loop
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  value_boolean1: boolean (true = within the target range, false: not ion the target range)
+*  @param  in_range: in_range true within the target range, false not within the target range
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_status_getStatusTargetRange(int deviceHandle, int axis, bool* value_boolean1);
+int ATTOCUBE_API AMC_status_getStatusTargetRange(int deviceHandle, int axis, bool* in_range);
 
 
 

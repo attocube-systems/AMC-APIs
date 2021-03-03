@@ -1,8 +1,11 @@
 function [errNo] = res_setMode(tcp, mode)
-% brief : Get mode of RES application
+% brief : Sets the mode of the RES position measurement
+%            This selects which frequency/ies are used for the lock-in measurement of the RES position, currently there are two possibilities:
+%            1: Individual per axis: each axis is measured on a different frequency; this mode reduces noise coupling between axes, while requiring more wiring
+%            2: Shared line/MIC-Mode: each axis is measured on the same frequency, which reduces the number of required wires while more coupling noise is excpected
 %
 % param[in] tcp : TCP/IP connection ID
-%           mode:  1: Individual mode with triple ortho frequency rejection method 2: Mic Mode with dual frequency  rejection method
+%           mode:  1: Individual per axis 2: Shared line mode
 % param[out]
 %           errNo: errNo
 

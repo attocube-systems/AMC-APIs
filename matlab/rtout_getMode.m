@@ -1,15 +1,14 @@
-function [errNo, mode] = rtout_getMode(tcp, axis, tempvalue)
+function [errNo, mode] = rtout_getMode(tcp, axis)
 % brief : Get Mode
 %
 % param[in] tcp : TCP/IP connection ID
 %           axis:  [0|1|2]
-%           tempvalue: 
 % param[out]
 %           errNo: errNo
 %           mode: mode 0: Off, 1: AquadB, 2: Trigger
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.amc.rtout.getMode", "params": [%i, %i], "id": 1, "api": 2}', axis, tempvalue);
+data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.amc.rtout.getMode", "params": [%i], "id": 1, "api": 2}', axis);
 
 fprintf(tcp, data_send);
 data_receive = fscanf(tcp);

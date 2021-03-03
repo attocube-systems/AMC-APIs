@@ -15,7 +15,7 @@ class Move():
 
         Returns
         -------
-        value_boolean1: boolean true if movement backward is active , false otherwise
+        enabled: enabled true if movement backward is active , false otherwise
         """
         response = self.device.request(self.interface_name + "." + "getControlContinuousBkwd", [axis])
         self.device.handleError(response)
@@ -31,7 +31,7 @@ class Move():
 
         Returns
         -------
-        value_boolean1: boolean true if movement Fwd is active , false otherwise
+        enabled: enabled true if movement Fwd is active, false otherwise
         """
         response = self.device.request(self.interface_name + "." + "getControlContinuousFwd", [axis])
         self.device.handleError(response)
@@ -47,7 +47,7 @@ class Move():
 
         Returns
         -------
-        value_boolean1: boolean If true, the output of the axis will be deactivated on positive EOT detection.
+        enabled: enabled If true, the output of the axis will be deactivated on positive EOT detection.
         """
         response = self.device.request(self.interface_name + "." + "getControlEotOutputDeactive", [axis])
         self.device.handleError(response)
@@ -224,7 +224,7 @@ class Move():
         Parameters
         ----------
         axis:  [0|1|2]
-        enable:  boolean  If enabled, the output of the axis will be deactivated on positive EOT detection.
+        enable:  if enabled, the output of the axis will be deactivated on positive EOT detection.
 
         Returns
         -------
@@ -321,7 +321,7 @@ class Move():
         self.device.handleError(response)
         return 
 
-    def setSingleStep(self, axis, backward, step):
+    def setSingleStep(self, axis, backward):
         """
         This function triggers one step on the selected axis in desired direction.
 
@@ -329,12 +329,11 @@ class Move():
         ----------
         axis:  [0|1|2]
         backward:  Selects the desired direction. False triggers a forward step, true a backward step
-        step:  number of step
 
         Returns
         -------
         """
-        response = self.device.request(self.interface_name + "." + "setSingleStep", [axis, backward, step])
+        response = self.device.request(self.interface_name + "." + "setSingleStep", [axis, backward])
         self.device.handleError(response)
         return 
 

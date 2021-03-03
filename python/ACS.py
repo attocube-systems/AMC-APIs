@@ -4,6 +4,12 @@ import sys
 import socket
 import json
 
+from threading import Thread, Lock
+try:
+    import netifaces
+except:
+    pass
+
 import urllib.request
 import xml.dom.minidom as minidom
 
@@ -96,6 +102,16 @@ class Device(object):
 
     @staticmethod
     def discover(cls):
+        try:
+            network_ifaces = netifaces.interfaces()
+        except NameError:
+            print("Install netifaces for discovery")
+            print("Python:")
+            print("pip install netifaces")
+            print("\nPython3:")
+            print("pip3 install netifaces")
+            return {}
+
         msg = \
            'M-SEARCH * HTTP/1.1\r\n' \
            'HOST:239.255.255.250:1900\r\n' \
@@ -104,17 +120,36 @@ class Device(object):
            'MAN:"ssdp:discover"\r\n' \
            '\r\n'
 
-        s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
-        s.settimeout(2)
-        s.sendto(str.encode(msg), ('239.255.255.250', 1900))
+        def send_and_recv(iface, devices, devices_lock):
+            s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM, socket.IPPROTO_UDP)
+            s.bind((iface, 0))
+            s.settimeout(2)
+            s.sendto(str.encode(msg), ('239.255.255.250', 1900))
+            try:
+                while True:
+                    _, addr = s.recvfrom(65507)
+                    devices_lock.acquire()
+                    devices.append(addr[0])
+                    devices_lock.release()
+            except socket.timeout:
+                pass
 
+        thread_pool = []
         devices = []
-        try:
-            while True:
-                _, addr = s.recvfrom(65507)
-                devices.append(addr[0])
-        except socket.timeout:
-            pass
+        devices_lock = Lock()
+
+        for iface in network_ifaces:
+            addr = netifaces.ifaddresses(iface)
+            if netifaces.AF_INET not in addr:
+                continue
+            for ip in addr[netifaces.AF_INET]:
+                if "addr" not in ip:
+                    continue
+                thread_pool.append(Thread(target=send_and_recv, args=(ip["addr"], devices, devices_lock)))
+                thread_pool[-1].start()
+
+        for thread in thread_pool:
+            thread.join()
 
         def getElementData(xmlNode, tag):
             tagNodes = xmlNode.getElementsByTagName(tag)
