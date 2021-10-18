@@ -11,8 +11,8 @@ function [errNo] = rotcomp_setLUT(tcp, lut_string)
 
 data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.amc.rotcomp.setLUT", "params": [%s], "id": 1, "api": 2}', lut_string);
 
-fprintf(tcp, data_send);
-data_receive = fscanf(tcp);
+writeline(tcp, data_send);
+data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
 errNo = data.result (1);

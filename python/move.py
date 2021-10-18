@@ -71,7 +71,7 @@ class Move():
 
     def getGroundAxis(self, axis):
         """
-        Pull axis piezo drive to GND actively
+        Checks if the axis piezo drive is actively grounded
             only in AMC300
 
         Parameters
@@ -89,7 +89,6 @@ class Move():
     def getGroundAxisAutoOnTarget(self, axis):
         """
         Pull axis piezo drive to GND if positioner is in ground target range
-            ONLY DUMMY RIGHT NOW
             only in AMC300
 
         Parameters
@@ -270,8 +269,7 @@ class Move():
 
     def setGroundAxisAutoOnTarget(self, axis, enabled):
         """
-        Pull axis piezo drive to GND if positioner is in ground target range
-            ONLY DUMMY RIGHT NOW
+        Pull axis piezo drive to GND actively if positioner is in ground target range
             only in AMC300
             this is used in MIC-Mode
 

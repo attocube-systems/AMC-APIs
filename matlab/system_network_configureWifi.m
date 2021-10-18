@@ -11,8 +11,8 @@ function [errNo] = system_network_configureWifi(tcp, mode, ssid, psk)
 
 data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.system.network.configureWifi", "params": [%i, %s, %s], "id": 1, "api": 2}', mode, ssid, psk);
 
-fprintf(tcp, data_send);
-data_receive = fscanf(tcp);
+writeline(tcp, data_send);
+data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
 errNo = data.result (1);

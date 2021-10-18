@@ -192,6 +192,7 @@ class Rtout():
             self.apply()
         else:
             self.discard()
+        self.device.handleError(response)
         return 
 
     def setControlAQuadBOutResolution(self, axis, resolution):
@@ -211,6 +212,7 @@ class Rtout():
             self.apply()
         else:
             self.discard()
+        self.device.handleError(response)
         return 
 
     def setMode(self, axis, mode):
@@ -230,6 +232,7 @@ class Rtout():
             self.apply()
         else:
             self.discard()
+        self.device.handleError(response)
         return 
 
     def setSignalMode(self, mode):

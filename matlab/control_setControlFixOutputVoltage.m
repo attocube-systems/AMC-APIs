@@ -1,5 +1,5 @@
 function [errNo] = control_setControlFixOutputVoltage(tcp, axis, amplitude_mv)
-% brief : This function sets the DC level output of the selected axis. ( must perform  applyControlFixOutputVoltage to apply on the positioner)
+% brief : This function sets the DC level output of the selected axis.
 %
 % param[in] tcp : TCP/IP connection ID
 %           axis:  [0|1|2]
@@ -10,8 +10,8 @@ function [errNo] = control_setControlFixOutputVoltage(tcp, axis, amplitude_mv)
 
 data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.amc.control.setControlFixOutputVoltage", "params": [%i, %i], "id": 1, "api": 2}', axis, amplitude_mv);
 
-fprintf(tcp, data_send);
-data_receive = fscanf(tcp);
+writeline(tcp, data_send);
+data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
 errNo = data.result (1);

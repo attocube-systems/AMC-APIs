@@ -14,8 +14,8 @@ function [errNo, pos1, pos2, pos3, val1, val2, val3] = control_getPositionsAndVo
 
 data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.amc.control.getPositionsAndVoltages", "params": [], "id": 1, "api": 2}');
 
-fprintf(tcp, data_send);
-data_receive = fscanf(tcp);
+writeline(tcp, data_send);
+data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
 errNo = data.result (1);

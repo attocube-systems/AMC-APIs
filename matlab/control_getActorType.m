@@ -5,13 +5,13 @@ function [errNo, actor_type] = control_getActorType(tcp, axis)
 %           axis:  [0|1|2]
 % param[out]
 %           errNo: errNo
-%           actor_type: actor_type  0: linear , 1: goniometer, 2: rotator
+%           actor_type: actor_type  0: linear, 1: rotator, 2: goniometer
 
 
 data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.amc.control.getActorType", "params": [%i], "id": 1, "api": 2}', axis);
 
-fprintf(tcp, data_send);
-data_receive = fscanf(tcp);
+writeline(tcp, data_send);
+data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
 errNo = data.result (1);

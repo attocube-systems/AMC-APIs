@@ -4,6 +4,10 @@ import sys
 import socket
 import json
 
+from time import time, sleep
+
+from random import randint
+
 from threading import Thread, Lock
 try:
     import netifaces
@@ -20,14 +24,17 @@ class AttoException(Exception):
 
 
 class Device(object):
-    TCP_PORT   = 9090
-    is_open    = False
-    request_id = 0
+    TCP_PORT        = 9090
+    is_open         = False
+    request_id      = randint(0, 1000000)
+    request_id_lock = Lock()
+    response_buffer = {}
 
     def __init__(self, address):
-        self.address  = address
-        self.language = 0
-        self.apiversion = 2
+        self.address        = address
+        self.language       = 0
+        self.apiversion     = 2
+        self.response_lock  = Lock()
 
     def __del__(self):
         self.close()
@@ -62,26 +69,51 @@ class Device(object):
         req = {
                 "jsonrpc": "2.0",
                 "method": method,
-                "id": self.request_id,
                 "api": self.apiversion
-                }
+              }
         if params:
             req["params"] = params
-        self.bufferedSocket.write(json.dumps(req))
-        self.bufferedSocket.flush()
-        self.request_id = self.request_id + 1
+        with Device.request_id_lock:
+            req["id"] = Device.request_id
+            self.bufferedSocket.write(json.dumps(req))
+            self.bufferedSocket.flush()
+            Device.request_id = Device.request_id + 1
+            return req["id"]
 
-    def getResponse(self):
-        response = self.bufferedSocket.readline()
-        return json.loads(response)
+    def getResponse(self, request_id):
+        start_time = time()
+        while True:
+            if request_id in self.response_buffer:
+                response = self.response_buffer[request_id]
+                del self.response_buffer[request_id]
+                return response
+            if time() - start_time > 10:
+                raise TimeoutError("No result")
+
+            # Only one thread is allowed to read buffer
+            # Otherwise, deadlock is possible
+            if self.response_lock.acquire(blocking=False):
+                try:
+                    response = self.bufferedSocket.readline()
+                    parsed = json.loads(response)
+                    if parsed["id"] == request_id:
+                        return parsed
+                    else:
+                        self.response_buffer[parsed["id"]] = parsed
+                finally:
+                    self.response_lock.release()
+            else:
+                # Sleep to unblock scheduler
+                sleep(0.01)
+
 
     def request(self,method,params=False):
         """ Synchronous request.
         """
         if not self.is_open:
             raise AttoException("not connected, use connect()");
-        self.sendRequest(method, params)
-        return self.getResponse()
+        request_id = self.sendRequest(method, params)
+        return self.getResponse(request_id)
 
     def printError(self, errorNumber):
         """ Converts the errorNumber into an error string an prints it to the
@@ -128,9 +160,8 @@ class Device(object):
             try:
                 while True:
                     _, addr = s.recvfrom(65507)
-                    devices_lock.acquire()
-                    devices.append(addr[0])
-                    devices_lock.release()
+                    with devices_lock:
+                        devices.append(addr[0])
             except socket.timeout:
                 pass
 

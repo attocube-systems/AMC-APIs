@@ -10,8 +10,8 @@ function [errNo] = rtout_setControlAQuadBOutClock(tcp, axis, clock)
 
 data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.amc.rtout.setControlAQuadBOutClock", "params": [%i, %i], "id": 1, "api": 2}', axis, clock);
 
-fprintf(tcp, data_send);
-data_receive = fscanf(tcp);
+writeline(tcp, data_send);
+data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
 errNo = data.result (1);
@@ -21,8 +21,8 @@ if errNo == 0
 else
     data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.amc.rtout.discard", "params": [], "id": 1, "api": 2}');
 end
-fprintf(tcp, data_send);
-data_receive = fscanf(tcp);
+writeline(tcp, data_send);
+data_receive = readline(tcp);
 
 end
 

@@ -24,8 +24,8 @@ function [errNo, ref1, ref2, ref3, refpos1, refpos2, refpos3, pos1, pos2, pos3] 
 
 data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.amc.control.MultiAxisPositioning", "params": [%i, %i, %i, %i, %i, %i], "id": 1, "api": 2}', set1, set2, set3, target1, target2, target3);
 
-fprintf(tcp, data_send);
-data_receive = fscanf(tcp);
+writeline(tcp, data_send);
+data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
 errNo = data.result (1);

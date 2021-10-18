@@ -8,8 +8,8 @@ function [errNo, Proxy] = system_network_getProxyServer(tcp)
 
 data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.system.network.getProxyServer", "params": [], "id": 1, "api": 2}');
 
-fprintf(tcp, data_send);
-data_receive = fscanf(tcp);
+writeline(tcp, data_send);
+data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
 errNo = data.result (1);

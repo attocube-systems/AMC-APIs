@@ -30,7 +30,7 @@ class Description():
 
         Returns
         -------
-        devicetype: devicetype Device name (AMC100, AMC300) with attached feature ( AMC100\\NUM, AMC100\\NUM\\PRO)
+        devicetype: devicetype Device name (AMC100, AMC150, AMC300) with attached feature ( AMC100\\NUM, AMC100\\NUM\\PRO)
         """
         response = self.device.request(self.interface_name + "." + "getDeviceType")
         self.device.handleError(response)

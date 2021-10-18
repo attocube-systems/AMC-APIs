@@ -2,8 +2,8 @@ function [] = disconnect(tcp)
 
 % brief : This function closes the connection to a device.
 %
-% param[in] tcp : TCP/IP connection ID
+% param[in] tcp : TCP/IP connection ID, a tcpclient object 
 %
 
-fclose(tcp);
+clear tcp;
 end

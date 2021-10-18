@@ -11,8 +11,8 @@ function [errNo] = move_setNSteps(tcp, axis, backward, step)
 
 data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.amc.move.setNSteps", "params": [%i, %i, %i], "id": 1, "api": 2}', axis, backward, step);
 
-fprintf(tcp, data_send);
-data_receive = fscanf(tcp);
+writeline(tcp, data_send);
+data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
 errNo = data.result (1);

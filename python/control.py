@@ -93,7 +93,7 @@ class Control():
 
         Returns
         -------
-        actor_type: actor_type  0: linear , 1: goniometer, 2: rotator
+        actor_type: actor_type  0: linear, 1: rotator, 2: goniometer
         """
         response = self.device.request(self.interface_name + "." + "getActorType", [axis])
         self.device.handleError(response)
@@ -542,7 +542,7 @@ class Control():
 
     def setControlFixOutputVoltage(self, axis, amplitude_mv):
         """
-        This function sets the DC level output of the selected axis. ( must perform  applyControlFixOutputVoltage to apply on the positioner)
+        This function sets the DC level output of the selected axis.
 
         Parameters
         ----------
@@ -657,7 +657,7 @@ class Control():
         self.device.handleError(response)
         return 
 
-    def setExternalSensor(self, axis, enabled):
+    def setExternalSensor(self, axis, enabled, ignoreFunctionError=True):
         """
         This function sets the sensor source of closed loop to the IDS when enabled. Otherwise the normal AMC Sensor depending on the configuration (e.g. NUM or RES) is used
             It is only available when the feature AMC/IDS closed loop has been activated
@@ -666,11 +666,15 @@ class Control():
         ----------
         axis:  [0|1|2]
         enabled: 
+        ignoreFunctionError : boolean (default: True)
+            True = Do not raise an AttoException if a warning code is returned.
+
         Returns
         -------
-        warning: warning
+        warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
         """
         response = self.device.request(self.interface_name + "." + "setExternalSensor", [axis, enabled])
+        self.device.handleError(response, ignoreFunctionError)
         return response['result'][0]
 
     def setFinePositioningRange(self, axis, range):

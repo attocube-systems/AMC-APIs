@@ -13,8 +13,8 @@ function [errNo] = rtout_setTriggerConfig(tcp, axis, higher, lower, epsilon, pol
 
 data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.amc.rtout.setTriggerConfig", "params": [%i, %i, %i, %i, %i], "id": 1, "api": 2}', axis, higher, lower, epsilon, polarity);
 
-fprintf(tcp, data_send);
-data_receive = fscanf(tcp);
+writeline(tcp, data_send);
+data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
 errNo = data.result (1);

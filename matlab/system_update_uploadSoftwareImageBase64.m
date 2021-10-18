@@ -10,8 +10,8 @@ function [errNo] = system_update_uploadSoftwareImageBase64(tcp, offset, b64Data)
 
 data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.system.update.uploadSoftwareImageBase64", "params": [%i, %s], "id": 1, "api": 2}', offset, b64Data);
 
-fprintf(tcp, data_send);
-data_receive = fscanf(tcp);
+writeline(tcp, data_send);
+data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
 errNo = data.result (1);

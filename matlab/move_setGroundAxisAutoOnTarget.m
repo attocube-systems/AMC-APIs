@@ -1,6 +1,5 @@
 function [errNo] = move_setGroundAxisAutoOnTarget(tcp, axis, enabled)
-% brief : Pull axis piezo drive to GND if positioner is in ground target range
-%            ONLY DUMMY RIGHT NOW
+% brief : Pull axis piezo drive to GND actively if positioner is in ground target range
 %            only in AMC300
 %            this is used in MIC-Mode
 %
@@ -13,8 +12,8 @@ function [errNo] = move_setGroundAxisAutoOnTarget(tcp, axis, enabled)
 
 data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.amc.move.setGroundAxisAutoOnTarget", "params": [%i, %i], "id": 1, "api": 2}', axis, enabled);
 
-fprintf(tcp, data_send);
-data_receive = fscanf(tcp);
+writeline(tcp, data_send);
+data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
 errNo = data.result (1);

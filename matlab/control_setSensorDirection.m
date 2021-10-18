@@ -11,8 +11,8 @@ function [errNo] = control_setSensorDirection(tcp, axis, inverted)
 
 data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.amc.control.setSensorDirection", "params": [%i, %i], "id": 1, "api": 2}', axis, inverted);
 
-fprintf(tcp, data_send);
-data_receive = fscanf(tcp);
+writeline(tcp, data_send);
+data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
 errNo = data.result (1);

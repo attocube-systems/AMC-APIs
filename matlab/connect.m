@@ -4,8 +4,8 @@ function [tcp] = connect(IP)
 %
 % param[in] IP : IP connection of the Device
 %
-% param[out] tcp : TCP/IP connection ID
+% param[out] tcp : TCP/IP connection ID, a tcpclient object 
 
-tcp = tcpip(IP, 9090);
-fopen(tcp);
+tcp = tcpclient(IP, 9090);
+
 end

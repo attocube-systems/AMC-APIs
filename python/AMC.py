@@ -15,6 +15,7 @@ from status import Status
 from system_service import System_service
 from update import Update
 
+
 class Device(ACS.Device):
 
     def __init__ (self, address):

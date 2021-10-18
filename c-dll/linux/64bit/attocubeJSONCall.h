@@ -1,6 +1,6 @@
 /**
     Copyright (C) 2020 attocube systems AG
-    
+
     Usage is up to a separate agreement
 */
 
@@ -50,7 +50,7 @@
 extern "C" {
 #endif
 
-/** \brief : Connect to device at adresse "deviceAddress", on port "port"
+/** \brief : Connect to device at adresse "deviceAddress"
  *
  * \param[in]   deviceAddress : Null terminated string containing ipv4 address of the device
  *
@@ -60,6 +60,15 @@ extern "C" {
  *           The according error in case of failure
  */
 extern int ATTOCUBE_API Connect(const char *deviceAddress, int* deviceHandle);
+
+/** \brief : Set the port used for Connect port"
+ *
+ * \param[in]  port : Port of the Device, defaults to 9090
+ *
+ * \return : ATTOCUBE_Ok if success,
+ *           The according error in case of failure
+ */
+extern int ATTOCUBE_API setPort(const int port);
 
 
 /** \brief : Disconnect from device
@@ -77,7 +86,7 @@ extern int ATTOCUBE_API Disconnect(int deviceHandle);
  *
  *   inputValues and outputValues:
  *   -----------------------------
- *   
+ *
  *   cJSON doesn't really support unsigned types!
  *   Type Specifier    remote type    call type
  *   --------------    -----------    ---------
@@ -94,7 +103,7 @@ extern int ATTOCUBE_API Disconnect(int deviceHandle);
  *   ai                int32 array    int*, number of array entries
  *   au                uint32 array   int*, number of array entries
  *   ad                double array   double*, number of array entries
- *   
+ *
  * \param[in]   interfaceName : Name of the interface
  * \param[in]   inputValues : Definition of input parameters for the ellipsis
  * \param[in]   outputValues : Definition of input parameters for the ellipsis

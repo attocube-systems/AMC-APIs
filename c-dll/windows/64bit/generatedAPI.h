@@ -375,7 +375,7 @@ int ATTOCUBE_API AMC_control_getActorSensitivity(int deviceHandle, int axis, int
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  actor_type: actor_type  0: linear , 1: goniometer, 2: rotator
+*  @param  actor_type: actor_type  0: linear, 1: rotator, 2: goniometer
 *
 *  @return   Result of function
 */
@@ -856,7 +856,7 @@ int ATTOCUBE_API AMC_control_setControlAutoReset(int deviceHandle, int axis, boo
 
 /** @brief @AMC_control_setControlFixOutputVoltage
 *
-*  This function sets the DC level output of the selected axis. ( must perform  applyControlFixOutputVoltage to apply on the positioner)
+*  This function sets the DC level output of the selected axis.
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
@@ -986,10 +986,11 @@ int ATTOCUBE_API AMC_control_setCrosstalkThreshold(int deviceHandle, int axis, i
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
 *  @param  enabled: 
+*  @param  warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_control_setExternalSensor(int deviceHandle, int axis, bool enabled, int* warning);
+int ATTOCUBE_API AMC_control_setExternalSensor(int deviceHandle, int axis, bool enabled, int* warningNo);
 
 
 
@@ -1123,7 +1124,7 @@ int ATTOCUBE_API AMC_description_checkChassisNbr(int deviceHandle, int* slotNbr,
 *  This function gets the device type based on its EEPROM configuration.
 *
 *  @param  deviceHandle  Handle of device
-*  @param  devicetype: devicetype Device name (AMC100, AMC300) with attached feature ( AMC100\\NUM, AMC100\\NUM\\PRO)
+*  @param  devicetype: devicetype Device name (AMC100, AMC150, AMC300) with attached feature ( AMC100\\NUM, AMC100\\NUM\\PRO)
 *  @param  size0 maximum size of previous buffer
 *
 *  @return   Result of function
@@ -1325,7 +1326,7 @@ int ATTOCUBE_API AMC_move_getControlTargetPosition(int deviceHandle, int axis, d
 
 /** @brief @AMC_move_getGroundAxis
 *
-*  Pull axis piezo drive to GND actively
+*  Checks if the axis piezo drive is actively grounded
             only in AMC300
 *
 *  @param  deviceHandle  Handle of device
@@ -1344,7 +1345,6 @@ int ATTOCUBE_API AMC_move_getGroundAxis(int deviceHandle, int axis, bool* ground
 /** @brief @AMC_move_getGroundAxisAutoOnTarget
 *
 *  Pull axis piezo drive to GND if positioner is in ground target range
-            ONLY DUMMY RIGHT NOW
             only in AMC300
 *
 *  @param  deviceHandle  Handle of device
@@ -1536,8 +1536,7 @@ int ATTOCUBE_API AMC_move_setGroundAxis(int deviceHandle, int axis, bool enabled
 
 /** @brief @AMC_move_setGroundAxisAutoOnTarget
 *
-*  Pull axis piezo drive to GND if positioner is in ground target range
-            ONLY DUMMY RIGHT NOW
+*  Pull axis piezo drive to GND actively if positioner is in ground target range
             only in AMC300
             this is used in MIC-Mode
 *
@@ -1728,11 +1727,16 @@ int ATTOCUBE_API AMC_res_setChainGain(int deviceHandle, int axis, int gainconfig
 
 /** @brief @AMC_res_setConfigurationFile
 *
-*  Load configuration file which either contains JSON parameters or the LUT file itself (as legacy support)
+*  Load configuration file which either contains a JSON dict with parameters for the positioner on the axis or the LUT file itself (as legacy support for ANC350 .aps files)
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  content:   1k * 24 bit string or JSON File
+*  @param  content:  JSON Dictionary or .aps File.
+             The JSON Dictonary can/must contain the following keys:
+             'type': mandatory This field has to be one of the positioner list (see getPositionersList)
+             'lut': optional, contains an array of 1024 LUT values that are a mapping between ratio of the RES element travelled (0 to 1) and the corresponding absolute value at this ratio given in [nm].
+             Note: when generating these tables with position data in absolute units, the scaling of the travel ratio with the current sensor range has to be reversed.
+             'lut_sn': optional, a string to uniquely identify the loaded LUT
 *
 *  @return   Result of function
 */
@@ -2470,7 +2474,7 @@ int ATTOCUBE_API AMC_rtout_setTriggerConfig(int deviceHandle, int axis, int high
 *
 *  @param  deviceHandle  Handle of device
 *  @param  axis:  [0|1|2]
-*  @param  value_string1: string can be "moving","in target range", "backward limit reached", "forward limit reached", "positioner not connected", "output not enabled"
+*  @param  value_string1: string can be "moving","in target range", "backward limit reached", "forward limit reached", "positioner not connected", "grounded" (only AMC300), "output not enabled"
 *  @param  size0 maximum size of previous buffer
 *
 *  @return   Result of function
@@ -3276,6 +3280,57 @@ int ATTOCUBE_API system_rebootSystem(int deviceHandle);
 *  @return   Result of function
 */
 int ATTOCUBE_API system_setDeviceName(int deviceHandle, const char* name);
+
+
+
+
+
+
+/** @brief @system_setTime
+*
+*  Set system time manually
+*
+*  @param  deviceHandle  Handle of device
+*  @param  day:  integer: Day (1-31)
+*  @param  month:  integer: Day (1-12)
+*  @param  year:  integer: Day (eg. 2021)
+*  @param  hour:  integer: Day (0-23)
+*  @param  minute:  integer: Day (0-59)
+*  @param  second:  integer: Day (0-59)
+*
+*  @return   Result of function
+*/
+int ATTOCUBE_API system_setTime(int deviceHandle, int day, int month, int year, int hour, int minute, int second);
+
+
+
+
+
+
+/** @brief @system_softReset
+*
+*  Performs a soft reset (Reset without deleting the network settings). Please reboot the device directly afterwards.
+*
+*  @param  deviceHandle  Handle of device
+*
+*  @return   Result of function
+*/
+int ATTOCUBE_API system_softReset(int deviceHandle);
+
+
+
+
+
+
+/** @brief @system_updateTimeFromInternet
+*
+*  Update system time by querying attocube.com
+*
+*  @param  deviceHandle  Handle of device
+*
+*  @return   Result of function
+*/
+int ATTOCUBE_API system_updateTimeFromInternet(int deviceHandle);
 
 
 

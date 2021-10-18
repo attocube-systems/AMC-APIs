@@ -15,7 +15,7 @@ class Status():
 
         Returns
         -------
-        value_string1: string can be "moving","in target range", "backward limit reached", "forward limit reached", "positioner not connected", "output not enabled"
+        value_string1: string can be "moving","in target range", "backward limit reached", "forward limit reached", "positioner not connected", "grounded" (only AMC300), "output not enabled"
         """
         response = self.device.request(self.interface_name + "." + "getFullCombinedStatus", [axis])
         self.device.handleError(response)

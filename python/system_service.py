@@ -186,3 +186,51 @@ class System_service():
         self.device.handleError(response)
         return 
 
+    def setTime(self, day, month, year, hour, minute, second):
+        """
+        Set system time manually
+
+        Parameters
+        ----------
+        day:  integer: Day (1-31)
+        month:  integer: Day (1-12)
+        year:  integer: Day (eg. 2021)
+        hour:  integer: Day (0-23)
+        minute:  integer: Day (0-59)
+        second:  integer: Day (0-59)
+
+        Returns
+        -------
+        """
+        response = self.device.request(self.interface_name + "." + "setTime", [day, month, year, hour, minute, second])
+        self.device.handleError(response)
+        return 
+
+    def softReset(self):
+        """
+        Performs a soft reset (Reset without deleting the network settings). Please reboot the device directly afterwards.
+
+        Parameters
+        ----------
+
+        Returns
+        -------
+        """
+        response = self.device.request(self.interface_name + "." + "softReset")
+        self.device.handleError(response)
+        return 
+
+    def updateTimeFromInternet(self):
+        """
+        Update system time by querying attocube.com
+
+        Parameters
+        ----------
+
+        Returns
+        -------
+        """
+        response = self.device.request(self.interface_name + "." + "updateTimeFromInternet")
+        self.device.handleError(response)
+        return 
+
