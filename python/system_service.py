@@ -50,7 +50,6 @@ class System_service():
         value_string1: string: Error description
         """
         response = self.device.request(self.interface_name + "." + "errorNumberToString", [language, errNbr])
-        self.device.handleError(response)
         return response['result'][1]
 
     def factoryReset(self):
