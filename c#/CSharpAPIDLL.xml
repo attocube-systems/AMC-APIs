@@ -1572,7 +1572,7 @@
             <param name="axis">[0|1|2]</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC.AttocubeAMC.Move_PerformNSteps(System.Int32,System.String)">
+        <member name="M:Attocube.AMC.AttocubeAMC.Move_PerformNSteps(System.Int32,System.Boolean)">
             <summary>
             Perform the OL command for N steps
             </summary>
@@ -2230,6 +2230,12 @@
         <member name="M:Attocube.AMC.AttocubeAMC.FactoryReset">
             <summary>
             Turns on the factory reset flag. To perform the factory reset, a reboot is necessary afterwards. All settings will be set to default and the IDS will be configured as DHCP server.
+            </summary>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC.AttocubeAMC.Functions_CheckAMCinRack">
+            <summary>
+            If AMC is on Rack position 0, use it as DHCP server, else use it as DHCP client
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>

@@ -1439,7 +1439,7 @@ int ATTOCUBE_API AMC_move_moveReference(int deviceHandle, int axis);
 *
 *  @return   Result of function
 */
-int ATTOCUBE_API AMC_move_performNSteps(int deviceHandle, int axis, const char* backward);
+int ATTOCUBE_API AMC_move_performNSteps(int deviceHandle, int axis, bool backward);
 
 
 
@@ -2722,6 +2722,21 @@ int ATTOCUBE_API system_errorNumberToString(int deviceHandle, int language, int 
 *  @return   Result of function
 */
 int ATTOCUBE_API system_factoryReset(int deviceHandle);
+
+
+
+
+
+
+/** @brief @system_functions_checkAMCinRack
+*
+*  If AMC is on Rack position 0, use it as DHCP server, else use it as DHCP client
+*
+*  @param  deviceHandle  Handle of device
+*
+*  @return   Result of function
+*/
+int ATTOCUBE_API system_functions_checkAMCinRack(int deviceHandle);
 
 
 

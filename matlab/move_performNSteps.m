@@ -8,7 +8,7 @@ function [errNo] = move_performNSteps(tcp, axis, backward)
 %           errNo: errNo
 
 
-data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.amc.move.performNSteps", "params": [%i, %s], "id": 1, "api": 2}', axis, backward);
+data_send = sprintf('{"jsonrpc": "2.0", "method": "com.attocube.amc.move.performNSteps", "params": [%i, %i], "id": 1, "api": 2}', axis, backward);
 
 writeline(tcp, data_send);
 data_receive = readline(tcp);

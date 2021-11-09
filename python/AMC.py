@@ -5,6 +5,7 @@ from amcids import Amcids
 from control import Control
 from description import Description
 from diagnostic import Diagnostic
+from functions import Functions
 from move import Move
 from network import Network
 from res import Res
@@ -28,6 +29,7 @@ class Device(ACS.Device):
         self.control = Control(self)
         self.description = Description(self)
         self.diagnostic = Diagnostic(self)
+        self.functions = Functions(self)
         self.move = Move(self)
         self.network = Network(self)
         self.res = Res(self)
