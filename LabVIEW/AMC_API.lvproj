@@ -10,6 +10,7 @@
 		<Property Name="server.vi.callsEnabled" Type="Bool">true</Property>
 		<Property Name="server.vi.propertiesEnabled" Type="Bool">true</Property>
 		<Property Name="specify.custom.address" Type="Bool">false</Property>
+		<Item Name="AMC_Discovery.lvlib" Type="Library" URL="../AMC_Discovery.lvlib"/>
 		<Item Name="AMC_LabVIEW_GUI_Examle_.vi" Type="VI" URL="../AMC_LabVIEW_GUI_Examle_.vi"/>
 		<Item Name="AMC_VIs.lvlib" Type="Library" URL="../AMC_VIs.lvlib"/>
 		<Item Name="Dependencies" Type="Dependencies">
