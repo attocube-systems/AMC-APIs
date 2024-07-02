@@ -1,10 +1,10 @@
 function [errNo] = control_setCrosstalkThreshold(tcp, axis, threshold, slipphasetime)
-% brief : This function sets the threshold range and slip phase time which is used while moving another axis
+% brief : This function sets the threshold range to avoid axis-crosstalk and slip phase time which is used while moving another axis
 %
-% param[in] tcp : TCP/IP connection ID
-%           axis:  [0|1|2]
-%           threshold:  in pm
-%           slipphasetime:  time after slip phase which is waited until the controller is acting again in microseconds
+% param[in] tcp: TCP/IP connection ID
+%           axis: [0|1|2]
+%           threshold: [max:2147483647][pm]; has to be greater than the motion-control-threshold
+%           slipphasetime: [min=0,max=65535][us] time after slip phase which is waited until the controller acts again
 % param[out]
 %           errNo: errNo
 
@@ -15,9 +15,7 @@ writeline(tcp, data_send);
 data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
-errNo = data.result (1);
+errNo = data.result(1);
 
 
 end
-
-

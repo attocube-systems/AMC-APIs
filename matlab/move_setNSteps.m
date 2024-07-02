@@ -1,10 +1,10 @@
 function [errNo] = move_setNSteps(tcp, axis, backward, step)
-% brief : This function triggers n steps on the selected axis in desired direction. /PRO feature.
+% brief : This function triggers n steps on the selected axis in desired direction.
 %
-% param[in] tcp : TCP/IP connection ID
-%           axis:  [0|1|2]
-%           backward:  Selects the desired direction. False triggers a forward step, true a backward step
-%           step:  number of step
+% param[in] tcp: TCP/IP connection ID
+%           axis: [0|1|2]
+%           backward: Selects the desired direction. False triggers a forward step, true a backward step
+%           step: number of step
 % param[out]
 %           errNo: errNo
 
@@ -15,9 +15,7 @@ writeline(tcp, data_send);
 data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
-errNo = data.result (1);
+errNo = data.result(1);
 
 
 end
-
-

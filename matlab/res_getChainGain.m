@@ -1,8 +1,8 @@
 function [errNo, gaincoeff] = res_getChainGain(tcp, axis)
 % brief : Get chain gain, see setChainGain for parameter description
 %
-% param[in] tcp : TCP/IP connection ID
-%           axis:  number of axis
+% param[in] tcp: TCP/IP connection ID
+%           axis: number of axis
 % param[out]
 %           errNo: errNo
 %           gaincoeff: gaincoeff
@@ -14,10 +14,8 @@ writeline(tcp, data_send);
 data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
-errNo = data.result (1);
-gaincoeff = data.result (2);
+errNo = data.result(1);
+gaincoeff = data.result(2);
 
 
 end
-
-

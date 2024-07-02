@@ -1,8 +1,8 @@
 function [errNo, temperature] = diagnostic_getDiagnosticTemperature(tcp, axis)
 % brief : Returns the current axis temperature
 %
-% param[in] tcp : TCP/IP connection ID
-%           axis:  [0|1|2]
+% param[in] tcp: TCP/IP connection ID
+%           axis: [0|1|2]
 % param[out]
 %           errNo: errNo
 %           temperature: temperature
@@ -14,10 +14,8 @@ writeline(tcp, data_send);
 data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
-errNo = data.result (1);
-temperature = data.result (2);
+errNo = data.result(1);
+temperature = data.result(2);
 
 
 end
-
-

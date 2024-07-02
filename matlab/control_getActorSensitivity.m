@@ -1,8 +1,8 @@
 function [errNo, sensitivity] = control_getActorSensitivity(tcp, axis)
 % brief : Get the setting for the actor parameter sensitivity
 %
-% param[in] tcp : TCP/IP connection ID
-%           axis:  [0|1|2]
+% param[in] tcp: TCP/IP connection ID
+%           axis: [0|1|2]
 % param[out]
 %           errNo: errNo
 %           sensitivity: sensitivity
@@ -14,10 +14,8 @@ writeline(tcp, data_send);
 data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
-errNo = data.result (1);
-sensitivity = data.result (2);
+errNo = data.result(1);
+sensitivity = data.result(2);
 
 
 end
-
-

@@ -1,9 +1,9 @@
 function [errNo] = control_setControlAutoReset(tcp, axis, enable)
 % brief : This function resets the position every time the reference position is detected.
 %
-% param[in] tcp : TCP/IP connection ID
-%           axis:  [0|1|2]
-%           enable:  boolean
+% param[in] tcp: TCP/IP connection ID
+%           axis: [0|1|2]
+%           enable: boolean
 % param[out]
 %           errNo: errNo
 
@@ -14,9 +14,7 @@ writeline(tcp, data_send);
 data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
-errNo = data.result (1);
+errNo = data.result(1);
 
 
 end
-
-

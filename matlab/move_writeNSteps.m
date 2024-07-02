@@ -1,9 +1,9 @@
 function [errNo] = move_writeNSteps(tcp, axis, step)
-% brief : Sets the number of steps to perform on stepwise movement. /PRO feature.
+% brief : Sets the number of steps to perform on stepwise movement.
 %
-% param[in] tcp : TCP/IP connection ID
-%           axis:  [0|1|2]
-%           step:  number of step
+% param[in] tcp: TCP/IP connection ID
+%           axis: [0|1|2]
+%           step: number of step
 % param[out]
 %           errNo: errNo
 
@@ -14,9 +14,7 @@ writeline(tcp, data_send);
 data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
-errNo = data.result (1);
+errNo = data.result(1);
 
 
 end
-
-

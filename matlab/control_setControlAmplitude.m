@@ -1,9 +1,9 @@
 function [errNo] = control_setControlAmplitude(tcp, axis, amplitude)
 % brief : This function sets the amplitude of the actuator signal of the selected axis.
 %
-% param[in] tcp : TCP/IP connection ID
-%           axis:  [0|1|2]
-%           amplitude:  in mV
+% param[in] tcp: TCP/IP connection ID
+%           axis: [0|1|2]
+%           amplitude: in mV
 % param[out]
 %           errNo: errNo
 
@@ -14,9 +14,7 @@ writeline(tcp, data_send);
 data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
-errNo = data.result (1);
+errNo = data.result(1);
 
 
 end
-
-

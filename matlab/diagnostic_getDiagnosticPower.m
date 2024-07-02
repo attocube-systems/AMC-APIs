@@ -1,8 +1,8 @@
 function [errNo, power] = diagnostic_getDiagnosticPower(tcp, axis)
 % brief : Returns the current power consumption
 %
-% param[in] tcp : TCP/IP connection ID
-%           axis:  [0|1|2]
+% param[in] tcp: TCP/IP connection ID
+%           axis: [0|1|2]
 % param[out]
 %           errNo: errNo
 %           power: power
@@ -14,10 +14,8 @@ writeline(tcp, data_send);
 data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
-errNo = data.result (1);
-power = data.result (2);
+errNo = data.result(1);
+power = data.result(2);
 
 
 end
-
-

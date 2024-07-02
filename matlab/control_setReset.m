@@ -1,10 +1,8 @@
 function [errNo] = control_setReset(tcp, axis)
 % brief : This function resets the actual position of the selected axis given by the NUM sensor to zero and marks the reference position as invalid.
-%            It does not work for RES positioners and positions read by IDS.
-%            For IDS, use com.attocube.ids.displacement.resetAxis() or com.attocube.amc.amcids.resetIdsAxis() instead.
 %
-% param[in] tcp : TCP/IP connection ID
-%           axis:  [0|1|2]
+% param[in] tcp: TCP/IP connection ID
+%           axis: [0|1|2]
 % param[out]
 %           errNo: errNo
 
@@ -15,9 +13,7 @@ writeline(tcp, data_send);
 data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
-errNo = data.result (1);
+errNo = data.result(1);
 
 
 end
-
-

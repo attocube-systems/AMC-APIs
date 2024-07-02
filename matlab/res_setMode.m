@@ -1,11 +1,8 @@
 function [errNo] = res_setMode(tcp, mode)
-% brief : Sets the mode of the RES position measurement
-%            This selects which frequency/ies are used for the lock-in measurement of the RES position, currently there are two possibilities:
-%            1: Individual per axis: each axis is measured on a different frequency; this mode reduces noise coupling between axes, while requiring more wiring
-%            2: Shared line/MIC-Mode: each axis is measured on the same frequency, which reduces the number of required wires while more coupling noise is excpected
+% brief : Sets the mode of the RES position measurement This selects which frequency/ies are used for the lock-in measurement of the RES position, currently there are two possibilities: 1: Individual per axis: each axis is measured on a different frequency; this mode reduces noise coupling between axes, while requiring more wiring 2: Shared line/MIC-Mode: each axis is measured on the same frequency, which reduces the number of required wires while more coupling noise is excpected 3: Same as 1, but with overall lower frequencies.
 %
-% param[in] tcp : TCP/IP connection ID
-%           mode:  1: Individual per axis 2: Shared line mode
+% param[in] tcp: TCP/IP connection ID
+%           mode: 1: Individual per axis, 2: Shared line mode, 3: Individual per axis (low frequency), 4: Shared line mode (low frequency)
 % param[out]
 %           errNo: errNo
 
@@ -16,9 +13,7 @@ writeline(tcp, data_send);
 data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
-errNo = data.result (1);
+errNo = data.result(1);
 
 
 end
-
-

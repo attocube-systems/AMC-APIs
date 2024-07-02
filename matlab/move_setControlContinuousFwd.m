@@ -1,9 +1,9 @@
 function [errNo] = move_setControlContinuousFwd(tcp, axis, enable)
 % brief : This function sets a continuous movement on the selected axis in positive direction.
 %
-% param[in] tcp : TCP/IP connection ID
-%           axis:  [0|1|2]
-%           enable:  If enabled a present movement in the opposite direction is stopped. The parameter "false" stops all movement of the axis regardless its direction.
+% param[in] tcp: TCP/IP connection ID
+%           axis: [0|1|2]
+%           enable: If enabled a present movement in the opposite direction is stopped. The parameter "false" stops all movement of the axis regardless its direction.
 % param[out]
 %           errNo: errNo
 
@@ -14,9 +14,7 @@ writeline(tcp, data_send);
 data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
-errNo = data.result (1);
+errNo = data.result(1);
 
 
 end
-
-

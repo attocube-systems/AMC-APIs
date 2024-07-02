@@ -22,6 +22,25 @@ class AttoException(Exception):
         self.errorText = errorText
         self.errorNumber = errorNumber
 
+class AttoResult():
+    def __init__(self, resultDict):
+        self.resultDict = resultDict
+
+    def __getitem__(self, index):
+        if "error" in self.resultDict:
+            raise AttoException("JSON error in %s" % self.resultDict['error'])
+
+        resultList = self.resultDict.get("result", [])
+        if len(resultList) <= index:
+            raise AttoException(errorText="Unknown error occured", errorNumber=-1)
+        return resultList[index]
+
+    def __repr__(self):
+        return json.dumps(self.resultDict)
+
+    def __str__(self):
+        return self.__repr__()
+
 
 class Device(object):
     TCP_PORT        = 9090
@@ -37,6 +56,13 @@ class Device(object):
         self.response_lock  = Lock()
 
     def __del__(self):
+        self.close()
+
+    def __enter__(self):
+        self.connect()
+        return self
+
+    def __exit__(self, exc_type, exc_value, traceback):
         self.close()
 
     def connect(self):
@@ -97,9 +123,9 @@ class Device(object):
                     response = self.bufferedSocket.readline()
                     parsed = json.loads(response)
                     if parsed["id"] == request_id:
-                        return parsed
+                        return AttoResult(parsed)
                     else:
-                        self.response_buffer[parsed["id"]] = parsed
+                        self.response_buffer[parsed["id"]] = AttoResult(parsed)
                 finally:
                     self.response_lock.release()
             else:
@@ -125,9 +151,7 @@ class Device(object):
         print("Error! " + str(self.system_service.errorNumberToString(self.language, errorNumber)[1]))
 
     def handleError(self, response, ignoreFunctionError=False):
-        if response.get('error', False):
-            raise AttoException("JSON error in %s" % response['error'])
-        errNo = response['result'][0]
+        errNo = response[0]
         if (errNo != 0 and errNo != 'null' and not ignoreFunctionError):
             raise AttoException(("Error! " + str(self.system_service.errorNumberToString(self.language ,errNo))), errNo)
         return errNo

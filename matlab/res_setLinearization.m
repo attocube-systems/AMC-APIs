@@ -1,9 +1,9 @@
 function [errNo] = res_setLinearization(tcp, axis, enable)
 % brief : Control if linearization is enabled or not
 %
-% param[in] tcp : TCP/IP connection ID
-%           axis:  [0|1|2]
-%           enable:  boolean ( true: enable linearization)
+% param[in] tcp: TCP/IP connection ID
+%           axis: [0|1|2]
+%           enable: boolean ( true: enable linearization)
 % param[out]
 %           errNo: errNo
 
@@ -14,9 +14,7 @@ writeline(tcp, data_send);
 data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
-errNo = data.result (1);
+errNo = data.result(1);
 
 
 end
-
-

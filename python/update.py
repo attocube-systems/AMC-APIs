@@ -1,97 +1,83 @@
-    
-class Update():
-
+class Update:
     def __init__(self, device):
         self.device = device
         self.interface_name = "com.attocube.system.update"
-            
-    def getLicenseUpdateProgress(self):
-        """
-        Get the progress of running license update
-
-        Parameters
-        ----------
-
-        Returns
-        -------
-        value_int1: int: progress in percent
-        """
-        response = self.device.request(self.interface_name + "." + "getLicenseUpdateProgress")
-        self.device.handleError(response)
-        return response['result'][1]
 
     def getSwUpdateProgress(self):
+        # type: () -> (int)
         """
         Get the progress of running update
-
-        Parameters
-        ----------
-
-        Returns
-        -------
-        value_int1: int: progress in percent
+        Returns:
+            value_errNo: errNo errorCode
+            value_int: int: progress in percent
+                    
         """
-        response = self.device.request(self.interface_name + "." + "getSwUpdateProgress")
+        
+        response = self.device.request(self.interface_name + ".getSwUpdateProgress")
         self.device.handleError(response)
-        return response['result'][1]
+        return response[1]                
 
-    def licenseUpdateBase64(self):
+    def getLicenseUpdateProgress(self):
+        # type: () -> (int)
         """
-        Execute the license update with base64 file uploaded. After execution, a manual reboot is nevessary.
-
-        Parameters
-        ----------
-
-        Returns
-        -------
+        Get the progress of running license update
+        Returns:
+            value_errNo: errNo errorCode
+            value_int: int: progress in percent
+                    
         """
-        response = self.device.request(self.interface_name + "." + "licenseUpdateBase64")
+        
+        response = self.device.request(self.interface_name + ".getLicenseUpdateProgress")
         self.device.handleError(response)
-        return 
+        return response[1]                
 
     def softwareUpdateBase64(self):
+        # type: () -> ()
         """
-        Execute the update with base64 file uploaded. After completion, a manual reboot is necessary.
-
-        Parameters
-        ----------
-
-        Returns
-        -------
+        Execute the update with base64 file uploaded.
         """
-        response = self.device.request(self.interface_name + "." + "softwareUpdateBase64")
+        
+        response = self.device.request(self.interface_name + ".softwareUpdateBase64")
         self.device.handleError(response)
-        return 
-
-    def uploadLicenseBase64(self, offset, b64Data):
-        """
-        Upload new license file in format base 64
-
-        Parameters
-        ----------
-        offset:  int: offset of the data
-        b64Data:  string: base64 data
-
-        Returns
-        -------
-        """
-        response = self.device.request(self.interface_name + "." + "uploadLicenseBase64", [offset, b64Data])
-        self.device.handleError(response)
-        return 
+        return                 
 
     def uploadSoftwareImageBase64(self, offset, b64Data):
+        # type: (int, str) -> ()
         """
         Upload new firmware image in format base 64
 
-        Parameters
-        ----------
-        offset:  int: offset of the data
-        b64Data:  string: base64 data
-
-        Returns
-        -------
+        Parameters:
+            offset: int: offset of the data
+            b64Data: string: base64 data
+                    
         """
-        response = self.device.request(self.interface_name + "." + "uploadSoftwareImageBase64", [offset, b64Data])
+        
+        response = self.device.request(self.interface_name + ".uploadSoftwareImageBase64", [offset, b64Data, ])
         self.device.handleError(response)
-        return 
+        return                 
+
+    def uploadLicenseBase64(self, offset, b64Data):
+        # type: (int, str) -> ()
+        """
+        Upload new license file in format base 64
+
+        Parameters:
+            offset: int: offset of the data
+            b64Data: string: base64 data
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".uploadLicenseBase64", [offset, b64Data, ])
+        self.device.handleError(response)
+        return                 
+
+    def licenseUpdateBase64(self):
+        # type: () -> ()
+        """
+        Execute the license update with base64 file uploaded.
+        """
+        
+        response = self.device.request(self.interface_name + ".licenseUpdateBase64")
+        self.device.handleError(response)
+        return                 
 

@@ -1,9 +1,9 @@
 function [errNo] = rtin_setRealTimeInFeedbackLoopMode(tcp, axis, mode)
 % brief : Set if the realtime function must operate in close loop operation or open loop operation
 %
-% param[in] tcp : TCP/IP connection ID
-%           axis:  [0|1|2]
-%           mode:  0: open loop, 1 : close-loop
+% param[in] tcp: TCP/IP connection ID
+%           axis: [0|1|2]
+%           mode: 0: open loop, 1 : close-loop
 % param[out]
 %           errNo: errNo
 
@@ -14,9 +14,7 @@ writeline(tcp, data_send);
 data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
-errNo = data.result (1);
+errNo = data.result(1);
 
 
 end
-
-

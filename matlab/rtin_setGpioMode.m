@@ -1,10 +1,8 @@
 function [errNo] = rtin_setGpioMode(tcp, gpio_mode)
 % brief : set the GPIO mode for Mic Mode feature
 %
-% param[in] tcp : TCP/IP connection ID
-%           gpio_mode:  [0|1]
-%              0: Standard GPIO
-%              1: NSL-/Mic-Mode
+% param[in] tcp: TCP/IP connection ID
+%           gpio_mode: [0|1]  0: Standard GPIO  1: NSL-/Mic-Mode
 % param[out]
 %           errNo: errNo
 
@@ -15,9 +13,7 @@ writeline(tcp, data_send);
 data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
-errNo = data.result (1);
+errNo = data.result(1);
 
 
 end
-
-

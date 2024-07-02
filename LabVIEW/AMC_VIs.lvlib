@@ -1,12 +1,13 @@
 ﻿<?xml version='1.0' encoding='UTF-8'?>
-<Library LVVersion="15008000">
-	<Property Name="NI.Lib.Icon" Type="Bin">&amp;1#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!(]!!!*Q(C=\&gt;8"=&gt;MQ%!8143;(8.6"2CVM#WJ",7Q,SN&amp;(N&lt;!NK!7VM#WI"&lt;8A0$%94UZ2$P%E"Y.?G@I%A7=11U&gt;M\7P%FXB^VL\`NHV=@X&lt;^39O0^N(_&lt;8NZOEH@@=^_CM?,3)VK63LD-&gt;8LS%=_]J'0@/1N&lt;XH,7^\SFJ?]Z#5P?=F,HP+5JTTF+5`Z&gt;MB$(P+1)YX*RU2DU$(![)Q3YW.YBG&gt;YBM@8'*\B':\B'2Z&gt;9HC':XC':XD=&amp;M-T0--T0-.DK%USWS(H'2\$2`-U4`-U4`/9-JKH!&gt;JE&lt;?!W#%;UC_WE?:KH?:R']T20]T20]\A=T&gt;-]T&gt;-]T?/7&lt;66[UTQ//9^BIHC+JXC+JXA-(=640-640-6DOCC?YCG)-G%:(#(+4;6$_6)]R?.8&amp;%`R&amp;%`R&amp;)^,WR/K&lt;75?GM=BZUG?Z%G?Z%E?1U4S*%`S*%`S'$;3*XG3*XG3RV320-G40!G3*D6^J-(3D;F4#J,(T\:&lt;=HN+P5FS/S,7ZIWV+7.NNFC&lt;+.&lt;GC0819TX-7!]JVO,(7N29CR6L%7,^=&lt;(1M4#R*IFV][.DX(X?V&amp;6&gt;V&amp;G&gt;V&amp;%&gt;V&amp;\N(L@_Z9\X_TVONVN=L^?Y8#ZR0J`D&gt;$L&amp;]8C-Q_%1_`U_&gt;LP&gt;WWPAG_0NB@$TP@4C`%`KH@[8`A@PRPA=PYZLD8Y!#/7SO!!!!!!</Property>
+<Library LVVersion="16008000">
+	<Property Name="NI.Lib.Icon" Type="Bin">&amp;A#!!!!!!!)!"1!&amp;!!!-!%!!!@````]!!!!"!!%!!!(]!!!*Q(C=\&gt;8"=&gt;MQ%!8143;(8.6"2CVM#WJ",7Q,SN&amp;(N&lt;!NK!7VM#WI"&lt;8A0$%94UZ2$P%E"Y.?G@I%A7=11U&gt;M\7P%FXB^VL\`NHV=@X&lt;^39O0^N(_&lt;8NZOEH@@=^_CM?,3)VK63LD-&gt;8LS%=_]J'0@/1N&lt;XH,7^\SFJ?]Z#5P?=F,HP+5JTTF+5`Z&gt;MB$(P+1)YX*RU2DU$(![)Q3YW.YBG&gt;YBM@8'*\B':\B'2Z&gt;9HC':XC':XD=&amp;M-T0--T0-.DK%USWS(H'2\$2`-U4`-U4`/9-JKH!&gt;JE&lt;?!W#%;UC_WE?:KH?:R']T20]T20]\A=T&gt;-]T&gt;-]T?/7&lt;66[UTQ//9^BIHC+JXC+JXA-(=640-640-6DOCC?YCG)-G%:(#(+4;6$_6)]R?.8&amp;%`R&amp;%`R&amp;)^,WR/K&lt;75?GM=BZUG?Z%G?Z%E?1U4S*%`S*%`S'$;3*XG3*XG3RV320-G40!G3*D6^J-(3D;F4#J,(T\:&lt;=HN+P5FS/S,7ZIWV+7.NNFC&lt;+.&lt;GC0819TX-7!]JVO,(7N29CR6L%7,^=&lt;(1M4#R*IFV][.DX(X?V&amp;6&gt;V&amp;G&gt;V&amp;%&gt;V&amp;\N(L@_Z9\X_TVONVN=L^?Y8#ZR0J`D&gt;$L&amp;]8C-Q_%1_`U_&gt;LP&gt;WWPAG_0NB@$TP@4C`%`KH@[8`A@PRPA=PYZLD8Y!#/7SO!!!!!!</Property>
+	<Property Name="NI.Lib.SourceVersion" Type="Int">369131520</Property>
 	<Property Name="NI.Lib.Version" Type="Str">1.0.0.0</Property>
 	<Item Name="access" Type="Folder">
-		<Item Name="getLockStatus.vi" Type="VI" URL="../access/getLockStatus.vi"/>
-		<Item Name="grantAccess.vi" Type="VI" URL="../access/grantAccess.vi"/>
-		<Item Name="lock.vi" Type="VI" URL="../access/lock.vi"/>
-		<Item Name="unlock.vi" Type="VI" URL="../access/unlock.vi"/>
+		<Item Name="getLockStatus.vi" Type="VI" URL="../ACCESS/getLockStatus.vi"/>
+		<Item Name="grantAccess.vi" Type="VI" URL="../ACCESS/grantAccess.vi"/>
+		<Item Name="lock.vi" Type="VI" URL="../ACCESS/lock.vi"/>
+		<Item Name="unlock.vi" Type="VI" URL="../ACCESS/unlock.vi"/>
 	</Item>
 	<Item Name="control" Type="Folder">
 		<Item Name="LegacyVIs_control" Type="Folder">
@@ -42,14 +43,19 @@
 		<Item Name="getControlTargetRange.vi" Type="VI" URL="../control/getControlTargetRange.vi"/>
 		<Item Name="getCrosstalkThreshold.vi" Type="VI" URL="../control/getCrosstalkThreshold.vi"/>
 		<Item Name="getCurrentOutputVoltage.vi" Type="VI" URL="../control/getCurrentOutputVoltage.vi"/>
+		<Item Name="getEOTParameters.vi" Type="VI" URL="../control/getEOTParameters.vi"/>
 		<Item Name="getExternalSensor.vi" Type="VI" URL="../control/getExternalSensor.vi"/>
+		<Item Name="getFinePositioningRange.vi" Type="VI" URL="../control/getFinePositioningRange.vi"/>
+		<Item Name="getFinePositioningSlewRate.vi" Type="VI" URL="../control/getFinePositioningSlewRate.vi"/>
 		<Item Name="getMotionControlThreshold.vi" Type="VI" URL="../control/getMotionControlThreshold.vi"/>
+		<Item Name="getMoveParametersAllAxis.vi" Type="VI" URL="../control/getMoveParametersAllAxis.vi"/>
 		<Item Name="getPositionsAndVoltages.vi" Type="VI" URL="../control/getPositionsAndVoltages.vi"/>
 		<Item Name="getReferencePosition.vi" Type="VI" URL="../control/getReferencePosition.vi"/>
 		<Item Name="getSensorDirection.vi" Type="VI" URL="../control/getSensorDirection.vi"/>
 		<Item Name="getSensorEnabled.vi" Type="VI" URL="../control/getSensorEnabled.vi"/>
 		<Item Name="getStatusMovingAllAxes.vi" Type="VI" URL="../control/getStatusMovingAllAxes.vi"/>
 		<Item Name="MultiAxisPositioning.vi" Type="VI" URL="../control/MultiAxisPositioning.vi"/>
+		<Item Name="MultiAxisPositioningWithTime.vi" Type="VI" URL="../control/MultiAxisPositioningWithTime.vi"/>
 		<Item Name="searchReferencePosition.vi" Type="VI" URL="../control/searchReferencePosition.vi"/>
 		<Item Name="setActorParametersByName.vi" Type="VI" URL="../control/setActorParametersByName.vi"/>
 		<Item Name="setActorParametersJson.vi" Type="VI" URL="../control/setActorParametersJson.vi"/>
@@ -64,7 +70,10 @@
 		<Item Name="setControlReferenceAutoUpdate.vi" Type="VI" URL="../control/setControlReferenceAutoUpdate.vi"/>
 		<Item Name="setControlTargetRange.vi" Type="VI" URL="../control/setControlTargetRange.vi"/>
 		<Item Name="setCrosstalkThreshold.vi" Type="VI" URL="../control/setCrosstalkThreshold.vi"/>
+		<Item Name="setEOTParameters.vi" Type="VI" URL="../control/setEOTParameters.vi"/>
 		<Item Name="setExternalSensor.vi" Type="VI" URL="../control/setExternalSensor.vi"/>
+		<Item Name="setFinePositioningRange.vi" Type="VI" URL="../control/setFinePositioningRange.vi"/>
+		<Item Name="setFinePositioningSlewRate.vi" Type="VI" URL="../control/setFinePositioningSlewRate.vi"/>
 		<Item Name="setMotionControlThreshold.vi" Type="VI" URL="../control/setMotionControlThreshold.vi"/>
 		<Item Name="setReset.vi" Type="VI" URL="../control/setReset.vi"/>
 		<Item Name="setSensorDirection.vi" Type="VI" URL="../control/setSensorDirection.vi"/>
@@ -83,6 +92,7 @@
 	<Item Name="diagnostic" Type="Folder">
 		<Item Name="getDiagnosticPower.vi" Type="VI" URL="../diagnostic/getDiagnosticPower.vi"/>
 		<Item Name="getDiagnosticResults.vi" Type="VI" URL="../diagnostic/getDiagnosticResults.vi"/>
+		<Item Name="getDiagnosticStepSize.vi" Type="VI" URL="../diagnostic/getDiagnosticStepSize.vi"/>
 		<Item Name="getDiagnosticTemperature.vi" Type="VI" URL="../diagnostic/getDiagnosticTemperature.vi"/>
 		<Item Name="measureCapacitanceAndResistance.vi" Type="VI" URL="../diagnostic/measureCapacitanceAndResistance.vi"/>
 		<Item Name="startDiagnostic.vi" Type="VI" URL="../diagnostic/startDiagnostic.vi"/>
@@ -108,6 +118,9 @@
 		<Item Name="getGroundTargetRange.vi" Type="VI" URL="../move/getGroundTargetRange.vi"/>
 		<Item Name="getNSteps.vi" Type="VI" URL="../move/getNSteps.vi"/>
 		<Item Name="getPosition.vi" Type="VI" URL="../move/getPosition.vi"/>
+		<Item Name="getPositionAllAxis.vi" Type="VI" URL="../move/getPositionAllAxis.vi"/>
+		<Item Name="getPositionWithTime.vi" Type="VI" URL="../move/getPositionWithTime.vi"/>
+		<Item Name="getPositionWithTime_32Bit.vi" Type="VI" URL="../move/getPositionWithTime_32Bit.vi"/>
 		<Item Name="moveReference.vi" Type="VI" URL="../move/moveReference.vi"/>
 		<Item Name="performNSteps.vi" Type="VI" URL="../move/performNSteps.vi"/>
 		<Item Name="setControlContinuousBkwd.vi" Type="VI" URL="../move/setControlContinuousBkwd.vi"/>
@@ -125,19 +138,23 @@
 	</Item>
 	<Item Name="res" Type="Folder">
 		<Item Name="LegacyVIs_res" Type="Folder">
-			<Item Name="controlChainGain.vi" Type="VI" URL="../res/LegacyVIs_res/controlChainGain.vi"/>
-			<Item Name="controlLinearization.vi" Type="VI" URL="../res/LegacyVIs_res/controlLinearization.vi"/>
-			<Item Name="controlMode.vi" Type="VI" URL="../res/LegacyVIs_res/controlMode.vi"/>
+			<Item Name="controlChainGain.vi" Type="VI" URL="../RES/LegacyVIs_res/controlChainGain.vi"/>
+			<Item Name="controlLinearization.vi" Type="VI" URL="../RES/LegacyVIs_res/controlLinearization.vi"/>
+			<Item Name="controlMode.vi" Type="VI" URL="../RES/LegacyVIs_res/controlMode.vi"/>
 		</Item>
-		<Item Name="getChainGain.vi" Type="VI" URL="../res/getChainGain.vi"/>
-		<Item Name="getLinearization.vi" Type="VI" URL="../res/getLinearization.vi"/>
-		<Item Name="getLutSn.vi" Type="VI" URL="../res/getLutSn.vi"/>
-		<Item Name="getMode.vi" Type="VI" URL="../res/getMode.vi"/>
-		<Item Name="loadLUTFile.vi" Type="VI" URL="../res/loadLUTFile.vi"/>
-		<Item Name="setChainGain.vi" Type="VI" URL="../res/setChainGain.vi"/>
-		<Item Name="setConfigurationFile.vi" Type="VI" URL="../res/setConfigurationFile.vi"/>
-		<Item Name="setLinearization.vi" Type="VI" URL="../res/setLinearization.vi"/>
-		<Item Name="setMode.vi" Type="VI" URL="../res/setMode.vi"/>
+		<Item Name="getChainGain.vi" Type="VI" URL="../RES/getChainGain.vi"/>
+		<Item Name="getFrameSize.vi" Type="VI" URL="../RES/getFrameSize.vi"/>
+		<Item Name="getLinearization.vi" Type="VI" URL="../RES/getLinearization.vi"/>
+		<Item Name="getLutSn.vi" Type="VI" URL="../RES/getLutSn.vi"/>
+		<Item Name="getMode.vi" Type="VI" URL="../RES/getMode.vi"/>
+		<Item Name="getReadOutFreq.vi" Type="VI" URL="../RES/getReadOutFreq.vi"/>
+		<Item Name="loadLutFile.vi" Type="VI" URL="../RES/loadLutFile.vi"/>
+		<Item Name="setChainGain.vi" Type="VI" URL="../RES/setChainGain.vi"/>
+		<Item Name="setConfigurationFile.vi" Type="VI" URL="../RES/setConfigurationFile.vi"/>
+		<Item Name="setFrameSize.vi" Type="VI" URL="../RES/setFrameSize.vi"/>
+		<Item Name="setLinearization.vi" Type="VI" URL="../RES/setLinearization.vi"/>
+		<Item Name="setMode.vi" Type="VI" URL="../RES/setMode.vi"/>
+		<Item Name="setReadOutFreq.vi" Type="VI" URL="../RES/setReadOutFreq.vi"/>
 	</Item>
 	<Item Name="rtin" Type="Folder">
 		<Item Name="LegacyVIs_rtin" Type="Folder">

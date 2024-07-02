@@ -1,8 +1,8 @@
 function [errNo] = move_moveReference(tcp, axis)
-% brief : This function starts an approach to the reference position. A running motion command is aborted; closed loop moving is switched on. Requires a valid reference position.
+% brief : This function starts an approach to the reference position.
 %
-% param[in] tcp : TCP/IP connection ID
-%           axis:  [0|1|2]
+% param[in] tcp: TCP/IP connection ID
+%           axis: [0|1|2]
 % param[out]
 %           errNo: errNo
 
@@ -13,9 +13,7 @@ writeline(tcp, data_send);
 data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
-errNo = data.result (1);
+errNo = data.result(1);
 
 
 end
-
-

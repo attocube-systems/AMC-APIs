@@ -1,10 +1,9 @@
 function [errNo] = rtin_setRealTimeInStepsPerPulse(tcp, axis, steps)
-% brief : Set the change in step per pulse  of the realtime input when trigger and stepper mode is used
-%            only used in open loop operation
+% brief : Set the change in step per pulse  of the realtime input when trigger and stepper mode is used only used in open loop operation
 %
-% param[in] tcp : TCP/IP connection ID
-%           axis:  [0|1|2]
-%           steps:  number of steps to applied
+% param[in] tcp: TCP/IP connection ID
+%           axis: [0|1|2]
+%           steps: number of steps to applied
 % param[out]
 %           errNo: errNo
 
@@ -15,9 +14,7 @@ writeline(tcp, data_send);
 data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
-errNo = data.result (1);
+errNo = data.result(1);
 
 
 end
-
-

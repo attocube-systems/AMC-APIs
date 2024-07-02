@@ -1,8 +1,8 @@
 function [errNo, nbrstep] = move_getNSteps(tcp, axis)
 % brief : This function gets the number of Steps in desired direction.
 %
-% param[in] tcp : TCP/IP connection ID
-%           axis:  [0|1|2]
+% param[in] tcp: TCP/IP connection ID
+%           axis: [0|1|2]
 % param[out]
 %           errNo: errNo
 %           nbrstep: nbrstep
@@ -14,10 +14,8 @@ writeline(tcp, data_send);
 data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
-errNo = data.result (1);
-nbrstep = data.result (2);
+errNo = data.result(1);
+nbrstep = data.result(2);
 
 
 end
-
-

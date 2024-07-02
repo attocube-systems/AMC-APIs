@@ -1,12 +1,12 @@
 function [errNo] = rtout_setTriggerConfig(tcp, axis, higher, lower, epsilon, polarity)
 % brief : Control the real time output trigger config
 %
-% param[in] tcp : TCP/IP connection ID
-%           axis:  [0|1|2]
-%           higher:  upper limit in nm / µdeg
-%           lower:  lower limit in nm / µdeg
-%           epsilon:  hysteresis in nm / µdeg
-%           polarity:  0: active high, 1: active low
+% param[in] tcp: TCP/IP connection ID
+%           axis: [0|1|2]
+%           higher: upper limit in nm / µdeg
+%           lower: lower limit in nm / µdeg
+%           epsilon: hysteresis in nm / µdeg
+%           polarity: 0: active high, 1: active low
 % param[out]
 %           errNo: errNo
 
@@ -17,9 +17,7 @@ writeline(tcp, data_send);
 data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
-errNo = data.result (1);
+errNo = data.result(1);
 
 
 end
-
-

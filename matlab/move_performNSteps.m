@@ -1,9 +1,9 @@
 function [errNo] = move_performNSteps(tcp, axis, backward)
 % brief : Perform the OL command for N steps
 %
-% param[in] tcp : TCP/IP connection ID
-%           axis:  [0|1|2]
-%           backward:  Selects the desired direction. False triggers a forward step, true a backward step
+% param[in] tcp: TCP/IP connection ID
+%           axis: [0|1|2]
+%           backward: Selects the desired direction. False triggers a forward step, true a backward step
 % param[out]
 %           errNo: errNo
 
@@ -14,9 +14,7 @@ writeline(tcp, data_send);
 data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
-errNo = data.result (1);
+errNo = data.result(1);
 
 
 end
-
-

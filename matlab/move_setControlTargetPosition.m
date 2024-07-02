@@ -1,10 +1,9 @@
 function [errNo] = move_setControlTargetPosition(tcp, axis, target)
 % brief : This function sets the target position for the movement on the selected axis.
-%            careful: the maximum positon in nm is 2**47/1000
 %
-% param[in] tcp : TCP/IP connection ID
-%           axis:  [0|1|2]
-%           target:  absolute position : For linear type actors the position is defined in nm for goniometer an rotator type actors it is µ°.
+% param[in] tcp: TCP/IP connection ID
+%           axis: [0|1|2]
+%           target: absolute position : For linear type actors the position is defined in nm for goniometer an rotator type actors it is µ°.
 % param[out]
 %           errNo: errNo
 
@@ -15,9 +14,7 @@ writeline(tcp, data_send);
 data_receive = readline(tcp);
 data = jsondecode(data_receive);
 
-errNo = data.result (1);
+errNo = data.result(1);
 
 
 end
-
-
