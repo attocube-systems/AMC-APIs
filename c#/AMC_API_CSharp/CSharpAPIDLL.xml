@@ -487,7 +487,7 @@
             <summary>
             Calls the API with eight return values
             </summary>
-            <returns>Return tuple of eight values, the last value is a tuple again. The tuple can't handle more columns.</returns>
+            <returns>Return tuple of eight values</returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
             <exception cref="T:Attocube.API.Error.NotConnectedException">Thrown if the client is not connected</exception>
         </member>
@@ -504,6 +504,22 @@
             Calls the API with twelve return values
             </summary>
             <returns>Return tuple of twelve values, the last value is a tuple again. The tuple can't handle more columns.</returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.API.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.API.AttocubeAPI.API_CallTwentyOneReturnValues``21(System.Boolean,System.Object[])">
+            <summary>
+            Calls the API with 21 return values
+            </summary>
+            <returns>Return tuple of 21 values, the last value is a tuple again. The tuple can't handle more columns.</returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+            <exception cref="T:Attocube.API.Error.NotConnectedException">Thrown if the client is not connected</exception>
+        </member>
+        <member name="M:Attocube.API.AttocubeAPI.API_CallTwentyTwoReturnValues``22(System.Boolean,System.Object[])">
+            <summary>
+            Calls the API with 22 return values
+            </summary>
+            <returns>Return tuple of 22 values, the last value is a tuple again. The tuple can't handle more columns.</returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
             <exception cref="T:Attocube.API.Error.NotConnectedException">Thrown if the client is not connected</exception>
         </member>
@@ -605,7 +621,7 @@
             <typeparam name="T7">Expected type of the return value </typeparam>
             <typeparam name="T8">Expected type of the return value </typeparam>
             <param name="response">Response of the JSON call to parse</param>
-            <returns>The actual value of the call - typically a 7-tuple of "int", "bool" or "string" values. The last value is a tuple of addional values. </returns>
+            <returns>The actual value of the call - typically an 8-tuple of "int", "bool" or "string" values.</returns>
         </member>
         <member name="M:Attocube.API.AttocubeAPI.HandleResponse9``9(System.Boolean,Attocube.API.JsonRpc.JsonRpcResponse)">
             <summary>
@@ -621,26 +637,83 @@
             <typeparam name="T8">Expected type of the return value </typeparam>
             <typeparam name="T9">Expected type of the return value </typeparam>
             <param name="response">Response of the JSON call to parse</param>
-            <returns>The actual value of the call - typically a 7-tuple of "int", "bool" or "string" values. The last value is a tuple of addional values. </returns>
+            <returns>The actual value of the call - typically a 8-tuple of "int", "bool" or "string" values. The last value is a tuple of addional values. </returns>
         </member>
         <member name="M:Attocube.API.AttocubeAPI.HandleResponse12``12(System.Boolean,Attocube.API.JsonRpc.JsonRpcResponse)">
             <summary>
             Method to handle the JSON response
             </summary>
-            <typeparam name="T1">Expected type of the return value </typeparam>
-            <typeparam name="T2">Expected type of the return value </typeparam>
-            <typeparam name="T3">Expected type of the return value </typeparam>
-            <typeparam name="T4">Expected type of the return value </typeparam>
-            <typeparam name="T5">Expected type of the return value </typeparam>
-            <typeparam name="T6">Expected type of the return value </typeparam>
-            <typeparam name="T7">Expected type of the return value </typeparam>
-            <typeparam name="T8">Expected type of the return value </typeparam>
-            <typeparam name="T9">Expected type of the return value </typeparam>
-            <typeparam name="T10">Expected type of the return value </typeparam>
-            <typeparam name="T11">Expected type of the return value </typeparam>
-            <typeparam name="T12">Expected type of the return value </typeparam>
+            <typeparam name="T1">Expected type of the return value</typeparam>
+            <typeparam name="T2">Expected type of the return value</typeparam>
+            <typeparam name="T3">Expected type of the return value</typeparam>
+            <typeparam name="T4">Expected type of the return value</typeparam>
+            <typeparam name="T5">Expected type of the return value</typeparam>
+            <typeparam name="T6">Expected type of the return value</typeparam>
+            <typeparam name="T7">Expected type of the return value</typeparam>
+            <typeparam name="T8">Expected type of the return value</typeparam>
+            <typeparam name="T9">Expected type of the return value</typeparam>
+            <typeparam name="T10">Expected type of the return value</typeparam>
+            <typeparam name="T11">Expected type of the return value</typeparam>
+            <typeparam name="T12">Expected type of the return value</typeparam>
             <param name="response">Response of the JSON call to parse</param>
-            <returns>The actual value of the call - typically a 7-tuple of "int", "bool" or "string" values. The last value is a tuple of addional values. </returns>
+            <returns>The actual value of the call - typically a tuple of 6 values, with nested tuples for additional values</returns>
+        </member>
+        <member name="M:Attocube.API.AttocubeAPI.HandleResponse21``21(System.Boolean,Attocube.API.JsonRpc.JsonRpcResponse)">
+            <summary>
+            Method to handle the JSON response
+            </summary>
+            <typeparam name="T1">Expected type of the return value</typeparam>
+            <typeparam name="T2">Expected type of the return value</typeparam>
+            <typeparam name="T3">Expected type of the return value</typeparam>
+            <typeparam name="T4">Expected type of the return value</typeparam>
+            <typeparam name="T5">Expected type of the return value</typeparam>
+            <typeparam name="T6">Expected type of the return value</typeparam>
+            <typeparam name="T7">Expected type of the return value</typeparam>
+            <typeparam name="T8">Expected type of the return value</typeparam>
+            <typeparam name="T9">Expected type of the return value</typeparam>
+            <typeparam name="T10">Expected type of the return value</typeparam>
+            <typeparam name="T11">Expected type of the return value</typeparam>
+            <typeparam name="T12">Expected type of the return value</typeparam>
+            <typeparam name="T13">Expected type of the return value</typeparam>
+            <typeparam name="T14">Expected type of the return value</typeparam>
+            <typeparam name="T15">Expected type of the return value</typeparam>
+            <typeparam name="T16">Expected type of the return value</typeparam>
+            <typeparam name="T17">Expected type of the return value</typeparam>
+            <typeparam name="T18">Expected type of the return value</typeparam>
+            <typeparam name="T19">Expected type of the return value</typeparam>
+            <typeparam name="T20">Expected type of the return value</typeparam>
+            <typeparam name="T21">Expected type of the return value</typeparam>
+            <param name="response">Response of the JSON call to parse</param>
+            <returns>The actual value of the call - typically a tuple of 8 values, with nested tuples for additional values</returns>
+        </member>
+        <member name="M:Attocube.API.AttocubeAPI.HandleResponse22``22(System.Boolean,Attocube.API.JsonRpc.JsonRpcResponse)">
+            <summary>
+            Method to handle the JSON response
+            </summary>
+            <typeparam name="T1">Expected type of the return value</typeparam>
+            <typeparam name="T2">Expected type of the return value</typeparam>
+            <typeparam name="T3">Expected type of the return value</typeparam>
+            <typeparam name="T4">Expected type of the return value</typeparam>
+            <typeparam name="T5">Expected type of the return value</typeparam>
+            <typeparam name="T6">Expected type of the return value</typeparam>
+            <typeparam name="T7">Expected type of the return value</typeparam>
+            <typeparam name="T8">Expected type of the return value</typeparam>
+            <typeparam name="T9">Expected type of the return value</typeparam>
+            <typeparam name="T10">Expected type of the return value</typeparam>
+            <typeparam name="T11">Expected type of the return value</typeparam>
+            <typeparam name="T12">Expected type of the return value</typeparam>
+            <typeparam name="T13">Expected type of the return value</typeparam>
+            <typeparam name="T14">Expected type of the return value</typeparam>
+            <typeparam name="T15">Expected type of the return value</typeparam>
+            <typeparam name="T16">Expected type of the return value</typeparam>
+            <typeparam name="T17">Expected type of the return value</typeparam>
+            <typeparam name="T18">Expected type of the return value</typeparam>
+            <typeparam name="T19">Expected type of the return value</typeparam>
+            <typeparam name="T20">Expected type of the return value</typeparam>
+            <typeparam name="T21">Expected type of the return value</typeparam>
+            <typeparam name="T22">Expected type of the return value</typeparam>
+            <param name="response">Response of the JSON call to parse</param>
+            <returns>The actual value of the call - typically a tuple of 8 values, with nested tuples for additional values</returns>
         </member>
         <member name="M:Attocube.API.AttocubeAPI.Check">
             <summary>
@@ -841,7 +914,7 @@
             Possible error - if left NULL, then there's no error
             </summary>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Description_CheckChassisNbr">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Description_CheckChassisNbr">
             <summary>
             Get Chassis and Slot Number, only works when AMC is within a Rack
             </summary>
@@ -851,15 +924,26 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_SetActorParametersJson(System.Int32,System.String)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_SetActorParametersJson(System.Int32,System.String)">
             <summary>
-            Select and override a positioner out of the Current default list only override given parameters set others default
+            This function can be used to change several actor parameters with one call. All key-value-pairs in the second argument will be set to the given value. The other parameters remain unchanged. This function can not be used to load a different positioner-type and all its related parameters. Please use setActorParametersByName to do that.
             </summary>
             <param name="axis">[0|1|2]</param>
             <param name="json_dict">dict with override params</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Description_GetPositionersList">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetActorParametersJson(System.Int32,System.String)">
+            <summary>
+            This function reads the current values of the given set of actor-parameters and retuns them as key-value-pairs in a json-string
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <param name="param_list">comma separated list of parameters to be read out</param>
+            <returns>
+              [0] value_parameters: parameters json_dict of requested parameters
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Description_GetPositionersList">
             <summary>
             This function reads the actor names that can be connected to the device.
             </summary>
@@ -868,7 +952,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Description_GetDeviceType">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Description_GetDeviceType">
             <summary>
             This function gets the device type based on its EEPROM configuration.
             </summary>
@@ -877,7 +961,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Description_GetFeaturesActivated">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Description_GetFeaturesActivated">
             <summary>
             Get the activated features and return as a string
             </summary>
@@ -886,7 +970,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Move_SetSingleStep(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Move_SetSingleStep(System.Int32,System.Boolean)">
             <summary>
             This function triggers one step on the selected axis in desired direction.
             </summary>
@@ -894,24 +978,24 @@
             <param name="backward">Selects the desired direction. False triggers a forward step, true a backward step</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Move_SetNSteps(System.Int32,System.Boolean,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Move_SetNSteps(System.Int32,System.Boolean,System.Int32)">
             <summary>
-            This function triggers n steps on the selected axis in desired direction.
+            This function triggers n steps on the selected axis in desired direction. /PRO feature.
             </summary>
             <param name="axis">[0|1|2]</param>
             <param name="backward">Selects the desired direction. False triggers a forward step, true a backward step</param>
             <param name="step">number of step</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Move_WriteNSteps(System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Move_WriteNSteps(System.Int32,System.Int32)">
             <summary>
-            Sets the number of steps to perform on stepwise movement.
+            Sets the number of steps to perform on stepwise movement. /PRO feature.
             </summary>
             <param name="axis">[0|1|2]</param>
             <param name="step">number of step</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Move_PerformNSteps(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Move_PerformNSteps(System.Int32,System.Boolean)">
             <summary>
             Perform the OL command for N steps
             </summary>
@@ -919,7 +1003,7 @@
             <param name="backward">Selects the desired direction. False triggers a forward step, true a backward step</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Move_GetNSteps(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Move_GetNSteps(System.Int32)">
             <summary>
             This function gets the number of Steps in desired direction.
             </summary>
@@ -929,7 +1013,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Move_SetControlContinuousFwd(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Move_SetControlContinuousFwd(System.Int32,System.Boolean)">
             <summary>
             This function sets a continuous movement on the selected axis in positive direction.
             </summary>
@@ -937,7 +1021,7 @@
             <param name="enable">If enabled a present movement in the opposite direction is stopped. The parameter "false" stops all movement of the axis regardless its direction.</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Move_GetControlContinuousFwd(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Move_GetControlContinuousFwd(System.Int32)">
             <summary>
             This function gets the axisâ€™ movement status in positive direction.
             </summary>
@@ -947,7 +1031,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Move_SetControlContinuousBkwd(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Move_SetControlContinuousBkwd(System.Int32,System.Boolean)">
             <summary>
             This function sets a continuous movement on the selected axis in backward direction.
             </summary>
@@ -955,7 +1039,7 @@
             <param name="enable">If enabled a present movement in the opposite direction is stopped. The parameter "false" stops all movement of the axis regardless its direction</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Move_GetControlContinuousBkwd(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Move_GetControlContinuousBkwd(System.Int32)">
             <summary>
             This function gets the axisâ€™ movement status in backward direction.
             </summary>
@@ -965,7 +1049,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Move_GetControlTargetPosition(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Move_GetControlTargetPosition(System.Int32)">
             <summary>
             This function gets the target position for the movement on the selected axis.
             </summary>
@@ -975,24 +1059,24 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Move_SetControlTargetPosition(System.Int32,System.Double)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Move_SetControlTargetPosition(System.Int32,System.Double)">
             <summary>
-            This function sets the target position for the movement on the selected axis.
+            This function sets the target position for the movement on the selected axis. The maximum positon is +/-10'000'000'000 nm or uDeg, but please make sure not to enter a target position outside of your positioner's range.
             </summary>
             <param name="axis">[0|1|2]</param>
-            <param name="target">absolute position : For linear type actors the position is defined in nm for goniometer an rotator type actors it is ÂµÂ°.</param>
+            <param name="target">position: in nm for linear actuators for goniometers an rotators the unit is udeg.</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Move_MoveReference(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Move_MoveReference(System.Int32)">
             <summary>
-            This function starts an approach to the reference position.
+            This function starts an approach to the reference position. A running motion command is aborted; closed loop moving is switched on. Requires a valid reference position.
             </summary>
             <param name="axis">[0|1|2]</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Move_GetPosition(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Move_GetPosition(System.Int32)">
             <summary>
-            This function gets the current position of the positioner on the selected axis.
+            This function gets the current position of the positioner on the selected axis Note, that this function returns the position '0' in an AMC-IDS-Closedloop setup with IDS as sensor-source, if the IDS reports an error (e.g. beam-interrupt)  The axis on the web application are indexed from 1 to 3
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
@@ -1000,9 +1084,9 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Move_GetPositionWithTime(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Move_GetPositionWithTime(System.Int32)">
             <summary>
-            This function gets the current position of the positioner and provides time-information to the position.
+            This function gets the current position of the positioner and provides time-information to the position. The time information refers to the elapsed time since the last reboot of the device in microseconds. The axis on the web application are indexed from 1 to 3
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
@@ -1011,9 +1095,9 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Move_GetPositionWithTime_32Bit(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Move_GetPositionWithTime_32Bit(System.Int32)">
             <summary>
-            This function gets the current position of the positioner and provides time-information to the position.
+            This function gets the current position of the positioner and provides time-information to the position. The time information refers to the elapsed time since the last reboot of the device. This function is to be used if 64 bit numbers are not supported by your platform It returns two 32 bit numbers as time information instead of one number of 64 Bit (see description of return parameters). The axis on the web application are indexed from 1 to 3
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
@@ -1023,9 +1107,9 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Move_GetControlEotOutputDeactive(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Move_GetControlEotOutputDeactive(System.Int32)">
             <summary>
-            This function gets the output applied to the selected axis on the end of travel.
+            This function gets the output applied to the selected axis on the end of travel. /PRO feature.
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
@@ -1033,7 +1117,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Move_SetControlEotOutputDeactive(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Move_SetControlEotOutputDeactive(System.Int32,System.Boolean)">
             <summary>
             This function sets the output applied to the selected axis on the end of travel.
             </summary>
@@ -1041,7 +1125,7 @@
             <param name="enable">if enabled, the output of the axis will be deactivated on positive EOT detection.</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Status_GetStatusConnected(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Status_GetStatusConnected(System.Int32)">
             <summary>
             This function gets information about the connection status of the selected axisâ€™ positioner.
             </summary>
@@ -1051,9 +1135,9 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Status_GetStatusReference(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Status_GetStatusReference(System.Int32)">
             <summary>
-            This function gets information about the status of the reference position.
+            This function gets information about the status of the reference position. It can only be used in conjunction with NUM.
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
@@ -1061,7 +1145,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Status_GetStatusMoving(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Status_GetStatusMoving(System.Int32)">
             <summary>
             This function gets information about the status of the stage output.
             </summary>
@@ -1071,7 +1155,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Status_GetStatusEotFwd(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Status_GetStatusEotFwd(System.Int32)">
             <summary>
             This function gets the status of the end of travel detection on the selected axis in forward direction.
             </summary>
@@ -1081,7 +1165,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Status_GetStatusEotBkwd(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Status_GetStatusEotBkwd(System.Int32)">
             <summary>
             This function gets the status of the end of travel detection on the selected axis in backward direction.
             </summary>
@@ -1091,7 +1175,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Status_GetStatusEot(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Status_GetStatusEot(System.Int32)">
             <summary>
             Retrieves the status of the end of travel (EOT) detection in backward direction or in forward direction.
             </summary>
@@ -1101,9 +1185,9 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Status_GetStatusTargetRange(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Status_GetStatusTargetRange(System.Int32)">
             <summary>
-            This function gets information about whether the selected axisâ€™ positioner is in target range or not.
+            This function gets information about whether the selected axisâ€™ positioner is in target range or not. The detection only indicates whether the position is within the defined range. This status is updated periodically but currently not in real-time. If a fast detection is desired, please check the position in a loop
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
@@ -1111,7 +1195,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Status_GetOlStatus(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Status_GetOlStatus(System.Int32)">
             <summary>
             Get the Feedback status of the positioner
             </summary>
@@ -1121,55 +1205,55 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_SetEoTParameters(System.Int32,System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_SetEoTParameters(System.Int32,System.Int32,System.Int32)">
             <summary>
             Sets the two parameters, that define the behavior of the eot detection (how sensitive respectively how robust it works)
             </summary>
             <param name="axis">[0|1|2] (will be ignored, if minAvgStepSize equals nil)</param>
-            <param name="minAvgStepSize_nm">[type=int] this correpsonds to the "eot_threshold"-parameter</param>
-            <param name="numOfAvgedSteps">[type=int] this defines the number of steps, over which the average step size is calculated</param>
+            <param name="minAvgStepSize_nm">this correpsonds to the "eot_threshold"-parameter</param>
+            <param name="numOfAvgedSteps">this defines the number of steps, over which the average step size is calculated</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetEoTParameters(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetEoTParameters(System.Int32)">
             <summary>
             Gets the two parameters, that define the behavior of the eot detection (how sensitive respectively how robust it works)
             </summary>
             <param name="axis">[0|1|2] (will be ignored, if minAvgStepSize equals nil)</param>
             <returns>
-              [0] value_minAvgStepSize_nmtypeint: minAvgStepSize_nm[type=int] this correpsonds to the "eot_threshold"-parameter
-              [1] value_numOfAvgedStepstypeint: numOfAvgedSteps[type=int] this defines the number of steps, over which the average step size is calculated
+              [0] value_minAvgStepSize_nm: minAvgStepSize_nm this correpsonds to the "eot_threshold"-parameter
+              [1] value_numOfAvgedSteps: numOfAvgedSteps this defines the number of steps, over which the average step size is calculated
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Status_GetFullCombinedStatus(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Status_GetFullCombinedStatus(System.Int32)">
             <summary>
-            Get the full combined status of a positioner axis and return the status as a string (to be used in the Webapplication)
+            Get the full combined status of a positioner axis and returns the status as a string The following strings are possible: 'positioner not connected': No positioner Connected 'output not enabled': Positioner connected, but axis deactivated 'ready': Axis active and idle, but ready to move 'moving': Axis moving (closed loop or open loop) 'in target range': Axis in closed loop and in target range 'backward limit reached': Positioner below velocity threshold in backward direction 'forward limit reached': Positioner below velocity in forward direction 'grounded': Positioner grounded (only AMC300) 'overtemperature': overtemperature detected (only with firmware 1_5_0 or higher) 'output error': short-circuit detected; axis cannot be activated (only with firmware 1_5_0 or higher)
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-              [0] value_string: string can be "moving","in target range", "backward limit reached", "forward limit reached", "positioner not connected", "grounded" (only AMC300), "output not enabled"
+              [0] status_str: status_str
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetMotionControlThreshold(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetMotionControlThreshold(System.Int32)">
             <summary>
             This function gets the threshold range within the closed-loop controlled movement stops to regulate.
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-              [0] value_threshold: threshold in pm
+              [0] value_threshold: threshold in pm (nDeg for rotators and gonios)
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_SetMotionControlThreshold(System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_SetMotionControlThreshold(System.Int32,System.Int32)">
             <summary>
-            This function sets the threshold range within the closed-loop controlled movement stops to regulate.
+            This function sets the threshold range within the closed-loop controlled movement stops to regulate. Default depends on connected sensor type
             </summary>
             <param name="axis">[0|1|2]</param>
-            <param name="threshold">in pm</param>
+            <param name="threshold">in pm (nDeg for rotators and gonios)</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetCrosstalkThreshold(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetCrosstalkThreshold(System.Int32)">
             <summary>
             This function gets the threshold range and slip phase time which is used while moving another axis
             </summary>
@@ -1180,34 +1264,34 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_SetCrosstalkThreshold(System.Int32,System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_SetCrosstalkThreshold(System.Int32,System.Int32,System.Int32)">
             <summary>
             This function sets the threshold range to avoid axis-crosstalk and slip phase time which is used while moving another axis
             </summary>
             <param name="axis">[0|1|2]</param>
-            <param name="threshold">[max:2147483647][pm]; has to be greater than the motion-control-threshold</param>
+            <param name="threshold">[max:2000000000][pm]; has to be greater than the motion-control-threshold</param>
             <param name="slipphasetime">[min=0,max=65535][us] time after slip phase which is waited until the controller acts again</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetSensorDirection(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetMoveDirInverted(System.Int32)">
             <summary>
-            This function gets whether the IDS sensor source of closed loop is inverted It is only available when the feature AMC/IDS closed loop has been activated
+            This function gets whether the moving direction is inverted on a specific axis. This setting is only relevant for the external sensor. If internal sensor is selected, this parameter is ignored. Inversion means, that the AMC triggers bwd movement, if fwd-movement is commanded. This is supposed to straighten out upside down moving and measuring coordinate systems It is only available when the feature AMC/IDS closed loop has been activated.
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-              [0] value_inverted: inverted boolen
+              [0] value_mvDirInverted: mvDirInverted boolen
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_SetSensorDirection(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_SetMoveDirInverted(System.Int32,System.Boolean)">
             <summary>
-            This function sets the IDS sensor source of closed loop to inverted when true.
+            This function sets whether the moving direction shall be inverted on a specific axis. This parameter can only be set, if the external sensor is selected on this axis. Please refer to setAxesSensorSources for the external sensor setting.  Inversion means, that the AMC e.g. triggers bwd movement, if fwd-movement is commanded. This is supposed to straighten out upside down moving and measuring coordinate systems It is only available when the feature AMC/IDS closed loop has been activated.
             </summary>
             <param name="axis">[0|1|2]</param>
-            <param name="inverted"></param>
+            <param name="mvDirInverted"></param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetExternalSensor(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetExternalSensor(System.Int32)">
             <summary>
             This function gets whether the sensor source of closed loop is IDS It is only available when the feature AMC/IDS closed loop has been activated
             </summary>
@@ -1217,20 +1301,25 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_SetExternalSensor(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetAxesSensorSources">
             <summary>
-            This function sets the sensor source of closed loop to the IDS when enabled.
+            This function gets the current external sensor configuration for all axes It is only available when the feature AMC/IDS closed loop has been activated It returns an integer representing the configuration: 0: intern,intern,intern 1: extern,extern,extern 2: extern,extern,intern 3: intern,intern,extern 4: inconsistent setting If this function returns '4', please run setAxesSensorSources with your desired configuration from above.
             </summary>
-            <param name="axis">[0|1|2]</param>
-            <param name="enabled"></param>
             <returns>
-              [0] value_warningNo: warningNo Warning code, can be converted into a string using the errorNumberToString function
+              [0] value_extSensCfg: extSensCfg [0: intern,intern,intern 1: extern,extern,extern 2: extern,extern,intern 3: intern,intern,extern 4:inconsitent]
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetControlOutput(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_SetAxesSensorSources(System.Int32)">
             <summary>
-            This function gets the status of the output relays of the selected axis.
+            This function sets the sensor source according to the config passed to the function. An axis can be set to the IDS as sensor source ("external") or to the sensor of the positioner in use ("internal"; NUM or RES). Please note, that not all possible axis configurations are supported. Refer to the parameter description of extSensCfg for the supported configurations. It is only available when the feature AMC/IDS closed loop has been activated
+            </summary>
+            <param name="extSensCfg">[0: intern,intern,intern 1: extern,extern,extern 2: extern,extern,intern 3: intern,intern,extern]</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetControlOutput(System.Int32)">
+            <summary>
+            This function gets the activiation status of the axis. If active, move commands are accepted.
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
@@ -1238,15 +1327,33 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_SetControlOutput(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_SetControlOutput(System.Int32,System.Boolean)">
             <summary>
-            This function sets the status of the output relays of the selected axis.
+            This function sets the activiation status of the axis.Please make sure, a positioner is connected correctly to the corresponding axis before enabling an axis.
             </summary>
             <param name="axis">[0|1|2]</param>
             <param name="enable">true: enable drives, false: disable drives</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_SetAutoMeasure(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetOutputHealthStatus(System.Int32)">
+            <summary>
+            This function gets the short circuit status of the selected axis Possible error codes for the axisHealthStatus are "73": "HW_SHORT_DETECTED - Unspecific short circuit detected on the drive pins. Axis disabled" "83": "HW_SCP_DETECTED - Short circuit detected. Axis is disabled and locked." "84": "HW_SCP_UNCONNECTED - Short circuit detected while no positioner connected. Axis is disabled and locked." "85": "HW_DC_CURRENT_TOO_HIGH - DC current too high during axis activation. Axis is disabled and locked." "86": "HW_DC_OVERCURRENT_AXIS - DC current too high during axis operation. Axis is disabled and locked." "87": "HW_DC_OVERCURRENT_ERROR - Global over current detected during operation. All axes are disabled and locked."
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <returns>
+              [0] value_axisHealthStatus: axisHealthStatus (0 = OK, not 0 = error code for detected short circuit condition)
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_ResetOutputHealthStatus(System.Int32,System.String)">
+            <summary>
+            This function resets the short circuit status of the selected axis.
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <param name="solution">Short description of taken measures to resolve the short circuit (min. 20 characters and 3 words, maximum 499 characters)</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_SetAutoMeasure(System.Int32,System.Boolean)">
             <summary>
             This function enables/disables the automatic C/R measurement on axis enable
             </summary>
@@ -1254,7 +1361,7 @@
             <param name="enable">true: enable automeasurement, false: disable automeasurement</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetAutoMeasure(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetAutoMeasure(System.Int32)">
             <summary>
             This function returns if the automeasurement on axis enable is enabled
             </summary>
@@ -1264,25 +1371,25 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_SetActorSensitivity(System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_SetActorSensitivity(System.Int32,System.Int32)">
             <summary>
             Control the actor parameter closed loop sensitivity
             </summary>
             <param name="axis">[0|1|2]</param>
-            <param name="sensitivity"></param>
+            <param name="sensitivity">[0 (fast approach) .. 10 (slow approach)] The approach behaviour changes exponentially with the sensitivity</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetActorSensitivity(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetActorSensitivity(System.Int32)">
             <summary>
             Get the setting for the actor parameter sensitivity
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-              [0] sensitivity: sensitivity
+              [0] value_sensitivity: sensitivity [0 (fast approach) .. 10 (slow approach)] The approach behaviour changes exponentially with the sensitivity
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetActorParametersActorName(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetActorParametersActorName(System.Int32)">
             <summary>
             Control the actors parameter: actor name
             </summary>
@@ -1292,17 +1399,17 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_SetActorParametersByName(System.Int32,System.String)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_SetActorParametersByName(System.Int32,System.String)">
             <summary>
-            This function sets the name for the positioner on the selected axis.
+            This function sets the name for the positioner on the selected axis. The possible names can be retrieved by executing getPositionersList
             </summary>
             <param name="axis">[0|1|2]</param>
             <param name="actorname">name of the actor</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetCurrentOutputVoltage(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetCurrentOutputVoltage(System.Int32)">
             <summary>
-            This function gets the current Voltage which is applied to the Piezo
+            This function gets the current Voltage which is applied to the Piezo. Please note, that the actual values may be slightly different due to analog/digital converters, amplifiers, etc.
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
@@ -1310,7 +1417,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetControlAmplitude(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetControlAmplitude(System.Int32)">
             <summary>
             This function gets the amplitude of the actuator signal of the selected axis.
             </summary>
@@ -1320,7 +1427,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_SetControlAmplitude(System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_SetControlAmplitude(System.Int32,System.Int32)">
             <summary>
             This function sets the amplitude of the actuator signal of the selected axis.
             </summary>
@@ -1328,15 +1435,15 @@
             <param name="amplitude">in mV</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_SetControlFrequency(System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_SetControlFrequency(System.Int32,System.Int32)">
             <summary>
-            This function sets the frequency of the actuator signal of the selected axis.
+            This function sets the frequency of the actuator signal of the selected axis.  Note: Approximate the slewrate of the motion controller  according to Input Frequency
             </summary>
             <param name="axis">[0|1|2]</param>
             <param name="frequency">in  mHz</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetControlFrequency(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetControlFrequency(System.Int32)">
             <summary>
             This function gets the frequency of the actuator signal of the selected axis.
             </summary>
@@ -1346,7 +1453,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetActorType(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetActorType(System.Int32)">
             <summary>
             This function gets the type of the positioner of the selected axis.
             </summary>
@@ -1356,7 +1463,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetActorName(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetActorName(System.Int32)">
             <summary>
             This function gets the name of the positioner of the selected axis.
             </summary>
@@ -1366,14 +1473,14 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_SetReset(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_SetReset(System.Int32)">
             <summary>
-            This function resets the actual position of the selected axis given by the NUM sensor to zero and marks the reference position as invalid.
+            This function resets the actual position of the selected axis given by the NUM sensor to zero and marks the reference position as invalid. It does not work for RES positioners and positions read by IDS. For IDS, use com.attocube.ids.displacement.resetAxis() or com.attocube.amc.amcids.resetIdsAxis() instead.
             </summary>
             <param name="axis">[0|1|2]</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_SetControlMove(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_SetControlMove(System.Int32,System.Boolean)">
             <summary>
             This function sets the approach of the selected axisâ€™ positioner to the target position.
             </summary>
@@ -1381,7 +1488,7 @@
             <param name="enable">boolean true: eanble the approach , false: disable the approach</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetControlMove(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetControlMove(System.Int32)">
             <summary>
             This function gets the approach of the selected axisâ€™ positioner to the target position.
             </summary>
@@ -1391,16 +1498,16 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_SearchReferencePosition(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_SearchReferencePosition(System.Int32)">
             <summary>
             This function searches for the reference position of the selected axis.
             </summary>
             <param name="axis">[0|1|2]</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetReferencePosition(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetReferencePosition(System.Int32)">
             <summary>
-            This function gets the reference position of the selected axis.
+            This function gets the reference position of the selected axis. It can only be used in conjunction with NUM.
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
@@ -1408,9 +1515,9 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetControlReferenceAutoUpdate(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetControlReferenceAutoUpdate(System.Int32)">
             <summary>
-            This function gets the status of whether the reference position is updated when the reference mark is hit.
+            This function gets the status of whether the reference position is updated when the reference mark is hitWhen this function is disabled, the reference marking will be considered only the first time and after then ignoredthis setting only has an effect for NUM-positioners.
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
@@ -1418,17 +1525,17 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_SetControlReferenceAutoUpdate(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_SetControlReferenceAutoUpdate(System.Int32,System.Boolean)">
             <summary>
-            This function sets the status of whether the reference position is updated when the reference mark is hit.
+            This function sets the status of whether the reference position is updated when the reference mark is hit. When this function is disabled, the reference marking will be considered only the first time and after then ignored. This function can only be used in conjunction with NUM.
             </summary>
             <param name="axis">[0|1|2]</param>
             <param name="enable">boolean</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetControlAutoReset(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetControlAutoReset(System.Int32)">
             <summary>
-            This function resets the position every time the reference position is detected.
+            This function resets the position every time the reference position is detectedthis setting only has an effect for NUM-positioners.
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
@@ -1436,17 +1543,17 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_SetControlAutoReset(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_SetControlAutoReset(System.Int32,System.Boolean)">
             <summary>
-            This function resets the position every time the reference position is detected.
+            This function controls the behaviour, that the current position (which can be retrieved with a getPosition-call) is reset every time the reference mark of the positioner is detected. This function can only be used in conjunction with NUM.
             </summary>
             <param name="axis">[0|1|2]</param>
             <param name="enable">boolean</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetControlTargetRange(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetControlTargetRange(System.Int32)">
             <summary>
-            This function gets the range around the target position in which the flag "In Target Range" becomes active.
+            This function gets the range around the target position in which the flag "In Target Range" becomes active. Please note, that this setting is only used to identify the target position, it has no influence on the closed loop control.
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
@@ -1454,21 +1561,21 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_SetControlTargetRange(System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_SetControlTargetRange(System.Int32,System.Int32)">
             <summary>
-            This function sets the range around the target position in which the flag "In Target Range" (see VIII.7.a) becomes active.
+            This function sets the range around the target position in which the flag "In Target Range" (see VIII.7.a) becomes active. Please note, that this setting is only used to identify the target position, it has no influence on the closed loop control.
             </summary>
             <param name="axis">[0|1|2]</param>
             <param name="range">in nm</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_MultiAxisPositioning(System.Boolean,System.Boolean,System.Boolean,System.Int32,System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_MultiAxisPositioning(System.Boolean,System.Boolean,System.Boolean,System.Int32,System.Int32,System.Int32)">
             <summary>
-            Simultaneously set 3 axes positions and get positions to minimize network latency
+            By means of this function you can set target positions for all axes simultaneously (depending on the boolean parameters set1, set2, set3) Additionally the current position, the status of the reference and the reference position of all three axes are returned. This function can only be used in conjunction with NUM.
             </summary>
-            <param name="set1">axis1 otherwise pos1 target is ignored</param>
-            <param name="set2">axis2 otherwise pos2 target is ignored</param>
-            <param name="set3">axis3 otherwise pos3 target is ignored</param>
+            <param name="set1">set target position on axis1, if "false" target1-parameter is ignored</param>
+            <param name="set2">set target position on axis2, if "false" target2-parameter is ignored</param>
+            <param name="set3">set target position on axis3, if "false" target3-parameter is ignored</param>
             <param name="target1">target position of axis 1</param>
             <param name="target2">target position of axis 2</param>
             <param name="target3">target position of axis 3</param>
@@ -1485,13 +1592,13 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_MultiAxisPositioningWithTime(System.Boolean,System.Boolean,System.Boolean,System.Int32,System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_MultiAxisPositioningWithTime(System.Boolean,System.Boolean,System.Boolean,System.Int32,System.Int32,System.Int32)">
             <summary>
-            Simultaneously set 3 axes positions and get positions to minimize network latency
+            In addition to "MultiAxisPositioning", this function returns a timestamp to the current position of each axis. Please refer to the description of "getPositionWithTime" for more information on the timestamp. This function can only be used in conjunction with NUM.
             </summary>
-            <param name="set1">axis1 otherwise pos1 target is ignored</param>
-            <param name="set2">axis2 otherwise pos2 target is ignored</param>
-            <param name="set3">axis3 otherwise pos3 target is ignored</param>
+            <param name="set1">set target position on axis1, if "false" target1-parameter is ignored</param>
+            <param name="set2">set target position on axis2, if "false" target2-parameter is ignored</param>
+            <param name="set3">set target position on axis3, if "false" target3-parameter is ignored</param>
             <param name="target1">target position of axis 1</param>
             <param name="target2">target position of axis 2</param>
             <param name="target3">target position of axis 3</param>
@@ -1511,9 +1618,9 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetPositionsAndVoltages">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetPositionsAndVoltages">
             <summary>
-            Simultaneously get 3 axes positions as well as the DC offset to maximize sampling rate over network
+            Simultaneously get 3 axes positions as well as the DC offset position-value is -2147483648 nm, if sensor is disabled or no positioner is connected.
             </summary>
             <returns>
               [0] value_pos1: pos1 position of axis 1
@@ -1525,7 +1632,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetStatusMovingAllAxes">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetStatusMovingAllAxes">
             <summary>
             Get Status of all axes, see getStatusMoving for coding of the values
             </summary>
@@ -1536,7 +1643,65 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_SetControlFixOutputVoltage(System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Move_GetPositionAllAxis">
+            <summary>
+            This function returns the position of all three axes in nm If there is no positioner on one axis or the sensor is disabled, it returns -2147483648 nm instead
+            </summary>
+            <returns>
+              [0] value_pos_nm_x: pos_nm_x position of the x-axis in nm
+              [1] value_pos_nm_y: pos_nm_y position of the y-axis in nm
+              [2] value_pos_nm_z: pos_nm_z position of the z-axis in nm
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Status_GetStatusFlagsAllAxis">
+            <summary>
+            This function returns several status flags of all three axes
+            </summary>
+            <returns>
+              [0] value_pos_con_ax1: pos_con_ax1 positioner connected axis 1
+              [1] value_enbld_ax1: enbld_ax1 Axis 1 enabled
+              [2] value_moving_ax1: moving_ax1 axis 1 moving
+              [3] value_in_trgt_ax1: in_trgt_ax1 axis 1 in target range
+              [4] value_eot_fwd_ax1: eot_fwd_ax1 axis 1 eot fwd flag
+              [5] value_eot_bwd_ax1: eot_bwd_ax1 axis 1 eot bwd flag
+              [6] value_gnd_ax1: gnd_ax1 axis 1 grounded (e.g. ground on target)
+              [7] value_pos_con_ax2: pos_con_ax2 positioner connected axis 2
+              [8] value_enbld_ax2: enbld_ax2 Axis 2 enabled
+              [9] value_moving_ax2: moving_ax2 axis 2 moving
+              [10] value_in_trgt_ax2: in_trgt_ax2 axis 2 in target range
+              [11] value_eot_fwd_ax2: eot_fwd_ax2 axis 2 eot fwd flag
+              [12] value_eot_bwd_ax2: eot_bwd_ax2 axis 2 eot bwd flag
+              [13] value_gnd_ax2: gnd_ax2 axis 2 grounded (e.g. ground on target)
+              [14] value_pos_con_ax3: pos_con_ax3 positioner connected axis 3
+              [15] value_enbld_ax3: enbld_ax3 Axis 3 enabled
+              [16] value_moving_ax3: moving_ax3 axis 3 moving
+              [17] value_in_trgt_ax3: in_trgt_ax3 axis 3 in target range
+              [18] value_eot_fwd_ax3: eot_fwd_ax3 axis 3 eot fwd flag
+              [19] value_eot_bwd_ax3: eot_bwd_ax3 axis 3 eot bwd flag
+              [20] value_gnd_ax3: gnd_ax3 axis 3 grounded (e.g. ground on target)
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Attocube.AMC_1_5_1.AttocubeAMC.Status_GetStatusFlagsAllAxesJson" -->
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetMoveParametersAllAxis">
+            <summary>
+            This function reads the parameters for controling the positioners on all three axes The parameters are ampltidue (V), sawtooth-frequency (Hz), currently on the piezo applied voltage (V)
+            </summary>
+            <returns>
+              [0] amplitude_ax1_mV: amplitude_ax1_mV
+              [1] frequency_ax1_mHz: frequency_ax1_mHz
+              [2] value_appliedVoltage_ax_mV1: appliedVoltage_ax1_mV currently applied "DC"-Voltage
+              [3] amplitude_ax2_mV: amplitude_ax2_mV
+              [4] frequency_ax2_mHz: frequency_ax2_mHz
+              [5] value_appliedVoltage_ax_mV2: appliedVoltage_ax2_mV currently applied "DC"-Voltage
+              [6] amplitude_ax3_mV: amplitude_ax3_mV
+              [7] frequency_ax3_mHz: frequency_ax3_mHz
+              [8] value_appliedVoltage_ax_mV3: appliedVoltage_ax3_mV currently applied "DC"-Voltage
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_SetControlFixOutputVoltage(System.Int32,System.Int32)">
             <summary>
             This function sets the DC level output of the selected axis.
             </summary>
@@ -1544,7 +1709,7 @@
             <param name="amplitude_mv">in mV</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetControlFixOutputVoltage(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetControlFixOutputVoltage(System.Int32)">
             <summary>
             This function gets the DC level output of the selected axis.
             </summary>
@@ -1554,17 +1719,17 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Move_SetGroundAxis(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Move_SetGroundAxis(System.Int32,System.Boolean)">
             <summary>
-            Pull axis piezo drive to GND actively only in AMC300 this is used in MIC-Mode
+            Pull axis piezo drive to GND actively. Please note, that this function can only be used on an active axis (see setControlOutput) This function is only available on AMC300 devices.
             </summary>
             <param name="axis">motion controler axis [0|1|2]</param>
             <param name="enabled">true or false</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Move_GetGroundAxis(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Move_GetGroundAxis(System.Int32)">
             <summary>
-            Checks if the axis piezo drive is actively grounded only in AMC300
+            Checks if the axis piezo drive is actively grounded. Please note, that this function only returns whether or not tha axis is grounded. To get the axis activation status, please use getControlOutput. This function is only available on AMC300 devices.
             </summary>
             <param name="axis">montion controler axis [0|1|2]</param>
             <returns>
@@ -1572,7 +1737,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Move_SetGroundAxisAutoOnTarget(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Move_SetGroundAxisAutoOnTarget(System.Int32,System.Boolean)">
             <summary>
             Pull axis piezo drive to GND actively if positioner is in ground target range only in AMC300 this is used in MIC-Mode
             </summary>
@@ -1580,7 +1745,7 @@
             <param name="enabled">true or false</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Move_GetGroundAxisAutoOnTarget(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Move_GetGroundAxisAutoOnTarget(System.Int32)">
             <summary>
             Pull axis piezo drive to GND if positioner is in ground target range only in AMC300
             </summary>
@@ -1590,9 +1755,27 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Move_GetGroundTargetRange(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_SetGndIfIdle(System.Int32,System.Int32)">
             <summary>
-            Retrieves the range around the target position in which the auto grounding becomes active.
+            sets the ground-if-idle feature active or inactive Please note, that changing this setting to false while the axis is active will deactivate the axis This function cannot be executed during open- or closed-loop movement on the given axis This feature is only available for AMC300.
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <param name="gndifidleAct">[0: inactive; 1: active]</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetGndIfIdle(System.Int32)">
+            <summary>
+            gets whether ground-if-idle shall be active or deactivate only in AMC300
+            </summary>
+            <param name="axis">[0|1|2]</param>
+            <returns>
+              [0] value_gndifidleAct: gndifidleAct [0: inactive; 1: active]
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Move_GetGroundTargetRange(System.Int32)">
+            <summary>
+            Retrieves the range around the target position in which the auto grounding becomes active. only in AMC300
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
@@ -1600,25 +1783,25 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Move_SetGroundTargetRange(System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Move_SetGroundTargetRange(System.Int32,System.Int32)">
             <summary>
-            Set  the range around the target position in which the auto grounding becomes active.
+            Set  the range around the target position in which the auto grounding becomes active. only in AMC300
             </summary>
             <param name="axis">[0|1|2]</param>
             <param name="range">in nm</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_SetSensorEnabled(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_SetSensorEnabled(System.Int32,System.Boolean)">
             <summary>
-            Set sensor power supply status, can be switched off to save heat generated by sensor [NUM or RES] Positions retrieved will be invalid when activating this, so closed-loop control should be switched off beforehand
+            Set sensor power supply status, can be switched off to save heat generated by sensor [NUM or RES]; no effect on IDS in AMC-IDS-CL feature Positions retrieved will be invalid when activating this, so closed-loop control should be switched off beforehand
             </summary>
             <param name="axis">[0|1|2]</param>
             <param name="value">true if enabled, false otherwise</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetSensorEnabled(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetSensorEnabled(System.Int32)">
             <summary>
-            Get sensot power supply status
+            Get sensor power supply status
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
@@ -1626,7 +1809,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetFinePositioningRange(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetFinePositioningRange(System.Int32)">
             <summary>
             This function gets the fine positioning DC-range
             </summary>
@@ -1636,7 +1819,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_SetFinePositioningRange(System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_SetFinePositioningRange(System.Int32,System.Int32)">
             <summary>
             This function sets the fine positioning DC-range
             </summary>
@@ -1644,7 +1827,7 @@
             <param name="range">in nm</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_GetFinePositioningSlewRate(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_GetFinePositioningSlewRate(System.Int32)">
             <summary>
             This function gets the fine positioning slew rate
             </summary>
@@ -1654,7 +1837,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Control_SetFinePositioningSlewRate(System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Control_SetFinePositioningSlewRate(System.Int32,System.Int32)">
             <summary>
             This function sets the fine positioning slew rate
             </summary>
@@ -1662,14 +1845,14 @@
             <param name="slewrate">[0|1|2|3]</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Diagnostic_StartDiagnostic(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Diagnostic_StartDiagnostic(System.Int32)">
             <summary>
             Start the diagnosis procedure for the given axis
             </summary>
             <param name="axis">[0|1|2]</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Diagnostic_GetDiagnosticResults(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Diagnostic_GetDiagnosticResults(System.Int32)">
             <summary>
             Returns the results of the last diagnostic run and an error, if there was no run, it is currently running or the run failed
             </summary>
@@ -1680,7 +1863,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Diagnostic_GetDiagnosticPower(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Diagnostic_GetDiagnosticPower(System.Int32)">
             <summary>
             Returns the current power consumption
             </summary>
@@ -1690,7 +1873,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Diagnostic_GetDiagnosticTemperature(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Diagnostic_GetDiagnosticTemperature(System.Int32)">
             <summary>
             Returns the current axis temperature
             </summary>
@@ -1700,34 +1883,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Diagnostic_GetDiagnosticStepSize(System.Int32)">
-            <summary>
-            Performs 10 steps in forward and backward and calculates the average step size in both directions on a specific axis
-            </summary>
-            <param name="axis">[0|1|2]</param>
-            <returns>
-              [0] stepsize_fwd: stepsize_fwd
-              [1] stepsize_bwd: stepsize_bwd
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Res_SetMode(System.Int32)">
-            <summary>
-            Sets the mode of the RES position measurement This selects which frequency/ies are used for the lock-in measurement of the RES position, currently there are two possibilities: 1: Individual per axis: each axis is measured on a different frequency; this mode reduces noise coupling between axes, while requiring more wiring 2: Shared line/MIC-Mode: each axis is measured on the same frequency, which reduces the number of required wires while more coupling noise is excpected 3: Same as 1, but with overall lower frequencies.
-            </summary>
-            <param name="mode">1: Individual per axis, 2: Shared line mode, 3: Individual per axis (low frequency), 4: Shared line mode (low frequency)</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Res_GetMode">
-            <summary>
-            Get mode of RES application, see setMode for the description of possible parameters
-            </summary>
-            <returns>
-              [0] mode: mode
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Res_SetChainGain(System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Res_SetChainGain(System.Int32,System.Int32)">
             <summary>
             Set signal chain gain to control overall power
             </summary>
@@ -1735,17 +1891,17 @@
             <param name="gainconfig">0: 0dB ( power 600mVpkpk^2/R), 1 : -10 dB , 2 : -15 dB , 3 : -20 dB</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Res_GetChainGain(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Res_GetChainGain(System.Int32)">
             <summary>
             Get chain gain, see setChainGain for parameter description
             </summary>
             <param name="axis">number of axis</param>
             <returns>
-              [0] gaincoeff: gaincoeff
+              [0] value_gaincoeff: gaincoeff or voltage in mV for dcres
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Res_GetLutSn(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Res_GetLutSn(System.Int32)">
             <summary>
             get the identifier of the loaded lookuptable (will be empty if disabled)
             </summary>
@@ -1755,7 +1911,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Res_SetConfigurationFile(System.Int32,System.String)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Res_SetConfigurationFile(System.Int32,System.String)">
             <summary>
             Load configuration file which either contains a JSON dict with parameters for the positioner on the axis or the LUT file itself (as legacy support for ANC350 .aps files)
             </summary>
@@ -1763,7 +1919,7 @@
             <param name="content">JSON Dictionary or .aps File. The JSON Dictonary can/must contain the following keys: 'type': mandatory This field has to be one of the positioner list (see getPositionersList) 'lut': optional, contains an array of 1024 LUT values that are a mapping between ratio of the RES element travelled (0 to 1) and the corresponding absolute value at this ratio given in [nm]. Note: when generating these tables with position data in absolute units, the scaling of the travel ratio with the current sensor range has to be reversed. 'lut_sn': optional, a string to uniquely identify the loaded LUT</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Res_GetLinearization(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Res_GetLinearization(System.Int32)">
             <summary>
             Gets wether linearization is enabled or not
             </summary>
@@ -1773,15 +1929,15 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Res_SetLinearization(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Res_SetLinearization(System.Int32,System.Boolean)">
             <summary>
-            Control if linearization is enabled or not
+            Control if linearization is enabled or not. Please note, that this using the linearization can only be enable, if a LUT-file has been uploaded (see setLinTable) Please note, that active closed loop movement will be stopped when running this function to avoid unexpected movements due to the position change.
             </summary>
             <param name="axis">[0|1|2]</param>
             <param name="enable">boolean ( true: enable linearization)</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Res_GetSensorStatus(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Res_GetSensorStatus(System.Int32)">
             <summary>
             Gets wether a valid RES position signal is present (always true for a disabled sensor and for rotators)
             </summary>
@@ -1791,7 +1947,39 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtin_GetGpioMode">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Res_GetResFilterSetting">
+            <summary>
+            This function retrieves the current setting of the RES-signal filter.
+            </summary>
+            <returns>
+              [0] value_: res_filter_cfg_nbr number of the filter setting      minimal     = 1,      low         = 2,      balanced    = 3,      high        = 4,      maximal     = 5,
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Res_SetResFilterSetting(System.Int32)">
+            <summary>
+            This function sets the RES-signal filters according to the passed config-number; Note, that the sensor-readout will be interrupted for a short time while this function is executed; it is not permitted to run this function while there is an active closed loop movement on any axis; If you want to keep the filter settings from previous fw-versions, please use 'balanced'; The default setting is 'balanced'.
+            </summary>
+            <param name="res_filter_cfg_nbr">: number of the desired filter-setting      minimal     = 1,      low         = 2,      balanced    = 3,      high        = 4,      maximal     = 5,</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Res_SetMode(System.Int32)">
+            <summary>
+            Sets the mode of the RES position measurement This selects which frequency/ies are used for the lock-in measurement in AC-mode and whether or not common wires are shared 1: (ACRES)Individual per axis: each axis is measured on a different frequency; this mode reduces noise coupling between axes, while requiring more wiring 2: (ACRES)Shared line/MIC-Mode: each axis is measured on the same frequency, which reduces the number of required wires while more coupling noise is excpected 3: (ACRES)Same as 1, but with overall lower frequencies. This reduces the influence on the measurement accuracy on longer cables 4: (ACRES)Same as 2, but with overall lower frequencies. This reduces the influence on the measurement accuracy on longer cables 5: (DCRES)Individual per axis: the RES-sensor of each axis has its own voltage supply and ground wire -> less coupling noise but more wires 6: (DCRES)Shared: the RES-sensors of all axes share supply- and ground-wire -> more coupling noise, but less wires Note, that the allowed modes depend on the read-out-type of the RES-AMC. For ACRES only 1-4 and for DCRES only 5 and 6 are allowed modes.
+            </summary>
+            <param name="mode">1: Individual per axis, 2: Shared line mode, 3: Individual per axis (low frequency), 4: Shared line mode (low frequency), 5: Individual per axis (DCRES), 6: Shared line mode (DCRES)</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Res_GetMode">
+            <summary>
+            Get mode of RES application, see setMode for the description of possible parameters
+            </summary>
+            <returns>
+              [0] mode: mode
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtin_GetGpioMode">
             <summary>
             get the GPIO mode for Mic Mode feature
             </summary>
@@ -1800,7 +1988,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtin_GetNslMux">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtin_GetNslMux">
             <summary>
             get the axis the NSL multiplexer is set to
             </summary>
@@ -1809,21 +1997,21 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtin_SetNslMux(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtin_SetNslMux(System.Int32)">
             <summary>
             set the axis the NSL multiplexer is set to
             </summary>
             <param name="mux_mode">[0|1|2|3]  0: Off  1: Axis 1  2: Axis 2  3: Axis 3</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtin_SetGpioMode(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtin_SetGpioMode(System.Int32)">
             <summary>
             set the GPIO mode for Mic Mode feature
             </summary>
             <param name="gpio_mode">[0|1]  0: Standard GPIO  1: NSL-/Mic-Mode</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtin_GetControlAQuadBInResolution(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtin_GetControlAQuadBInResolution(System.Int32)">
             <summary>
             This function gets the AQuadB input resolution for setpoint parameter.
             </summary>
@@ -1833,7 +2021,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtin_SetControlAQuadBInResolution(System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtin_SetControlAQuadBInResolution(System.Int32,System.Int32)">
             <summary>
             This function sets the AQuadB input resolution for setpoint parameter.
             </summary>
@@ -1841,33 +2029,33 @@
             <param name="resolution">ion nm</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtin_SetRealTimeInMode(System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtin_SetRealTimeInMode(System.Int32,System.Int32)">
             <summary>
             This function sets the real time input mode for the selected axis.
             </summary>
             <param name="axis">[0|1|2]</param>
-            <param name="mode">see `RT_IN_MODES` @see realtime</param>
+            <param name="RT_IN_MODE">0:    AquadB  (LVTTL) 1:    AquadB  (LVDS) 8:    Stepper (LVTTL) 9:    Stepper (LVDS) 10:   Trigger (LVTTL) 11:   Trigger (LVDS) 15:   Off</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtin_GetRealTimeInMode(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtin_GetRealTimeInMode(System.Int32)">
             <summary>
             This function sets or gets the real time input mode for the selected axis.
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-              [0] value_mode: mode see `RT_IN_MODES`
+              [0] value_RT_IN_MODE: RT_IN_MODE Please refer to "setRealTimeInMode" for information on possible values
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtin_SetRealTimeInChangePerPulse(System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtin_SetRealTimeInChangePerPulse(System.Int32,System.Int32)">
             <summary>
-            This function sets the change per pulse for the selected axis under real time input in the closed-loop mode.
+            This function sets the change per pulse for the selected axis under real time input in the closed-loop mode. only used in closed loop operation
             </summary>
             <param name="axis">[0|1|2]</param>
             <param name="delta">to be added to current position in nm</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtin_GetRealTimeInChangePerPulse(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtin_GetRealTimeInChangePerPulse(System.Int32)">
             <summary>
             This function gets the change per pulse for the selected axis under real time input in the closed-loop mode.
             </summary>
@@ -1877,7 +2065,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtin_SetRealTimeInStepsPerPulse(System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtin_SetRealTimeInStepsPerPulse(System.Int32,System.Int32)">
             <summary>
             Set the change in step per pulse  of the realtime input when trigger and stepper mode is used only used in open loop operation
             </summary>
@@ -1885,7 +2073,7 @@
             <param name="steps">number of steps to applied</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtin_GetRealTimeInStepsPerPulse(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtin_GetRealTimeInStepsPerPulse(System.Int32)">
             <summary>
             Get the change in step per pulse  of the realtime input when trigger and stepper mode is used
             </summary>
@@ -1895,7 +2083,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtin_SetRealTimeInFeedbackLoopMode(System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtin_SetRealTimeInFeedbackLoopMode(System.Int32,System.Int32)">
             <summary>
             Set if the realtime function must operate in close loop operation or open loop operation
             </summary>
@@ -1903,7 +2091,7 @@
             <param name="mode">0: open loop, 1 : close-loop</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtin_GetRealTimeInFeedbackLoopMode(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtin_GetRealTimeInFeedbackLoopMode(System.Int32)">
             <summary>
             Get if the realtime function must operate in close loop operation or open loop operation
             </summary>
@@ -1913,7 +2101,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtin_SetControlMoveGPIO(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtin_SetControlMoveGPIO(System.Int32,System.Boolean)">
             <summary>
             This function sets the status for real time input on the selected axis in closed-loop mode.
             </summary>
@@ -1921,7 +2109,7 @@
             <param name="enable">boolean true: eanble the approach , false: disable the approach</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtin_GetControlMoveGPIO(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtin_GetControlMoveGPIO(System.Int32)">
             <summary>
             This function gets the status for real time input on the selected axis in closed-loop mode.
             </summary>
@@ -1931,44 +2119,44 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtin_Apply">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtin_Apply">
             <summary>
             Apply all realtime input function
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtin_Discard">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtin_Discard">
             <summary>
             Discard all values beting set and not yet applieds
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtout_SetMode(System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtout_SetMode(System.Int32,System.Int32)">
             <summary>
-            Set the real time output signal mode
+            Set the real time output signal mode. To set either LVTTL or LVDS, please use setSignalMode-function
             </summary>
             <param name="axis">[0|1|2]</param>
-            <param name="mode">0: Off, 1: AquadB, 2: Trigger</param>
+            <param name="RT_OUT_MODE">0: Off, 1: AquadB, 2: Trigger</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtout_GetMode(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtout_GetMode(System.Int32)">
             <summary>
             Get Mode
             </summary>
             <param name="axis">[0|1|2]</param>
             <returns>
-              [0] value_mode: mode 0: Off, 1: AquadB, 2: Trigger
+              [0] value_RT_OUT_MODE: RT_OUT_MODE For the meaning of the values, please refer to the setMode-function
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtout_SetSignalMode(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtout_SetSignalMode(System.Int32)">
             <summary>
             This function sets the real time output mode for the selected axis.
             </summary>
             <param name="mode">0: TTL, 1: LVDS</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtout_GetSignalMode(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtout_GetSignalMode(System.Int32)">
             <summary>
             This function gets the real time output mode for the selected axis.
             </summary>
@@ -1978,7 +2166,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtout_SetTriggerConfig(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtout_SetTriggerConfig(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
             Control the real time output trigger config
             </summary>
@@ -1989,7 +2177,7 @@
             <param name="polarity">0: active high, 1: active low</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtout_GetTriggerConfig(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtout_GetTriggerConfig(System.Int32)">
             <summary>
             Get the real time output trigger config
             </summary>
@@ -2002,7 +2190,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtout_GetControlAQuadBOut(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtout_GetControlAQuadBOut(System.Int32)">
             <summary>
             This function gets if of AQuadB output for position indication is enabled
             </summary>
@@ -2012,7 +2200,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtout_GetControlAQuadBOutResolution(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtout_GetControlAQuadBOutResolution(System.Int32)">
             <summary>
             This function gets the AQuadB output resolution for position indication.
             </summary>
@@ -2022,7 +2210,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtout_SetControlAQuadBOutResolution(System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtout_SetControlAQuadBOutResolution(System.Int32,System.Int32)">
             <summary>
             This function sets the AQuadB output resolution for position indication.
             </summary>
@@ -2030,7 +2218,7 @@
             <param name="resolution">in nm; range [1 ... 16777]</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtout_GetControlAQuadBOutClock(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtout_GetControlAQuadBOutClock(System.Int32)">
             <summary>
             This function gets the clock for AQuadB output.
             </summary>
@@ -2040,7 +2228,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtout_SetControlAQuadBOutClock(System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtout_SetControlAQuadBOutClock(System.Int32,System.Int32)">
             <summary>
             This function sets the clock for AQuadB output.
             </summary>
@@ -2048,110 +2236,172 @@
             <param name="clock">Clock in multiples of 20ns. Minimum 2 (40ns), maximum 65535 (1,310700ms)</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtout_ApplyAxis(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtout_ApplyAxis(System.Int32)">
             <summary>
             Apply for rtout function of specific axis
             </summary>
             <param name="axis">[0|1|2]</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtout_Apply">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtout_Apply">
             <summary>
             Apply for all rtout function
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtout_DiscardAxis(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtout_DiscardAxis(System.Int32)">
             <summary>
             Discard rtout value of specific axis set by the set function(not applied yet)
             </summary>
             <param name="axis">[0|1|2]</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtout_DiscardSignalMode">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtout_DiscardSignalMode">
             <summary>
             Discard value set by setSignalMode
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rtout_Discard">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rtout_Discard">
             <summary>
             Discard all rtout value set by the set function(not applied yet)
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Amcids_GetLowerSoftLimit(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Amcids_GetAutoStop(System.Int32)">
             <summary>
-            Gets the lower boundary of the soft limit protection.    This protection is needed if the IDS working range is smaller than the positioners travel range.    It is no hard limit, so, it is possible to overshoot it!
+            Reads the current setting of auto_stop in case of an error raised by the IDS.    If True, the closedloop movement is stopped automatically.
             </summary>
-            <param name="axis">Axis of the AMC to get the soft limit status from</param>
+            <param name="axis">Axis [0|1|2] on which the autostop is read</param>
             <returns>
-              [0] limit: Lower boundary in pm
+              [0] auto_stop: True if closedloop move shall stop automatically on error reported by IDS
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Amcids_GetSoftLimitEnabled(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Amcids_GetError">
+            <summary>
+            Reads the statuses of the RT- and ethernet-connection.    All return parameters follow the following logic:    0: no error occured since last reset    1: error is occurring at the moment    2: error occured in the past, but not at the moment    3: error is occurring at the moment and latched
+            </summary>
+            <returns>
+              [0] itf_ids_error_all_axes: indicates an error reported by the IDS on axis 1, 2 or 3 (see above for value-explanation)
+              [1] itf_link_error_all_axes: indicates a link error detected on axis 1, 2 or 3  (see above for value-explanation)
+              [2] itf_ids_error_ax_1: indicates an error reported by the IDS on axis 1 (e.g. beam interrupt). (see above for value-explanation)
+              [3] itf_ids_error_ax_2: indicates an error reported by the IDS on axis 2 (e.g. beam interrupt). (see above for value-explanation)
+              [4] itf_ids_error_ax_3: indicates an error reported by the IDS on axis 3 (e.g. beam interrupt). (see above for value-explanation)
+              [5] itf_link_error_ax_1: indicates a link error detected on axis 1 (e.g. wiring/cable problem). (see above for value-explanation)
+              [6] itf_link_error_ax_2: indicates a link error detected on axis 2 (e.g. wiring/cable problem). (see above for value-explanation)
+              [7] itf_link_error_ax_3: indicates a link error detected on axis 3 (e.g. wiring/cable problem). (see above for value-explanation)
+              [8] eth_con_error: indicates an ethernet connection error between AMC and IDS (see above for value-explanation)
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Amcids_GetLowerSoftLimit(System.Int32)">
+            <summary>
+            Gets the lower boundary of the soft limit protection.    This protection is needed if the IDS working range is smaller than the positioners travel range.    It is no hard limit, so, it is possible to overshoot it!
+            </summary>
+            <param name="axis">Axis [0|1|2] of the AMC to get the soft limit status from</param>
+            <returns>
+              [0] limit: Lower boundary in micrometers
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Amcids_GetSoftLimitEnabled(System.Int32)">
             <summary>
             Gets whether the soft limit protection is enabled.    This protection is needed if the IDS working range is smaller than the positioners travel range.    It is no hard limit, so, it is possible to overshoot it!
             </summary>
-            <param name="axis">Axis of the AMC to get the soft limit status from</param>
+            <param name="axis">Axis [0|1|2] of the AMC to get the soft limit status from</param>
             <returns>
               [0] enabled: True, if the soft limit should be enabled on this axis
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Amcids_GetSoftLimitReached(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Amcids_GetSoftLimitRange(System.Int32)">
+            <summary>
+            Reads the lower and upper boundary of the soft limit protection.
+            </summary>
+            <param name="axis">Axis of the AMC to get the soft limit status from</param>
+            <returns>
+              [0] lower_limit: Lower boundary in micrometers
+              [1] upper_limit: Upper boundary in micrometers
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Amcids_GetSoftLimitReached(System.Int32)">
             <summary>
             Gets whether the current position is out of the soft limit boundaries.    This protection is needed if the IDS working range is smaller than the positioners travel range.    It is no hard limit, so, it is possible to overshoot it!
             </summary>
-            <param name="axis">Axis of the AMC to get the soft limit status from</param>
+            <param name="axis">Axis [0|1|2] of the AMC to get the soft limit status from</param>
             <returns>
               [0] enabled: True, if the position is not within the boundaries
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Amcids_GetUpperSoftLimit(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Amcids_GetUpperSoftLimit(System.Int32)">
             <summary>
-            Gets the upper lower boundary of the soft limit protection.    This protection is needed if the IDS working range is smaller than the positioners travel range.    It is no hard limit, so, it is possible to overshoot it!
+            Gets the upper boundary of the soft limit protection.    This protection is needed if the IDS working range is smaller than the positioners travel range.    It is no hard limit, so, it is possible to overshoot it!
             </summary>
-            <param name="axis">Axis of the AMC to get the soft limit status from</param>
+            <param name="axis">Axis [0|1|2] of the AMC to get the soft limit status from</param>
             <returns>
-              [0] limit: Upper boundary in pm
+              [0] limit: Upper boundary in micrometers
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Amcids_ResetIdsAxis(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Amcids_ResetError(System.Int32)">
+            <summary>
+            Resets the latched error information of the RT- and ethernet-errors (see getError-method)    The axis-parameter only applies to the RT-errors and ids-errors - the ethernet-error is not reset axis-specifically
+            </summary>
+            <param name="axis">The index of the axis [0|1|2] whose RT- and IDS-error information should be reset.Note, that the IDS error is reset for all three axes, if an error is detected on the given axis.</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Amcids_ResetIdsAxis(System.Int32)">
             <summary>
             Resets the position value to zero of a specific measurement axis.    Use this for positioners with an IDS as sensor.    This method does not work for NUM and RES sensors. Use com.attocube.amc.control.resetAxis instead.
             </summary>
-            <param name="axis">Axis of the IDS to reset the position</param>
+            <param name="axis">Axis [0|1|2] of the IDS to reset the position</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Amcids_SetLowerSoftLimit(System.Int32,System.Double)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Amcids_SetAutoStop(System.Int32,System.Boolean)">
             <summary>
-            Sets the lower boundary of the soft limit protection in pm.    This protection is needed if the IDS working range is smaller than the positioners travel range.    It is no hard limit, so, it is possible to overshoot it!
+            When auto_stop is set to 'True', the AMC automatically stops cl-movement in case of an error indicated by the IDS (e.g. beam-interrupt)    Note, that the AMC always stops closed-loop-movement automatically, if the transferred position is invalid    (e.g. if the sensor-cable was disconnected)    Note, that in case of active 'stop at end of travel'-setting (check function setControlEotOutputDeactive),    the movement would stop despite setting auto_stop to 'False' for an error reported by the IDS, because the AMC interprets the invalid    position-value as "end of travel".    With getError the states of the errors can be retrieved.
             </summary>
-            <param name="axis">Axis of the AMC where the soft limit should be changed</param>
-            <param name="limit">Lower boundary in pm</param>
+            <param name="axis">indicates the device axis [0|1|2] on which the auto-stop shall be applied</param>
+            <param name="auto_stop">if 'True' the closedloop move will stop, if the IDS reports errors on this axis</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Amcids_SetSoftLimitEnabled(System.Int32,System.Boolean)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Amcids_SetLowerSoftLimit(System.Int32,System.Double)">
+            <summary>
+            Sets the lower boundary of the soft limit protection.    This protection is needed if the IDS working range is smaller than the positioners travel range.    It is no hard limit, so, it is possible to overshoot it!
+            </summary>
+            <param name="axis">Axis [0|1|2] of the AMC where the soft limit should be changed</param>
+            <param name="limit">Lower boundary in micrometers</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Amcids_SetSoftLimitEnabled(System.Int32,System.Boolean)">
             <summary>
             Enables/disables the soft limit protection.    This protection is needed if the IDS working range is smaller than the positioners travel range.    It is no hard limit, so, it is possible to overshoot it!
             </summary>
-            <param name="axis">Axis of the AMC where the soft limit should be changed</param>
+            <param name="axis">Axis [0|1|2] of the AMC where the soft limit should be changed</param>
             <param name="enabled">True, if the soft limit should be enabled on this axis</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Amcids_SetUpperSoftLimit(System.Int32,System.Double)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Amcids_SetSoftLimitRange(System.Int32,System.Int32,System.Int32)">
             <summary>
-            Sets the upper boundary of the soft limit protection in pm.    This protection is needed if the IDS working range is smaller than the positioners travel range.    It is no hard limit, so, it is possible to overshoot it!
+            Sets the lower and upper boundry of the soft limit protection in micrometers.    This protection is needed if the IDS working range is smaller than the positioners travel range.    It is no hard limit, so, it is possible to overshoot it!    The given values are interpreted as absoulte positions (reference position + displacement).
             </summary>
-            <param name="axis">Axis of the AMC where the soft limit should be changed</param>
-            <param name="limit">Upper boundary in pm</param>
+            <param name="axis">Axis [0|1|2] of the AMC where the soft limits should be changed</param>
+            <param name="lowerLimit">lower boundary in micrometers as absolute position; has to be lower than upperLimit</param>
+            <param name="upperLimit">upper boundary in micrometers as absolute position; has to be higher than lowerLimit</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rotcomp_GetControlTargetRanges">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Amcids_SetUpperSoftLimit(System.Int32,System.Double)">
+            <summary>
+            Sets the upper boundary of the soft limit protection.    This protection is needed if the IDS working range is smaller than the positioners travel range.    It is no hard limit, so, it is possible to overshoot it!
+            </summary>
+            <param name="axis">Axis [0|1|2] of the AMC where the soft limit should be changed</param>
+            <param name="limit">Upper boundary in micrometers</param>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rotcomp_GetControlTargetRanges">
             <summary>
             Checks if all three axis are in target range.
             </summary>
@@ -2160,7 +2410,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rotcomp_GetEnabled">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rotcomp_GetEnabled">
             <summary>
             Gets the enabled status of the rotation compensation
             </summary>
@@ -2169,7 +2419,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rotcomp_GetLUT">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rotcomp_GetLUT">
             <summary>
             Gets the LUT file as JSON string
             </summary>
@@ -2178,21 +2428,21 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rotcomp_SetEnabled(System.Boolean)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rotcomp_SetEnabled(System.Boolean)">
             <summary>
             Enables and disables the rotation compensation
             </summary>
             <param name="enabled">true Rotation compensation is enabled, false Rotation compensation is disabled</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rotcomp_SetLUT(System.String)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rotcomp_SetLUT(System.String)">
             <summary>
             Sets the LUT file from a JSON string
             </summary>
             <param name="lut_string">JSON string of the LUT file for the rotation compensation</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Rotcomp_UpdateOffsets(System.Int32,System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Rotcomp_UpdateOffsets(System.Int32,System.Int32,System.Int32)">
             <summary>
             Updates the start offsets of the axes
             </summary>
@@ -2201,7 +2451,7 @@
             <param name="offset_axis2">Offset of axis 3 in [nm]</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Test_ClearLog(System.Int32,System.String)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Test_ClearLog(System.Int32,System.String)">
             <summary>
             Resets the log    For debugging only.
             </summary>
@@ -2209,7 +2459,7 @@
             <param name="testname">Name of the test</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Test_Execute(System.String,System.String)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Test_Execute(System.String,System.String)">
             <summary>
             Starts a test run            For debugging only.                Error codes:                ERR_OK = 0                ERR_TEST_DOES_NOT_EXIST = -1                ERR_TEST_RUNNING = -2
             </summary>
@@ -2217,7 +2467,7 @@
             <param name="parameters">Parameters object as stringified JSON object, where "default" is the applied valueExample        "{            "axis": {                "friendlyName": "Axis",                "default": "0"            },            "mode": {                "friendlyName": "Mode",                "default": 0            },            "amplitude": {                "friendlyName": "Amplitude (V)",                "default": "45"            },            "frequency": {                "friendlyName": "Frequency (Hz)",                "default": "2000"            },            "cycles": {                "friendlyName": "Cycles",                "default": "3"            },            "random_range": {                "friendlyName": "Random range",                "default": 500000            },            "buffer": {                "friendlyName": "Buffer",                 "default": 2000            },            "sample_period": {                "friendlyName": "Sample period (ms)",                "default": "100"            }        }"</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Test_GetAllTests(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Test_GetAllTests(System.Int32)">
             <summary>
             Request all names of the registered tests            For debugging only.
             </summary>
@@ -2228,7 +2478,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Test_GetLog(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Test_GetLog(System.Int32)">
             <summary>
             Gets the complete log    For debugging only.
             </summary>
@@ -2238,7 +2488,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Test_GetPositionerSN(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Test_GetPositionerSN(System.Int32)">
             <summary>
             Gets the serial number of the positioner connected to a given axis.    For debugging only.
             </summary>
@@ -2248,7 +2498,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Test_GetReport(System.Int32,System.String)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Test_GetReport(System.Int32,System.String)">
             <summary>
             Get test report of last test run of specific test    name == "all": the test reports of all tests from last test run will be returned    For debugging only.
             </summary>
@@ -2259,7 +2509,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Test_GetStatus(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Test_GetStatus(System.Int32)">
             <summary>
             Get the current execution status of the test sequencer    For debugging only.        Status:        IDLE = 0        RUNNING = 1        FINISHED = 2        FINISHED_CYCLE = 3
             </summary>
@@ -2270,7 +2520,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Test_GetTestParameters(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Test_GetTestParameters(System.Int32)">
             <summary>
             Get test parameters the current test on the given axis is executed with            For debugging only.
             </summary>
@@ -2280,7 +2530,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Test_GetTestplatz">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Test_GetTestplatz">
             <summary>
             Gets the number of the Testplatz where the AMC belongs to    For debugging only.
             </summary>
@@ -2289,7 +2539,7 @@
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Test_SetPositionerSN(System.Int32,System.String)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Test_SetPositionerSN(System.Int32,System.String)">
             <summary>
             Sets the serial number of the positioner connected to a given axis.    For debugging only.
             </summary>
@@ -2297,447 +2547,449 @@
             <param name="sn">Serial number of the positioner</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Test_SetTestplatz(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Test_SetTestplatz(System.Int32)">
             <summary>
             Sets the number of the Testplatz where the AMC belongs to    For debugging only.
             </summary>
             <param name="testplatz">Number of Testplatz</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Test_StopCurrentTest(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Test_StopCurrentTest(System.Int32)">
             <summary>
             Stops the current test if it is stoppable    For debugging only.
             </summary>
             <param name="axis"></param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.GrantAccess(System.String)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.GrantAccess(System.String)">
             <summary>
-            Grants access to a locked device for the requesting IP by checking against the password
+            Grants access to a locked device by checking against the password.
             </summary>
-            <param name="password">string the current password</param>
+            <param name="password">current password string</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Lock(System.String)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Lock(System.String)">
             <summary>
-            This function locks the device with a password, so the calling of functions is only possible with this password. The locking IP is automatically added to the devices which can access functions
+            Locks the device with a given password. Afterwards, the device functions are only accessible with this password. The computer IP address, which locks the device, is automatically added to the device and doesn't need the password for functions access.
             </summary>
-            <param name="password">string the password to be set</param>
+            <param name="password">set password string</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Unlock(System.String)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Unlock(System.String)">
             <summary>
-            This function unlocks the device, so it will not be necessary to execute the grantAccess function to run any function
+            Unlocks the device. Afterwards, the device functions are accessible without any password. For grant access without unlocking the device, please use the grantAccess function.
             </summary>
-            <param name="password">string the current password</param>
+            <param name="password">current password string</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.GetLockStatus">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.GetLockStatus">
             <summary>
-            This function returns if the device is locked and if the current client is authorized to use the device.
+            Gets the lock status of the device and if the current client is authorized to use the device.
             </summary>
             <returns>
-              [0] value_locked: locked Is the device locked?
-              [1] value_authorized: authorized Is the client authorized?
+              [0] value_locked: locked true = locked; false = unlocked
+              [1] value_authorized: authorized true if the client is authorized, else false
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.About_GetInstalledPackages">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.About_GetInstalledPackages">
             <summary>
-            Get list of packages installed on the device
+            Gets list of packages installed on the device.
             </summary>
             <returns>
-              [0] value_string: string: Comma separated list of packages
+              [0] value_string: string comma separated list of packages
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.About_GetPackageLicense(System.String)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.About_GetPackageLicense(System.String)">
             <summary>
-            Get the license for a specific package
+            Gets the license for a specific package.
             </summary>
-            <param name="pckg">string: Package name</param>
+            <param name="pckg">package name string</param>
             <returns>
-              [0] value_string: string: License for this package
+              [0] value_string: string license for this package
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Update_GetSwUpdateProgress">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Update_GetSwUpdateProgress">
             <summary>
-            Get the progress of running update
+            Gets the progress of running update.
             </summary>
             <returns>
-              [0] value_int: int: progress in percent
+              [0] value_progress: progress value in %
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Update_GetLicenseUpdateProgress">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Update_GetLicenseUpdateProgress">
             <summary>
-            Get the progress of running license update
+            Gets the progress of running license update.
             </summary>
             <returns>
-              [0] value_int: int: progress in percent
+              [0] value_progress: progress value in %
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Update_SoftwareUpdateBase64">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Update_SoftwareUpdateBase64">
             <summary>
-            Execute the update with base64 file uploaded.
+            Executes the update with base 64 file uploaded. After completion, a manual reboot is necessary.
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Update_UploadSoftwareImageBase64(System.Int32,System.String)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Update_UploadSoftwareImageBase64(System.Int32,System.String)">
             <summary>
-            Upload new firmware image in format base 64
+            Uploads new firmware image in format base 64.
             </summary>
-            <param name="offset">int: offset of the data</param>
-            <param name="b64Data">string: base64 data</param>
+            <param name="offset">offset of the data</param>
+            <param name="b64Data">base64 data string</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Update_UploadLicenseBase64(System.Int32,System.String)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Update_UploadLicenseBase64(System.Int32,System.String)">
             <summary>
-            Upload new license file in format base 64
+            Uploads new license file in format base 64.
             </summary>
-            <param name="offset">int: offset of the data</param>
-            <param name="b64Data">string: base64 data</param>
+            <param name="offset">offset of the data</param>
+            <param name="b64Data">base64 data string</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Update_LicenseUpdateBase64">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Update_LicenseUpdateBase64">
             <summary>
-            Execute the license update with base64 file uploaded.
+            Executes the license update with base64 file uploaded. After execution, a manual reboot is necessary.
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_GetRealIpAddress">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_GetRealIpAddress">
             <summary>
-            Get the real IP address of the device set to the network interface (br0, eth1 or eth0)
+            Gets the real IP address of the device set to the network interface (br0, eth1 or eth0).
+            </summary>
+            <returns>
+              [0] value_IP: IP IP address
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_GetIpAddress">
+            <summary>
+            Gets the IP address of the device.
             </summary>
             <returns>
               [0] value_IP: IP address as string
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_GetIpAddress">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_SetIpAddress(System.String)">
             <summary>
-            Get the IP address of the device
-            </summary>
-            <returns>
-              [0] value_IP: IP address as string
-            </returns>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_SetIpAddress(System.String)">
-            <summary>
-            Set the IP address of the device
+            Sets the IP address of the device.
             </summary>
             <param name="address">IP address as string</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_GetSubnetMask">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_GetSubnetMask">
             <summary>
-            Get the subnet mask of the device
+            Gets the subnet mask of the device.
             </summary>
             <returns>
-              [0] value_Subnet: Subnet mask as string
+              [0] value_netmask: netmask subnet mask as string
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_SetSubnetMask(System.String)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_SetSubnetMask(System.String)">
             <summary>
-            Set the subnet mask of the device
+            Sets the subnet mask of the device.
             </summary>
-            <param name="netmask">Subnet mask as string</param>
+            <param name="netmask">subnet mask as string</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_GetDefaultGateway">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_GetDefaultGateway">
             <summary>
-            Get the default gateway of the device
+            Gets the default gateway of the device.
             </summary>
             <returns>
-              [0] value_Default: Default gateway
+              [0] value_gateway: gateway default gateway as string
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_SetDefaultGateway(System.String)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_SetDefaultGateway(System.String)">
             <summary>
-            Set the default gateway of the device
+            Sets the default gateway of the device.
             </summary>
-            <param name="gateway">Default gateway as string</param>
+            <param name="gateway">default gateway as string</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_GetDnsResolver(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_GetDnsResolver(System.Int32)">
             <summary>
-            Get the DNS resolver
+            Gets the DNS resolver.
             </summary>
-            <param name="priority">of DNS resolver (Usually: 0 = Default, 1 = Backup)</param>
+            <param name="priority">priority of DNS resolver (0 = default; 1 = backup)</param>
             <returns>
-              [0] value_IP: IP address of DNS resolver
+              [0] value_resolver: resolver IP address of DNS resolver
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_SetDnsResolver(System.Int32,System.String)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_SetDnsResolver(System.Int32,System.String)">
             <summary>
-            Set the DNS resolver
+            Sets the DNS resolver.
             </summary>
-            <param name="priority">of DNS resolver (Usually: 0 = Default, 1 = Backup)</param>
-            <param name="resolver">The resolver's IP address as string</param>
+            <param name="priority">priority of DNS resolver (0 = default; 1 = backup)</param>
+            <param name="resolver">IP address of DNS resolver</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_GetProxyServer">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_GetProxyServer">
             <summary>
-            Get the proxy settings of the devide
+            Gets the proxy settings of the device.
             </summary>
             <returns>
-              [0] value_Proxy: Proxy Server String, empty for no proxy
+              [0] value_proxyServer: proxyServer proxy server setting, empty for no proxy
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_SetProxyServer(System.String)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_SetProxyServer(System.String)">
             <summary>
-            Set the proxy server of the device
+            Sets the proxy server of the device.
             </summary>
-            <param name="proxyServer">Proxy Server Setting as string</param>
+            <param name="proxyServer">proxy server setting</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_GetEnableDhcpServer">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_GetEnableDhcpServer">
             <summary>
-            Get the state of DHCP server
+            Gets the status of DHCP server.
             </summary>
             <returns>
-              [0] value_boolean: boolean: true = DHCP server enable, false = DHCP server disable
+              [0] value_enabled: enabled true = enabled; false = disabled
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_SetEnableDhcpServer(System.Boolean)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_SetEnableDhcpServer(System.Boolean)">
             <summary>
-            Enable or disable DHCP server
+            Enables or disables DHCP server.
             </summary>
-            <param name="enable">boolean: true = enable DHCP server, false = disable DHCP server</param>
+            <param name="enable">true = enable; false = disable</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_GetEnableDhcpClient">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_GetEnableDhcpClient">
             <summary>
-            Get the state of DHCP client
+            Gets the status of DHCP client.
             </summary>
             <returns>
-              [0] value_boolean: boolean: true = DHCP client enable, false = DHCP client disable
+              [0] value_enabled: enabled true = enabled; false = disabled
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_SetEnableDhcpClient(System.Boolean)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_SetEnableDhcpClient(System.Boolean)">
             <summary>
-            Enable or disable DHCP client
+            Enables or disables DHCP client.
             </summary>
-            <param name="enable">boolean: true = enable DHCP client, false = disable DHCP client</param>
+            <param name="enable">true = enable; false = disable</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_Apply">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_Apply">
             <summary>
-            Apply temporary IP configuration and load it
-            </summary>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_Verify">
-            <summary>
-            Verify that temporary IP configuration is correct
+            Applies the temporary IP configuration and loads it.
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_Discard">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_Verify">
             <summary>
-            Discard temporary IP configuration
+            Verifies if the temporary IP configuration is correct.
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_GetWifiPresent">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_Discard">
             <summary>
-            Returns is a Wifi interface is present
+            Discards the temporary IP configuration.
+            </summary>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_GetWifiPresent">
+            <summary>
+            Checks if a WiFi interface is present.
             </summary>
             <returns>
-              [0] value_True: True, if interface is present
+              [0] value_present: present true if the interface is present, else false
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_SetWifiMode(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_SetWifiMode(System.Int32)">
             <summary>
-            Change the operation mode of the wifi adapter
+            Changes the operation mode of the WiFi adapter.
             </summary>
-            <param name="mode">0: Access point, 1: Wifi client</param>
+            <param name="mode">0 = access point; 1 = WiFi client</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_GetWifiMode">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_GetWifiMode">
             <summary>
-            Get the operation mode of the wifi adapter
+            Gets the operation mode of the WiFi adapter.
             </summary>
             <returns>
-              [0] value_mode: mode 0: Access point, 1: Wifi client
+              [0] value_mode: mode 0 = access point; 1 = WiFi client
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_SetWifiSSID(System.String)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_SetWifiSSID(System.String)">
             <summary>
-            Change the SSID of the network hosted (mode: Access point) or connected to (mode: client)
+            Changes the SSID of the network hosted (mode: access point) or connected to (mode: client).
             </summary>
-            <param name="ssid"></param>
+            <param name="SSID">SSID string</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_GetWifiSSID">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_GetWifiSSID">
             <summary>
-            Get the the SSID of the network hosted (mode: Access point) or connected to (mode: client)
+            Gets the SSID of the network hosted (mode: access point) or connected to (mode: client).
             </summary>
             <returns>
-              [0] SSID: SSID
+              [0] value_SSID: SSID SSID string
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_SetWifiPassphrase(System.String)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_SetWifiPassphrase(System.String)">
             <summary>
-            Change the passphrase of the network hosted (mode: Access point) or connected to (mode: client)
+            Changes the passphrase of the network hosted (mode: access point) or connected to (mode: client).
             </summary>
-            <param name="psk">Pre-shared key</param>
+            <param name="psk">pre-shared key</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_GetWifiPassphrase">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_GetWifiPassphrase">
             <summary>
-            Get the the passphrase of the network hosted (mode: Access point) or connected to (mode: client)
+            Gets the passphrase of the network hosted (mode: Access point) or connected to (mode: client).
             </summary>
             <returns>
-              [0] value_psk: psk Pre-shared key
+              [0] value_psk: psk pre-shared key
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Network_ConfigureWifi(System.Int32,System.String,System.String)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.Network_ConfigureWifi(System.Int32,System.String,System.String)">
             <summary>
-            Change the wifi configuration and applies it
+            Changes the WiFi configuration and applies it.
             </summary>
-            <param name="mode">0: Access point, 1: Wifi client</param>
-            <param name="ssid"></param>
-            <param name="psk">Pre-shared key</param>
+            <param name="mode">0 = access point; 1 = WiFi client</param>
+            <param name="SSID">SSID string</param>
+            <param name="psk">pre-shared key</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.Apply(System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.SetDeviceName(System.String)">
             <summary>
-            Apply temporary system configuration
+            Sets custom name for the device.
             </summary>
-            <param name="key"></param>
+            <param name="name">device name</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.SetDeviceName(System.String)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.GetDeviceName">
             <summary>
-            Set custom name for the device
-            </summary>
-            <param name="name">string: device name</param>
-            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
-        </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.GetDeviceName">
-            <summary>
-            Get the actual device name
+            Gets the current device name.
             </summary>
             <returns>
-              [0] value_string: string: actual device name
+              [0] value_name: name current device name
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.RebootSystem">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.RebootSystem">
             <summary>
-            Reboot the system
+            Reboots the device.
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.FactoryReset">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.FactoryReset">
             <summary>
-            Turns on the factory reset flag.
+            Turns on the factory reset flag. To perform the factory reset, a reboot is necessary afterwards. All settings will be set to default, and the device will be configured as DHCP server.
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.SoftReset">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.SoftReset">
             <summary>
-            Performs a soft reset (Reset without deleting the network settings).
+            Performs a soft reset (factory reset without deleting the network settings). Please reboot the device directly afterwards.
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.ErrorNumberToString(System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.ErrorNumberToString(System.Int32,System.Int32)">
             <summary>
-            Get a description of an error code
+            Gets a description of an error code.
             </summary>
-            <param name="language">integer: Language code 0 for the error name, 1 for a more user friendly error message</param>
-            <param name="errNbr">interger: Error code to translate</param>
+            <param name="language">integer: Language code 0 for the error name, 1 for a more user-friendly error message</param>
+            <param name="errNbr">error code to translate</param>
             <returns>
-              [0] value_string: string: Error description
+              [0] value_message: message error description
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.ErrorNumberToRecommendation(System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.ErrorNumberToRecommendation(System.Int32,System.Int32)">
             <summary>
-            Get a recommendation for the error code
+            Gets a recommendation for the error code.
             </summary>
             <param name="language">integer: Language code</param>
-            <param name="errNbr">interger: Error code to translate</param>
+            <param name="errNbr">error code to translate</param>
             <returns>
-              [0] value_string: string: Error recommendation (currently returning an int = 0 until we have recommendations)
+              [0] value_string: string: error recommendation (currently returning an int = 0 until we have recommendations)
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.GetFirmwareVersion">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.GetFirmwareVersion">
             <summary>
-            Get the firmware version of the system
+            Gets the firmware version of the device.
             </summary>
             <returns>
-              [0] value_string: string: The firmware version
+              [0] value_FWversion: FWversion firmware version
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.GetHostname">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.GetHardwareInfo">
             <summary>
-            Return device hostname
+            Retrieves the hardware information of the device.
             </summary>
             <returns>
-              [0] available: available
+              [0] hardware_info_string: hardware_info_string
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.GetMacAddress">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.GetHostname">
             <summary>
-            Get the mac address of the system
+            Returns the device hostname.
             </summary>
             <returns>
-              [0] value_string: string: Mac address of the system
+              [0] value_name: name hostname
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.GetSerialNumber">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.GetMacAddress">
             <summary>
-            Get the serial number of the system
+            Gets the mac address of the device.
             </summary>
             <returns>
-              [0] value_string: string: Serial number
+              [0] value_mac: mac mac address
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.GetFluxCode">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.GetSerialNumber">
             <summary>
-            Get the flux code of the system
+            Gets the serial number of the device.
             </summary>
             <returns>
-              [0] value_string: string: flux code
+              [0] value_SN: SN serial number
             </returns>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.UpdateTimeFromInternet">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.GetFluxCode">
             <summary>
-            Update system time by querying attocube.com
+            Gets the flux code of the system.
+            </summary>
+            <returns>
+              [0] value_code: code flux code
+            </returns>
+            <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
+        </member>
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.UpdateTimeFromInternet">
+            <summary>
+            Updates system time by querying attocube.com.
             </summary>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
-        <member name="M:Attocube.AMC_1_0_0.AttocubeAMC.SetTime(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
+        <member name="M:Attocube.AMC_1_5_1.AttocubeAMC.SetTime(System.Int32,System.Int32,System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
-            Set system time manually
+            Sets system time manually.
             </summary>
-            <param name="day">integer: Day (1-31)</param>
-            <param name="month">integer: Day (1-12)</param>
-            <param name="year">integer: Day (eg. 2021)</param>
-            <param name="hour">integer: Day (0-23)</param>
-            <param name="minute">integer: Day (0-59)</param>
-            <param name="second">integer: Day (0-59)</param>
+            <param name="day">value from 1 to 31</param>
+            <param name="month">value from 1 to 12</param>
+            <param name="year">value (e.g. 2021)</param>
+            <param name="hour">value from 0 to 23</param>
+            <param name="minute">value from 0 to 59</param>
+            <param name="second">value from 0 to 59</param>
             <exception cref="T:Attocube.API.Error.AttocubeAPIException">Thrown if the call failed - e.g. response is null or invalid, some error was signalled by the embedded target</exception>
         </member>
     </members>
