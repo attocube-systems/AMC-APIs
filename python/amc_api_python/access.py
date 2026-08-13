@@ -6,10 +6,10 @@ class Access:
     def grantAccess(self, password):
         # type: (str) -> ()
         """
-        Grants access to a locked device for the requesting IP by checking against the password
+        Grants access to a locked device by checking against the password.
 
         Parameters:
-            password: string the current password
+            password: current password string
                     
         """
         
@@ -20,10 +20,10 @@ class Access:
     def lock(self, password):
         # type: (str) -> ()
         """
-        This function locks the device with a password, so the calling of functions is only possible with this password. The locking IP is automatically added to the devices which can access functions
+        Locks the device with a given password. Afterwards, the device functions are only accessible with this password. The computer IP address, which locks the device, is automatically added to the device and doesn't need the password for functions access.
 
         Parameters:
-            password: string the password to be set
+            password: set password string
                     
         """
         
@@ -34,10 +34,10 @@ class Access:
     def unlock(self, password):
         # type: (str) -> ()
         """
-        This function unlocks the device, so it will not be necessary to execute the grantAccess function to run any function
+        Unlocks the device. Afterwards, the device functions are accessible without any password. For grant access without unlocking the device, please use the grantAccess function.
 
         Parameters:
-            password: string the current password
+            password: current password string
                     
         """
         
@@ -48,11 +48,11 @@ class Access:
     def getLockStatus(self):
         # type: () -> (bool, bool)
         """
-        This function returns if the device is locked and if the current client is authorized to use the device.
+        Gets the lock status of the device and if the current client is authorized to use the device.
         Returns:
-            value_errNo: errNo errorCode
-            value_locked: locked Is the device locked?
-            value_authorized: authorized Is the client authorized?
+            value_error: error code, if there was an error, otherwise 0 for ok
+            value_locked: locked true = locked; false = unlocked
+            value_authorized: authorized true if the client is authorized, else false
                     
         """
         

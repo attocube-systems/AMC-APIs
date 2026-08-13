@@ -6,7 +6,8 @@ class Test:
     def clearLog(self, axis, testname):
         # type: (int, str) -> ()
         """
-        Resets the log    For debugging only.
+        Resets the log
+           For debugging only.
 
         Parameters:
             axis: Axis of the AMC
@@ -21,7 +22,13 @@ class Test:
     def execute(self, name, parameters):
         # type: (str, str) -> ()
         """
-        Starts a test run            For debugging only.                Error codes:                ERR_OK = 0                ERR_TEST_DOES_NOT_EXIST = -1                ERR_TEST_RUNNING = -2
+        Starts a test run
+                   For debugging only.
+           
+                   Error codes:
+                       ERR_OK = 0
+                       ERR_TEST_DOES_NOT_EXIST = -1
+                       ERR_TEST_RUNNING = -2
 
         Parameters:
             name: Name of the test, see getAllTest()
@@ -71,7 +78,8 @@ Example
     def getAllTests(self, axis):
         # type: (int) -> (str, str)
         """
-        Request all names of the registered tests            For debugging only.
+        Request all names of the registered tests
+                   For debugging only.
 
         Parameters:
             axis: 
@@ -137,7 +145,8 @@ Example
     def getLog(self, axis):
         # type: (int) -> (str)
         """
-        Gets the complete log    For debugging only.
+        Gets the complete log
+           For debugging only.
 
         Parameters:
             axis: Axis of the AMC
@@ -155,7 +164,8 @@ Example
     def getPositionerSN(self, axis):
         # type: (int) -> (str)
         """
-        Gets the serial number of the positioner connected to a given axis.    For debugging only.
+        Gets the serial number of the positioner connected to a given axis.
+           For debugging only.
 
         Parameters:
             axis: 
@@ -173,7 +183,9 @@ Example
     def getReport(self, axis, name):
         # type: (int, str) -> (str)
         """
-        Get test report of last test run of specific test    name == "all": the test reports of all tests from last test run will be returned    For debugging only.
+        Get test report of last test run of specific test
+           name == "all": the test reports of all tests from last test run will be returned
+           For debugging only.
 
         Parameters:
             axis: 
@@ -192,7 +204,14 @@ Example
     def getStatus(self, axis):
         # type: (int) -> (int, str)
         """
-        Get the current execution status of the test sequencer    For debugging only.        Status:        IDLE = 0        RUNNING = 1        FINISHED = 2        FINISHED_CYCLE = 3
+        Get the current execution status of the test sequencer
+           For debugging only.
+           
+           Status:
+               IDLE = 0
+               RUNNING = 1
+               FINISHED = 2
+               FINISHED_CYCLE = 3
 
         Parameters:
             axis: 
@@ -211,7 +230,8 @@ Example
     def getTestParameters(self, axis):
         # type: (int) -> (str)
         """
-        Get test parameters the current test on the given axis is executed with            For debugging only.
+        Get test parameters the current test on the given axis is executed with
+                   For debugging only.
 
         Parameters:
             axis: 
@@ -231,7 +251,8 @@ Example
     def getTestplatz(self):
         # type: () -> (int)
         """
-        Gets the number of the Testplatz where the AMC belongs to    For debugging only.
+        Gets the number of the Testplatz where the AMC belongs to
+           For debugging only.
         Returns:
             error_code: Error code
             testplatz: Number of Testplatz
@@ -245,7 +266,8 @@ Example
     def setPositionerSN(self, axis, sn):
         # type: (int, str) -> ()
         """
-        Sets the serial number of the positioner connected to a given axis.    For debugging only.
+        Sets the serial number of the positioner connected to a given axis.
+           For debugging only.
 
         Parameters:
             axis: Axis the positioner is connected to
@@ -260,7 +282,8 @@ Example
     def setTestplatz(self, testplatz):
         # type: (int) -> ()
         """
-        Sets the number of the Testplatz where the AMC belongs to    For debugging only.
+        Sets the number of the Testplatz where the AMC belongs to
+           For debugging only.
 
         Parameters:
             testplatz: Number of Testplatz
@@ -274,7 +297,8 @@ Example
     def stopCurrentTest(self, axis):
         # type: (int) -> ()
         """
-        Stops the current test if it is stoppable    For debugging only.
+        Stops the current test if it is stoppable
+           For debugging only.
 
         Parameters:
             axis: 

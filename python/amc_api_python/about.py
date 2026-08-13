@@ -6,10 +6,10 @@ class About:
     def getInstalledPackages(self):
         # type: () -> (str)
         """
-        Get list of packages installed on the device
+        Gets list of packages installed on the device.
         Returns:
-            value_errNo: errNo errorCode
-            value_string: string: Comma separated list of packages
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_string: string comma separated list of packages
                     
         """
         
@@ -20,14 +20,14 @@ class About:
     def getPackageLicense(self, pckg):
         # type: (str) -> (str)
         """
-        Get the license for a specific package
+        Gets the license for a specific package.
 
         Parameters:
-            pckg: string: Package name
+            pckg: package name string
                     
         Returns:
-            value_errNo: errNo errorCode
-            value_string: string: License for this package
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_string: string license for this package
                     
         """
         

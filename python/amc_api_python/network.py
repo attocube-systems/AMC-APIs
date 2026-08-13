@@ -6,10 +6,10 @@ class Network:
     def getRealIpAddress(self):
         # type: () -> (str)
         """
-        Get the real IP address of the device set to the network interface (br0, eth1 or eth0)
+        Gets the real IP address of the device set to the network interface (br0, eth1 or eth0).
         Returns:
-            value_errNo: errNo errorCode
-            value_IP: IP address as string
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_IP: IP IP address
                     
         """
         
@@ -20,9 +20,9 @@ class Network:
     def getIpAddress(self):
         # type: () -> (str)
         """
-        Get the IP address of the device
+        Gets the IP address of the device.
         Returns:
-            value_errNo: errNo errorCode
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
             value_IP: IP address as string
                     
         """
@@ -34,7 +34,7 @@ class Network:
     def setIpAddress(self, address):
         # type: (str) -> ()
         """
-        Set the IP address of the device
+        Sets the IP address of the device.
 
         Parameters:
             address: IP address as string
@@ -48,10 +48,10 @@ class Network:
     def getSubnetMask(self):
         # type: () -> (str)
         """
-        Get the subnet mask of the device
+        Gets the subnet mask of the device.
         Returns:
-            value_errNo: errNo errorCode
-            value_Subnet: Subnet mask as string
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_netmask: netmask subnet mask as string
                     
         """
         
@@ -62,10 +62,10 @@ class Network:
     def setSubnetMask(self, netmask):
         # type: (str) -> ()
         """
-        Set the subnet mask of the device
+        Sets the subnet mask of the device.
 
         Parameters:
-            netmask: Subnet mask as string
+            netmask: subnet mask as string
                     
         """
         
@@ -76,10 +76,10 @@ class Network:
     def getDefaultGateway(self):
         # type: () -> (str)
         """
-        Get the default gateway of the device
+        Gets the default gateway of the device.
         Returns:
-            value_errNo: errNo errorCode
-            value_Default: Default gateway
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_gateway: gateway default gateway as string
                     
         """
         
@@ -90,10 +90,10 @@ class Network:
     def setDefaultGateway(self, gateway):
         # type: (str) -> ()
         """
-        Set the default gateway of the device
+        Sets the default gateway of the device.
 
         Parameters:
-            gateway: Default gateway as string
+            gateway: default gateway as string
                     
         """
         
@@ -104,14 +104,14 @@ class Network:
     def getDnsResolver(self, priority):
         # type: (int) -> (str)
         """
-        Get the DNS resolver
+        Gets the DNS resolver.
 
         Parameters:
-            priority: of DNS resolver (Usually: 0 = Default, 1 = Backup)
+            priority: priority of DNS resolver (0 = default; 1 = backup)
                     
         Returns:
-            value_errNo: errNo errorCode
-            value_IP: IP address of DNS resolver
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_resolver: resolver IP address of DNS resolver
                     
         """
         
@@ -122,11 +122,11 @@ class Network:
     def setDnsResolver(self, priority, resolver):
         # type: (int, str) -> ()
         """
-        Set the DNS resolver
+        Sets the DNS resolver.
 
         Parameters:
-            priority: of DNS resolver (Usually: 0 = Default, 1 = Backup)
-            resolver: The resolver's IP address as string
+            priority: priority of DNS resolver (0 = default; 1 = backup)
+            resolver: IP address of DNS resolver
                     
         """
         
@@ -137,10 +137,10 @@ class Network:
     def getProxyServer(self):
         # type: () -> (str)
         """
-        Get the proxy settings of the devide
+        Gets the proxy settings of the device.
         Returns:
-            value_errNo: errNo errorCode
-            value_Proxy: Proxy Server String, empty for no proxy
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_proxyServer: proxyServer proxy server setting, empty for no proxy
                     
         """
         
@@ -151,10 +151,10 @@ class Network:
     def setProxyServer(self, proxyServer):
         # type: (str) -> ()
         """
-        Set the proxy server of the device
+        Sets the proxy server of the device.
 
         Parameters:
-            proxyServer: Proxy Server Setting as string
+            proxyServer: proxy server setting
                     
         """
         
@@ -165,10 +165,10 @@ class Network:
     def getEnableDhcpServer(self):
         # type: () -> (bool)
         """
-        Get the state of DHCP server
+        Gets the status of DHCP server.
         Returns:
-            value_errNo: errNo errorCode
-            value_boolean: boolean: true = DHCP server enable, false = DHCP server disable
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_enabled: enabled true = enabled; false = disabled
                     
         """
         
@@ -179,10 +179,10 @@ class Network:
     def setEnableDhcpServer(self, enable):
         # type: (bool) -> ()
         """
-        Enable or disable DHCP server
+        Enables or disables DHCP server.
 
         Parameters:
-            enable: boolean: true = enable DHCP server, false = disable DHCP server
+            enable: true = enable; false = disable
                     
         """
         
@@ -193,10 +193,10 @@ class Network:
     def getEnableDhcpClient(self):
         # type: () -> (bool)
         """
-        Get the state of DHCP client
+        Gets the status of DHCP client.
         Returns:
-            value_errNo: errNo errorCode
-            value_boolean: boolean: true = DHCP client enable, false = DHCP client disable
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_enabled: enabled true = enabled; false = disabled
                     
         """
         
@@ -207,10 +207,10 @@ class Network:
     def setEnableDhcpClient(self, enable):
         # type: (bool) -> ()
         """
-        Enable or disable DHCP client
+        Enables or disables DHCP client.
 
         Parameters:
-            enable: boolean: true = enable DHCP client, false = disable DHCP client
+            enable: true = enable; false = disable
                     
         """
         
@@ -221,7 +221,7 @@ class Network:
     def apply(self):
         # type: () -> ()
         """
-        Apply temporary IP configuration and load it
+        Applies the temporary IP configuration and loads it.
         """
         
         response = self.device.request(self.interface_name + ".apply")
@@ -231,7 +231,7 @@ class Network:
     def verify(self):
         # type: () -> ()
         """
-        Verify that temporary IP configuration is correct
+        Verifies if the temporary IP configuration is correct.
         """
         
         response = self.device.request(self.interface_name + ".verify")
@@ -241,7 +241,7 @@ class Network:
     def discard(self):
         # type: () -> ()
         """
-        Discard temporary IP configuration
+        Discards the temporary IP configuration.
         """
         
         response = self.device.request(self.interface_name + ".discard")
@@ -251,10 +251,10 @@ class Network:
     def getWifiPresent(self):
         # type: () -> (bool)
         """
-        Returns is a Wifi interface is present
+        Checks if a WiFi interface is present.
         Returns:
-            value_errNo: errNo errorCode
-            value_True: True, if interface is present
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_present: present true if the interface is present, else false
                     
         """
         
@@ -265,10 +265,10 @@ class Network:
     def setWifiMode(self, mode):
         # type: (int) -> ()
         """
-        Change the operation mode of the wifi adapter
+        Changes the operation mode of the WiFi adapter.
 
         Parameters:
-            mode: 0: Access point, 1: Wifi client
+            mode: 0 = access point; 1 = WiFi client
                     
         """
         
@@ -279,10 +279,10 @@ class Network:
     def getWifiMode(self):
         # type: () -> (int)
         """
-        Get the operation mode of the wifi adapter
+        Gets the operation mode of the WiFi adapter.
         Returns:
-            value_errNo: errNo errorCode
-            value_mode: mode 0: Access point, 1: Wifi client
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_mode: mode 0 = access point; 1 = WiFi client
                     
         """
         
@@ -290,27 +290,27 @@ class Network:
         self.device.handleError(response)
         return response[1]                
 
-    def setWifiSSID(self, ssid):
+    def setWifiSSID(self, SSID):
         # type: (str) -> ()
         """
-        Change the SSID of the network hosted (mode: Access point) or connected to (mode: client)
+        Changes the SSID of the network hosted (mode: access point) or connected to (mode: client).
 
         Parameters:
-            ssid: 
+            SSID: SSID string
                     
         """
         
-        response = self.device.request(self.interface_name + ".setWifiSSID", [ssid, ])
+        response = self.device.request(self.interface_name + ".setWifiSSID", [SSID, ])
         self.device.handleError(response)
         return                 
 
     def getWifiSSID(self):
         # type: () -> (str)
         """
-        Get the the SSID of the network hosted (mode: Access point) or connected to (mode: client)
+        Gets the SSID of the network hosted (mode: access point) or connected to (mode: client).
         Returns:
-            value_errNo: errNo errorCode
-            SSID: SSID
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_SSID: SSID SSID string
                     
         """
         
@@ -321,10 +321,10 @@ class Network:
     def setWifiPassphrase(self, psk):
         # type: (str) -> ()
         """
-        Change the passphrase of the network hosted (mode: Access point) or connected to (mode: client)
+        Changes the passphrase of the network hosted (mode: access point) or connected to (mode: client).
 
         Parameters:
-            psk: Pre-shared key
+            psk: pre-shared key
                     
         """
         
@@ -335,10 +335,10 @@ class Network:
     def getWifiPassphrase(self):
         # type: () -> (str)
         """
-        Get the the passphrase of the network hosted (mode: Access point) or connected to (mode: client)
+        Gets the passphrase of the network hosted (mode: Access point) or connected to (mode: client).
         Returns:
-            value_errNo: errNo errorCode
-            value_psk: psk Pre-shared key
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_psk: psk pre-shared key
                     
         """
         
@@ -346,19 +346,19 @@ class Network:
         self.device.handleError(response)
         return response[1]                
 
-    def configureWifi(self, mode, ssid, psk):
+    def configureWifi(self, mode, SSID, psk):
         # type: (int, str, str) -> ()
         """
-        Change the wifi configuration and applies it
+        Changes the WiFi configuration and applies it.
 
         Parameters:
-            mode: 0: Access point, 1: Wifi client
-            ssid: 
-            psk: Pre-shared key
+            mode: 0 = access point; 1 = WiFi client
+            SSID: SSID string
+            psk: pre-shared key
                     
         """
         
-        response = self.device.request(self.interface_name + ".configureWifi", [mode, ssid, psk, ])
+        response = self.device.request(self.interface_name + ".configureWifi", [mode, SSID, psk, ])
         self.device.handleError(response)
         return                 
 

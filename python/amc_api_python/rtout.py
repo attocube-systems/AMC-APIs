@@ -3,19 +3,19 @@ class Rtout:
         self.device = device
         self.interface_name = "com.attocube.amc.rtout"
 
-    def setMode(self, axis, mode):
+    def setMode(self, axis, RT_OUT_MODE):
         # type: (int, int) -> ()
         """
-        Set the real time output signal mode
+        Set the real time output signal mode. To set either LVTTL or LVDS, please use setSignalMode-function
 
         Parameters:
             axis: [0|1|2]
-            mode: 0: Off, 1: AquadB, 2: Trigger
+            RT_OUT_MODE: 0: Off, 1: AquadB, 2: Trigger
                     
         """
         
-        response = self.device.request(self.interface_name + ".setMode", [axis, mode, ])
-        if response["result"][0] == 0:
+        response = self.device.request(self.interface_name + ".setMode", [axis, RT_OUT_MODE, ])
+        if response[0] == 0:
             self.apply()
         else:
             self.discard()
@@ -32,7 +32,7 @@ class Rtout:
                     
         Returns:
             errNo: errNo
-            value_mode: mode 0: Off, 1: AquadB, 2: Trigger
+            value_RT_OUT_MODE: RT_OUT_MODE For the meaning of the values, please refer to the setMode-function
                     
         """
         
@@ -159,7 +159,7 @@ class Rtout:
         """
         
         response = self.device.request(self.interface_name + ".setControlAQuadBOutResolution", [axis, resolution, ])
-        if response["result"][0] == 0:
+        if response[0] == 0:
             self.apply()
         else:
             self.discard()
@@ -196,7 +196,7 @@ class Rtout:
         """
         
         response = self.device.request(self.interface_name + ".setControlAQuadBOutClock", [axis, clock, ])
-        if response["result"][0] == 0:
+        if response[0] == 0:
             self.apply()
         else:
             self.discard()

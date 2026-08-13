@@ -98,18 +98,24 @@ class Rtin:
         self.device.handleError(response)
         return                 
 
-    def setRealTimeInMode(self, axis, mode):
+    def setRealTimeInMode(self, axis, RT_IN_MODE):
         # type: (int, int) -> ()
         """
         This function sets the real time input mode for the selected axis.
 
         Parameters:
             axis: [0|1|2]
-            mode: see `RT_IN_MODES` @see realtime
+            RT_IN_MODE: 0:    AquadB  (LVTTL)
+ 1:    AquadB  (LVDS)
+ 8:    Stepper (LVTTL)
+ 9:    Stepper (LVDS)
+ 10:   Trigger (LVTTL)
+ 11:   Trigger (LVDS)
+ 15:   Off
                     
         """
         
-        response = self.device.request(self.interface_name + ".setRealTimeInMode", [axis, mode, ])
+        response = self.device.request(self.interface_name + ".setRealTimeInMode", [axis, RT_IN_MODE, ])
         self.device.handleError(response)
         return                 
 
@@ -123,7 +129,7 @@ class Rtin:
                     
         Returns:
             errNo: errNo
-            value_mode: mode see `RT_IN_MODES`
+            value_RT_IN_MODE: RT_IN_MODE Please refer to "setRealTimeInMode" for information on possible values
                     
         """
         
@@ -135,6 +141,7 @@ class Rtin:
         # type: (int, int) -> ()
         """
         This function sets the change per pulse for the selected axis under real time input in the closed-loop mode.
+        only used in closed loop operation
 
         Parameters:
             axis: [0|1|2]
@@ -167,7 +174,8 @@ class Rtin:
     def setRealTimeInStepsPerPulse(self, axis, steps):
         # type: (int, int) -> ()
         """
-        Set the change in step per pulse  of the realtime input when trigger and stepper mode is used only used in open loop operation
+        Set the change in step per pulse  of the realtime input when trigger and stepper mode is used
+        only used in open loop operation
 
         Parameters:
             axis: [0|1|2]

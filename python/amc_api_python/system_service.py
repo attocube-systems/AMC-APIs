@@ -3,27 +3,13 @@ class System_service:
         self.device = device
         self.interface_name = "com.attocube.system"
 
-    def apply(self, key):
-        # type: (int) -> ()
-        """
-        Apply temporary system configuration
-
-        Parameters:
-            key: 
-                    
-        """
-        
-        response = self.device.request(self.interface_name + ".apply", [key, ])
-        self.device.handleError(response)
-        return                 
-
     def setDeviceName(self, name):
         # type: (str) -> ()
         """
-        Set custom name for the device
+        Sets custom name for the device.
 
         Parameters:
-            name: string: device name
+            name: device name
                     
         """
         
@@ -34,10 +20,10 @@ class System_service:
     def getDeviceName(self):
         # type: () -> (str)
         """
-        Get the actual device name
+        Gets the current device name.
         Returns:
-            value_errNo: errNo errorCode
-            value_string: string: actual device name
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_name: name current device name
                     
         """
         
@@ -48,7 +34,7 @@ class System_service:
     def rebootSystem(self):
         # type: () -> ()
         """
-        Reboot the system
+        Reboots the device.
         """
         
         response = self.device.request(self.interface_name + ".rebootSystem")
@@ -58,7 +44,7 @@ class System_service:
     def factoryReset(self):
         # type: () -> ()
         """
-        Turns on the factory reset flag.
+        Turns on the factory reset flag. To perform the factory reset, a reboot is necessary afterwards. All settings will be set to default, and the device will be configured as DHCP server.
         """
         
         response = self.device.request(self.interface_name + ".factoryReset")
@@ -68,7 +54,7 @@ class System_service:
     def softReset(self):
         # type: () -> ()
         """
-        Performs a soft reset (Reset without deleting the network settings).
+        Performs a soft reset (factory reset without deleting the network settings). Please reboot the device directly afterwards.
         """
         
         response = self.device.request(self.interface_name + ".softReset")
@@ -78,15 +64,15 @@ class System_service:
     def errorNumberToString(self, language, errNbr):
         # type: (int, int) -> (str)
         """
-        Get a description of an error code
+        Gets a description of an error code.
 
         Parameters:
-            language: integer: Language code 0 for the error name, 1 for a more user friendly error message
-            errNbr: interger: Error code to translate
+            language: integer: Language code 0 for the error name, 1 for a more user-friendly error message
+            errNbr: error code to translate
                     
         Returns:
-            value_errNo: errNo errorCode
-            value_string: string: Error description
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_message: message error description
                     
         """
         
@@ -97,15 +83,15 @@ class System_service:
     def errorNumberToRecommendation(self, language, errNbr):
         # type: (int, int) -> (str)
         """
-        Get a recommendation for the error code
+        Gets a recommendation for the error code.
 
         Parameters:
             language: integer: Language code
-            errNbr: interger: Error code to translate
+            errNbr: error code to translate
                     
         Returns:
-            value_errNo: errNo errorCode
-            value_string: string: Error recommendation (currently returning an int = 0 until we have recommendations)
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_string: string: error recommendation (currently returning an int = 0 until we have recommendations)
                     
         """
         
@@ -116,10 +102,10 @@ class System_service:
     def getFirmwareVersion(self):
         # type: () -> (str)
         """
-        Get the firmware version of the system
+        Gets the firmware version of the device.
         Returns:
-            value_errNo: errNo errorCode
-            value_string: string: The firmware version
+            value_errNo: errNo error code to translate
+            value_FWversion: FWversion firmware version
                     
         """
         
@@ -127,13 +113,27 @@ class System_service:
         self.device.handleError(response)
         return response[1]                
 
+    def getHardwareInfo(self):
+        # type: () -> (str)
+        """
+        Retrieves the hardware information of the device.
+        Returns:
+            value_errNo: errNo error code
+            hardware_info_string: hardware_info_string
+                    
+        """
+        
+        response = self.device.request(self.interface_name + ".getHardwareInfo")
+        self.device.handleError(response)
+        return response[1]                
+
     def getHostname(self):
         # type: () -> (str)
         """
-        Return device hostname
+        Returns the device hostname.
         Returns:
-            value_errNo: errNo errorCode
-            available: available
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_name: name hostname
                     
         """
         
@@ -144,10 +144,10 @@ class System_service:
     def getMacAddress(self):
         # type: () -> (str)
         """
-        Get the mac address of the system
+        Gets the mac address of the device.
         Returns:
-            value_errNo: errNo errorCode
-            value_string: string: Mac address of the system
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_mac: mac mac address
                     
         """
         
@@ -158,10 +158,10 @@ class System_service:
     def getSerialNumber(self):
         # type: () -> (str)
         """
-        Get the serial number of the system
+        Gets the serial number of the device.
         Returns:
-            value_errNo: errNo errorCode
-            value_string: string: Serial number
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_SN: SN serial number
                     
         """
         
@@ -172,10 +172,10 @@ class System_service:
     def getFluxCode(self):
         # type: () -> (str)
         """
-        Get the flux code of the system
+        Gets the flux code of the system.
         Returns:
-            value_errNo: errNo errorCode
-            value_string: string: flux code
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_code: code flux code
                     
         """
         
@@ -186,7 +186,7 @@ class System_service:
     def updateTimeFromInternet(self):
         # type: () -> ()
         """
-        Update system time by querying attocube.com
+        Updates system time by querying attocube.com.
         """
         
         response = self.device.request(self.interface_name + ".updateTimeFromInternet")
@@ -196,15 +196,15 @@ class System_service:
     def setTime(self, day, month, year, hour, minute, second):
         # type: (int, int, int, int, int, int) -> ()
         """
-        Set system time manually
+        Sets system time manually.
 
         Parameters:
-            day: integer: Day (1-31)
-            month: integer: Day (1-12)
-            year: integer: Day (eg. 2021)
-            hour: integer: Day (0-23)
-            minute: integer: Day (0-59)
-            second: integer: Day (0-59)
+            day: value from 1 to 31
+            month: value from 1 to 12
+            year: value (e.g. 2021)
+            hour: value from 0 to 23
+            minute: value from 0 to 59
+            second: value from 0 to 59
                     
         """
         

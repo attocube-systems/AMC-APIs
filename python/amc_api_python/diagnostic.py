@@ -72,22 +72,3 @@ class Diagnostic:
         self.device.handleError(response)
         return response[1]                
 
-    def getDiagnosticStepSize(self, axis):
-        # type: (int) -> (int, int)
-        """
-        Performs 10 steps in forward and backward and calculates the average step size in both directions on a specific axis
-
-        Parameters:
-            axis: [0|1|2]
-                    
-        Returns:
-            errNo: errNo
-            stepsize_fwd: stepsize_fwd
-            stepsize_bwd: stepsize_bwd
-                    
-        """
-        
-        response = self.device.request(self.interface_name + ".getDiagnosticStepSize", [axis, ])
-        self.device.handleError(response)
-        return response[1], response[2]                
-

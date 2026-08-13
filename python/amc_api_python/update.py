@@ -6,10 +6,10 @@ class Update:
     def getSwUpdateProgress(self):
         # type: () -> (int)
         """
-        Get the progress of running update
+        Gets the progress of running update.
         Returns:
-            value_errNo: errNo errorCode
-            value_int: int: progress in percent
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_progress: progress value in %
                     
         """
         
@@ -20,10 +20,10 @@ class Update:
     def getLicenseUpdateProgress(self):
         # type: () -> (int)
         """
-        Get the progress of running license update
+        Gets the progress of running license update.
         Returns:
-            value_errNo: errNo errorCode
-            value_int: int: progress in percent
+            value_errNo: errNo error code, if there was an error, otherwise 0 for ok
+            value_progress: progress value in %
                     
         """
         
@@ -34,7 +34,7 @@ class Update:
     def softwareUpdateBase64(self):
         # type: () -> ()
         """
-        Execute the update with base64 file uploaded.
+        Executes the update with base 64 file uploaded. After completion, a manual reboot is necessary.
         """
         
         response = self.device.request(self.interface_name + ".softwareUpdateBase64")
@@ -44,11 +44,11 @@ class Update:
     def uploadSoftwareImageBase64(self, offset, b64Data):
         # type: (int, str) -> ()
         """
-        Upload new firmware image in format base 64
+        Uploads new firmware image in format base 64.
 
         Parameters:
-            offset: int: offset of the data
-            b64Data: string: base64 data
+            offset: offset of the data
+            b64Data: base64 data string
                     
         """
         
@@ -59,11 +59,11 @@ class Update:
     def uploadLicenseBase64(self, offset, b64Data):
         # type: (int, str) -> ()
         """
-        Upload new license file in format base 64
+        Uploads new license file in format base 64.
 
         Parameters:
-            offset: int: offset of the data
-            b64Data: string: base64 data
+            offset: offset of the data
+            b64Data: base64 data string
                     
         """
         
@@ -74,7 +74,7 @@ class Update:
     def licenseUpdateBase64(self):
         # type: () -> ()
         """
-        Execute the license update with base64 file uploaded.
+        Executes the license update with base64 file uploaded. After execution, a manual reboot is necessary.
         """
         
         response = self.device.request(self.interface_name + ".licenseUpdateBase64")

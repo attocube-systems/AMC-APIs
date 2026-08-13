@@ -95,7 +95,8 @@ class Device(object):
         req = {
                 "jsonrpc": "2.0",
                 "method": method,
-                "api": self.apiversion
+                "api": self.apiversion,
+                "pid": self.pid
               }
         if params:
             req["params"] = params
