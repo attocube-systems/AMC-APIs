@@ -1,0 +1,22 @@
+% Matlab API based on AMC FW 1.5.1
+
+function [errNo, lut] = rotcomp_getLUT(tcp)
+% brief : Gets the LUT file as JSON string
+%
+% param[in] tcp: TCP/IP connection ID
+% param[out]
+%           errNo: Error code, if there was an error, otherwise 0 for ok
+%           lut: JSON string of the LUT file for the rotation compensation
+
+
+data_send = sprintf('{"jsonrpc": "2.0", "pid": "amc", "method": "com.attocube.amc.rotcomp.getLUT", "params": [], "id": 1, "api": 2}');
+
+writeline(tcp, data_send);
+data_receive = readline(tcp);
+data = jsondecode(data_receive);
+
+errNo = data.result(1);
+lut = data.result(2);
+
+
+end
