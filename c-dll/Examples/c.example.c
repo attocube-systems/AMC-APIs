@@ -4,8 +4,7 @@
 #else
 #include <unistd.h>
 #endif
-#include "attocubeJSONCall.h"
-#include "generatedAPI.h"
+#include "attoAMC.h"
 
 int main ()
 {
@@ -25,7 +24,8 @@ int main ()
         // Continuous open loop drive forward
         // Start
         AMC_move_setControlContinuousFwd(amc, axis, true);
-        sleep(1);
+        // sleep(1); // for linux
+        Sleep(1);  // for windows
         // Stop
         AMC_move_setControlContinuousFwd(amc, axis, false);
 
@@ -48,7 +48,8 @@ int main ()
             // Read out position in nm
             AMC_move_getPosition(amc, axis, &position);
             printf("Position %f nm\n", position);
-            sleep(0.1);
+            // sleep(0.1); // for linux
+            Sleep(0.1); // for windows
             AMC_status_getStatusTargetRange(amc, axis, &inTargetRange);
         }
 
