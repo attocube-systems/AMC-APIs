@@ -9,8 +9,8 @@
 ## import sys
 ## sys.path.append("ids_api") 
 
-from amc_api import AMC  # API is the folder, in which the API is located.
-from ids_api import SEN # The current API version can be found here: https://github.com/attocube-systems/IDS-APIs
+from amc_api_python import AMC  # API is the folder, in which the API is located.
+from ids_api_python import SEN # The current API version can be found here: https://github.com/attocube-systems/IDS-APIs
 
 import time
 

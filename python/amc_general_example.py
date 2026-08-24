@@ -2,7 +2,7 @@ import sys
 
 sys.path.append(".\\AMC") #in case the APIs are in a different folder than a direct subfolder, add the path here without the folder the modules are inside. Otherwise it can be commented. example: the API is in the subsubfolder AMC\\AMP_API\\AMC.py
 
-from amc_api import AMC # AMC_API is the folder, in which the API is located.
+from amc_api_python import AMC # AMC_API is the folder, in which the API is located.
 
 import time
 
